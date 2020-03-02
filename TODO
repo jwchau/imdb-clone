@@ -1,0 +1,8 @@
+controllers
+
+error handling
+    :session errors
+    :create errors
+    :entities errors
+    
+
