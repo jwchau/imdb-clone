@@ -28,6 +28,14 @@ time, mark, audio, video {
     font-family: Roboto, Helvetica,Arial,sans-serif;
 }
 
+.show {
+    display: inherit;
+}
+
+.hidden {
+    display: none;
+}
+
 div {
     background: black;
     color: rgba(255, 255, 255, 0.9);

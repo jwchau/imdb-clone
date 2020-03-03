@@ -43,7 +43,7 @@ class Searchbar extends React.Component {
               <option value="keyword">Keyword</option>
             </select>
           </div>
-          <input class='input-text'
+          <input className='input-text'
             onChange={this.handleChange('searchterm')}
             type="text" name="searchterm"
             value={this.state.searchterm}

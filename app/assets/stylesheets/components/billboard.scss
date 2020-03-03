@@ -2,28 +2,33 @@
     width: 80%;
     height: 530px;
     padding: 2px;
+    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.poster {
-
-
+.slides {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 1;
 }
 
-.trailer {
-
-
-    #play {
-        
-    }
+.slide {
+    position: absolute;
+    box-sizing: content-box;
+    top: 0;
+    padding: 10px;
+    width: 80%;
+    height: 90%;
+    border-radius: 1px;
 }
 
-#left-arrow {
-
+.billboard button {
+    max-width: 100px;
 }
 
-#right-arrow {
-
-}

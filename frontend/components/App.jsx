@@ -6,7 +6,7 @@ import { AuthRoute } from '../util/route_util';
 
 //components
 import HeaderContainer from './header/header_container';
-import BillboardContainer from './frontpage/billboard_container';
+import BillboardContainer from './frontpage/billboard/billboard_container';
 import Explore from './frontpage/explore';
 import FooterContainer from './frontpage/footer_container'
 
