@@ -7,9 +7,11 @@ import { AuthRoute } from '../util/route_util';
 //components
 import HeaderContainer from './header/header_container';
 import BillboardContainer from './frontpage/billboard_container';
+import Explore from './frontpage/explore';
+import FooterContainer from './frontpage/footer_container'
 
 const App = () => (
-  <div>
+  <div className="app">
     {/* <h1>IMDB Clone</h1> */}
     {/* <GreetingContainer /> */}
     <HeaderContainer />
@@ -17,8 +19,10 @@ const App = () => (
       <AuthRoute path='/signup' component={SFC} />
       <AuthRoute path='/login' component={LFC} />
       {/* <Route path='/' render={() => <div className='splash'>Splashin'</div>}/> */}
+      <Route path='/explore' component={Explore} />
       <Route path='/' component={BillboardContainer}/>
     </Switch>
+    <FooterContainer />
   </div>
 );
 

@@ -1,36 +1,47 @@
 .header {
+  width: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 8px;
-  margin-bottom: 5px;
+  margin: 0 110px;
+  padding: 4px 0;
+  * {
+    justify-items: center;
+    align-items: center;
+  }
 }
 
 .header > * {
-  padding: 6px 16px;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .header .grey-hover:hover {
   background-color: rgba(64, 64, 64, 1);
   border-radius: 2px;
-  color: rgb(254, 254, 254);
     > * {
+      color: white;
       background-color: rgba(64, 64, 64, 1);
     }
 }
 
 .header-logo {
-  width: 100px;
-  height: 32px;
+  width: 50px;
+  height: 20px;
 }
 
 .grey-hover {
-  min-width: 70px;
-  padding: 5px 8px;
+  text-align: center;
+  padding: 4px 6px;
+  min-width: 60px;
   transition: 0.15s;
-  > * {
+  * {
     transition: 0.15s;
   }
+}
+
+#login-button {
+  padding: 10px 0;
 }
 
 #header-menu, #watchlist-button {
@@ -38,4 +49,6 @@
   justify-content: center;
   align-items: center;
 }
+
+
 

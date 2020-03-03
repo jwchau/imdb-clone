@@ -11,6 +11,8 @@ class Billboard extends React.Component {
     return(
       <div className='billboard'>
         i am billboard
+
+        <Link to='/explore'>Explore</Link>
       </div>
     );
   }
