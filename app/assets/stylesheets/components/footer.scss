@@ -1,0 +1,51 @@
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+  max-width: 80%;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  > div {
+    padding: 12px;
+  }
+}
+
+.misc {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  > div {
+    padding: 10px;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+  }
+}
+
+.icon {
+  border-radius: 10rem;
+}
+
+.misc-link:hover, .icon:hover {
+  background-color: rgba(64, 64, 64, 0.6);
+  transition: 0.15s;
+  cursor: pointer;
+}
+
+
+.company-logo {
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.founded {
+  font-size: 14px;
+}
