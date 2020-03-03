@@ -12,8 +12,7 @@ import FooterContainer from './frontpage/footer_container'
 
 const App = () => (
   <div className="app">
-    {/* <h1>IMDB Clone</h1> */}
-    {/* <GreetingContainer /> */}
+    <div id='fade-overlay'></div>
     <HeaderContainer />
     <Switch>
       <AuthRoute path='/signup' component={SFC} />
