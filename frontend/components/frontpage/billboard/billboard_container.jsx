@@ -24,15 +24,15 @@ class Billboard extends React.Component {
           <div className='problem-box slide' id='slide-1'>element1</div>
           <div className='problem-box slide' id='slide-2'>element2</div>
           <div className='problem-box slide' id='slide-3'>element3</div>
-        </div>
-        <div className='nav-buttons'>
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <div className='nav-buttons'>
+            <a className="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a className="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
         </div>
         <div >
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
+          <span className="dot" onclick="currentSlide(1)"></span>
+          <span className="dot" onclick="currentSlide(2)"></span>
+          <span className="dot" onclick="currentSlide(3)"></span>
         </div>
       </div>
     );
