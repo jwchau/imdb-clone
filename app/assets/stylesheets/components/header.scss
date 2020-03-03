@@ -20,13 +20,17 @@
 }
 
 .header-logo {
-  width: 74px;
+  width: 100px;
   height: 32px;
 }
 
 .grey-hover {
   min-width: 70px;
   padding: 5px 8px;
+  transition: 0.15s;
+  > * {
+    transition: 0.15s;
+  }
 }
 
 #header-menu, #watchlist-button {

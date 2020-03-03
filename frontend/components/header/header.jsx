@@ -28,7 +28,7 @@ class Header extends React.Component {
         <Menu />
         <Link to='/imdbtv'><Logo pic={'imdbtv_logo.svg'}/></Link>
         <Searchbar />
-        <Link to='/imdbpro'><Logo pic={'imdbpro_logo.jpg'}/></Link>
+        <Link to='/imdbpro'><Logo pic={'imdbpro_logo.svg'}/></Link>
         <Link to='/watchlist'><WatchlistButton /></Link>
         <Link to='/login'><LoginButton /></Link>
       </div>
