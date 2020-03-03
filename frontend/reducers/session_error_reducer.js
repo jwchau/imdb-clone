@@ -3,11 +3,12 @@ import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER } from '../actions/session
 
 export default (state = [], action) => {
     Object.freeze(state)
+    // debugger
     switch(action.type) {
         case RECEIVE_SESSION_ERRORS:
-            return action.errors;
-        case RECEIVE_CURRENT_USER:
-            return action.currentUser;
+            return action.errors.responseJSON;
+        // case RECEIVE_CURRENT_USER:
+        //     return action.currentUser;
         default:
             return state;
 

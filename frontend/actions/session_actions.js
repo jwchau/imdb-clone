@@ -18,17 +18,25 @@ export const receiveErrors = (errors) => ({
     errors
 });
 
-//TODO: error handling
 export const login = user => dispatch => (
-    Sutils.login(user).then(user => dispatch(receiveCurrentUser(user)))
+    Sutils.login(user).then(
+        user => (dispatch(receiveCurrentUser(user))),
+        errors => (dispatch(receiveErrors(errors)))
+    )
 );
 
 export const logout = user => dispatch => (
-    Sutils.logout().then(() => dispatch(logoutCurrentUser()))
+    Sutils.logout().then(
+        () => dispatch(logoutCurrentUser()),
+        errors => (dispatch(receiveErrors(errors)))
+    )
 );
 
 export const signup = (user) => dispatch => (
-    Sutils.signup(user).then((user) => dispatch(receiveCurrentUser(user)))
+    Sutils.signup(user).then(
+        user => dispatch(receiveCurrentUser(user)),
+        errors => (dispatch(receiveErrors(errors)))
+    )
 );
 
  

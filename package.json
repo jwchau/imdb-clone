@@ -2,6 +2,7 @@
   "name": "imdbApp",
   "private": true,
   "dependencies": {
+    "jquery": "^3.4.1",
     "inline-style-prefixer": "^5.1.2",
     "lodash": "^4.17.4",
     "react": "^16.2.0",
