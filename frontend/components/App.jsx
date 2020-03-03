@@ -18,7 +18,6 @@ const App = () => (
     <Switch>
       <AuthRoute path='/signup' component={SFC} />
       <AuthRoute path='/login' component={LFC} />
-      {/* <Route path='/' render={() => <div className='splash'>Splashin'</div>}/> */}
       <Route path='/explore' component={Explore} />
       <Route path='/' component={BillboardContainer}/>
     </Switch>

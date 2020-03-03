@@ -52,17 +52,23 @@
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+  background-color: rgba(32, 32, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /* Position the "next button" to the right */
 .next {
   right: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 0 5px 5px 0;
+}
+.prev {
+  left: 0;
+  border-radius: 5px 0 0 5px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(64 ,64 ,64 , 0.8);
 }
 
 /* Caption text */
