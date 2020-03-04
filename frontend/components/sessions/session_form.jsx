@@ -15,6 +15,18 @@ class SessionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li className='errors' key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let {username, email, password} = this.state;
@@ -33,14 +45,15 @@ class SessionForm extends React.Component {
 
   render() {
     let inputEmail = ("");
-    if (this.props.formType === 'signup') 
+    if (this.props.formType === 'signup')
       inputEmail = (
         <div className='input-div' id='email'>
           <span>Email</span>
               <input
               onChange={this.handleChange('email')}
               type="email"
-              value={this.state.email}>
+              value={this.state.email}
+              maxLength="30">
             </input>
           
         </div>
@@ -52,7 +65,8 @@ class SessionForm extends React.Component {
           <input
             onChange={this.handleChange('username')}
             type="text"
-            value={this.state.username}>
+            value={this.state.username}
+            maxLength="24">
           </input>
         </div>
       );
@@ -63,7 +77,8 @@ class SessionForm extends React.Component {
           <input
             onChange={this.handleChange('password')}
             type="password"
-            value={this.state.password}>
+            value={this.state.password}
+            maxLength="24">
           </input>
         </div>
       );
@@ -85,16 +100,18 @@ class SessionForm extends React.Component {
       <div className='fade session-form'>
         <form onSubmit={this.handleSubmit} className={this.props.formType}>
           <h2>{title}</h2>
-          {inputUsername}
-          {inputEmail}
-          {inputPassword}
+          {this.renderErrors()}
+          <div className='input-divs'>
+            {inputUsername}
+            {inputEmail}
+            {inputPassword}
+          </div>
           <button className='imdb-button'>{title}</button>
 
           <div className='misc'>
             {forgotPassword}
             {reverseLink}
           </div>
-          
         </form>
       </div>
     );

@@ -1,1 +1,30 @@
 $button-color: #fa9e35;
+
+//sign in button
+
+.imdb-button {
+  min-height: 40px;
+  width: 100%;
+  background-color: rgba($button-color, 0.7);
+  border-radius: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+
+.imdb-button:active {
+  background-color: rgba($button-color, 0.9);
+  font-weight: bolder;
+}
+
+.imdb-button:focus {
+  outline: none;
+}
+
+.regular-button {
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

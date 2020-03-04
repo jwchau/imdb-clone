@@ -17,11 +17,30 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleLogout = this.handleLogout.bind(this);
   }
+
+  handleLogout(e) {
+    // e.preventDefault();
+    this.props.logout();
+  }
+
+
+  createSignin() {
+    let signin = (<Link to='/signin'><LoginButton /></Link>);
+    if (this.props.currentUser !== undefined) {
+      signin = (
+        <div onClick={this.handleLogout} className='grey-hover regular-button'>
+          Logout
+        </div>
+      );
+    }
+    return signin;
+  }
+
 
   render() {
     let cu = this.props.currentUser;
-    
     return (
       <div className='header'>
         <Link to='/'><img className='header-logo' src="/assets/imdb_logo.svg"/></Link>
@@ -30,7 +49,8 @@ class Header extends React.Component {
         <Searchbar />
         <Link to='/imdbpro'><Logo pic={'imdbpro_logo.svg'}/></Link>
         <Link to='/watchlist'><WatchlistButton /></Link>
-        <Link to='/signin'><LoginButton /></Link>
+        {/* conditionally signed in already */}
+        {this.createSignin()}
       </div>
     );
   }

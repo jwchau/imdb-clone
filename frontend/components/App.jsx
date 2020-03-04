@@ -10,7 +10,7 @@ import Explore from './frontpage/explore';
 import FooterContainer from './frontpage/footer_container';
 import SignUpPage from './sessions/signup_container';
 import LoginPage from './sessions/login_container';
-// import Watchlist from './'
+import Watchlist from './frontpage/watchlist';
 
 const App = () => (
   <div className="app">
@@ -20,7 +20,7 @@ const App = () => (
       <AuthRoute path='/signin' component={SignInPage}/>
       <AuthRoute path='/signup' component={SignUpPage}/>
       <AuthRoute path='/login' component={LoginPage}/>
-      <ProtectedRoute path='/watchlist' render={() => (<div>hi</div>)}/>
+      <ProtectedRoute path='/watchlist' component={Watchlist}/>
       <Route path='/explore' component={Explore} />
       <Route path='/' component={BillboardContainer}/>
     </Switch>
