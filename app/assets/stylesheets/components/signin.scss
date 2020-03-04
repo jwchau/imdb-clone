@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 70%;
-  height: 350px;
+  height: 380px;
   margin: 10px;
   margin-bottom: 30px;
 }
@@ -15,6 +15,7 @@
   margin-top: 20px;
   flex-direction: column;
   align-items: flex-start;
+  height: 100%;
   > * {
     padding: 5px;
     color: rgba(255, 255, 255, 0.9);
@@ -30,7 +31,52 @@
   > p {
     font-size: 12px;
     margin-bottom: 6px;
+    
   }
+}
+
+.signin-options {
+  align-items: center;
+  img {
+    max-width: 25px;
+    max-height: 25px;
+    padding: 0 5px;
+    border-radius: 10rem;
+  }
+  > p {
+    width: 80%;
+    line-height: 2;
+  }
+  > #create {
+    background-color: #E4B721;
+    color: black;
+    border-radius: 4px;
+    text-align: center;
+  }
+}
+
+.signin-options > .opt {
+  color: rgb(240, 240, 240);
+  font-weight: bold;
+  border: 1px solid rgba(64, 64, 64, 1);
+  border-radius: 2px;
+  padding: 10px;
+  width: 70%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 30px;
+}
+
+.signin-options > .opt:hover {
+    background-color: rgba(225, 0, 0, 0.5);
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+#divider {
+  margin-bottom: 10px;
 }
 
 .signin-options {

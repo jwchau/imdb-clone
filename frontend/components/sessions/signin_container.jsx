@@ -1,9 +1,9 @@
-import LFC from './LoginFormContainer';
-import SFC from './SignupFormContainer';
+import LFC from './login_container';
+import SFC from './signup_container';
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 class SignInPage extends React.Component{
   constructor(props) {
@@ -13,13 +13,16 @@ class SignInPage extends React.Component{
   render() {
     
     return (
-      <div class='signin-page'>
+      <div className='signin-page fade'>
         <div className='signin-options'>
           <h3>Sign In</h3>
-          <div>IMDB</div>
-          <div>Amazon</div>
-          <div>Facebook</div>
-          <div>Google</div>
+          <Link to='/login' className='opt'>with IMDB <img src="assets/imdb_logo.svg"/></Link>
+          <div className='opt'>with Amazon <img src="assets/amazon_sprite.png" /></div>
+          <div className='opt'>with Facebook <img src="assets/facebook_sprite.png" /></div>
+          <div className='opt'>with Google <img src="assets/google_sprite.jpg" /></div>
+          <span id='divider'>------------------ or ------------------</span>
+          <Link to='/signup' className='opt' id='create'>Create a New Account</Link>
+          <p>By signing in, you agree to IMDb's Conditions of Use and Privacy Policy.</p>
         </div>
         <div className='signin-perks'>
           <h3>Benefits of your free IMDb Account</h3>

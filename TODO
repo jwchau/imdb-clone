@@ -6,3 +6,4 @@ error handling
     :entities errors
     
 
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='jwchau'; GIT_AUTHOR_EMAIL='john.win.chau@gmail.com'; GIT_COMMITTER_NAME='jwchau'; GIT_COMMITTER_EMAIL='john.win.chau@gmail.com';" HEAD

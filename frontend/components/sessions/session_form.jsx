@@ -37,7 +37,8 @@ class SessionForm extends React.Component {
         </label>
       );
     return(
-      <div className='session-form'>
+      <div className='fade session-form'>
+        
         <h2>{this.props.formType} Form</h2>
         <form onSubmit={this.handleSubmit} className={this.props.formType}>
           <label>Username: 

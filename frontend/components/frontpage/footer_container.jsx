@@ -18,21 +18,21 @@ class Footer extends React.Component {
                 </div>
 
                 <div className='misc'>
-                    <div class='misc-link'>Get the IMDb App</div>
-                    <div class='misc-link'>Help</div>
-                    <div class='misc-link'>Site Index</div>
-                    <div class='misc-link'>IMDbPro</div>
-                    <div class='misc-link'>IMDb TV</div>
-                    <div class='misc-link'>Box Office Mojo</div>
-                    <div class='misc-link'>Press Room</div>
-                    <div class='misc-link'>Advertising</div>
+                    <div className='misc-link'>Get the IMDb App</div>
+                    <div className='misc-link'>Help</div>
+                    <div className='misc-link'>Site Index</div>
+                    <div className='misc-link'>IMDbPro</div>
+                    <div className='misc-link'>IMDb TV</div>
+                    <div className='misc-link'>Box Office Mojo</div>
+                    <div className='misc-link'>Press Room</div>
+                    <div className='misc-link'>Advertising</div>
                 </div>
 
                 <div className='misc'>
-                    <div class='misc-link'>Jobs</div>
-                    <div class='misc-link'>Conditions of Use</div>
-                    <div class='misc-link'>Privacy Policy</div>
-                    <div class='misc-link'>Internet-Based Ads</div>
+                    <div className='misc-link'>Jobs</div>
+                    <div className='misc-link'>Conditions of Use</div>
+                    <div className='misc-link'>Privacy Policy</div>
+                    <div className='misc-link'>Internet-Based Ads</div>
                 </div>
        
 
