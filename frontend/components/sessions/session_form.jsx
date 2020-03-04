@@ -90,7 +90,7 @@ class SessionForm extends React.Component {
           {inputUsername}
           {inputEmail}
           {inputPassword}
-          <input id='submit' type="submit" value={title}/>
+          <input className='imdb-button' type="submit" value={title}/>
           {forgotPassword}
           {reverseLink}
         </form>
