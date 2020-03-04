@@ -15,6 +15,10 @@ class SessionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -30,13 +34,12 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let {username, email, password} = this.state;
-    if (username === "" || password.length < 6) {
-      console.log("invalid username or password");
-      return;
-    }
+    // if (username === "" || password.length < 6) {
+    //   return;
+    // }
     const user = Object.assign({}, this.state);
     this.props.processForm({user});
-    this.setState({username: "", password: ""});
+    this.setState({username: "", password: "", email: ""});
   }
 
   handleChange(key) {

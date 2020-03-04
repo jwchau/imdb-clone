@@ -1,5 +1,5 @@
 .billboard {
-    width: 80%;
+    width: 95%;
     height: 530px;
     padding: 2px;
     position: relative;
@@ -58,11 +58,11 @@
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
+  right: 20px;
   border-radius: 0 5px 5px 0;
 }
 .prev {
-  left: 0;
+  left: 20px;
   border-radius: 5px 0 0 5px;
 }
 

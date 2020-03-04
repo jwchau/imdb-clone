@@ -47,7 +47,7 @@ class Header extends React.Component {
         <Menu />
         <Link to='/imdbtv'><Logo pic={'imdbtv_logo.svg'}/></Link>
         <Searchbar />
-        <Link to='/imdbpro'><Logo pic={'imdbpro_logo.svg'}/></Link>
+        <Link to='/imdbpro'><Logo pic={'imdbpro_logo.png'}/></Link>
         <Link to='/watchlist'><WatchlistButton /></Link>
         {/* conditionally signed in already */}
         {this.createSignin()}

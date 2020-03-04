@@ -18,7 +18,7 @@ class Billboard extends React.Component {
 
     this.state = {
       slideIndex: 1,
-      numSlides: 3,
+      numSlides: 5,
     };
   }
 
@@ -74,9 +74,12 @@ class Billboard extends React.Component {
     return(
       <div className='billboard'>
         <div className='slides slideshow-container'>
+          {/* <BillboardItem /> */}
           <div className='problem-box slide mySlides fade'>element1</div>
           <div className='problem-box slide mySlides fade'>element2</div>
           <div className='problem-box slide mySlides fade'>element3</div>
+          <div className='problem-box slide mySlides fade'>element4</div>
+          <div className='problem-box slide mySlides fade'>element5</div>
           <div className='nav-buttons'>
             <a className="prev" onClick={this.handleSlide('prev')}>&#10094;</a>
             <a className="next" onClick={this.handleSlide('next')}>&#10095;</a>
@@ -86,6 +89,8 @@ class Billboard extends React.Component {
           <span className="dot" onClick={this.handleClick(1)}></span>
           <span className="dot" onClick={this.handleClick(2)}></span>
           <span className="dot" onClick={this.handleClick(3)}></span>
+          <span className="dot" onClick={this.handleClick(4)}></span>
+          <span className="dot" onClick={this.handleClick(5)}></span>
         </div>
       </div>
     );

@@ -16,3 +16,15 @@
   font-size: 12px;
   color: rgba($errors-color, 0.8);
 }
+
+
+.grey-hover {
+  text-align: center;
+  padding: 4px 6px;
+  min-width: 60px;
+  transition: 0.15s;
+  cursor: pointer;
+  * {
+    transition: 0.15s;
+  }
+}
