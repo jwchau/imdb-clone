@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let inputEmail = (<span></span>);
+    let inputEmail = ("");
     if (this.props.formType === 'signup') 
       inputEmail = (
         <div className='input-div' id='email'>
@@ -68,12 +68,10 @@ class SessionForm extends React.Component {
         </div>
       );
 
-      let forgotPassword = (<span></span>)
+      let forgotPassword = ("")
       if (this.props.formType === 'login') {
         forgotPassword = (
-          <div id='forgot-password'>
-            <span>Forgot your password?</span>
-          </div>
+          <Link to='/forgotpassword'>Forgot your password?</Link>
         );
       }
 
@@ -90,9 +88,13 @@ class SessionForm extends React.Component {
           {inputUsername}
           {inputEmail}
           {inputPassword}
-          <input className='imdb-button' type="submit" value={title}/>
-          {forgotPassword}
-          {reverseLink}
+          <button className='imdb-button'>{title}</button>
+
+          <div className='misc'>
+            {forgotPassword}
+            {reverseLink}
+          </div>
+          
         </form>
       </div>
     );

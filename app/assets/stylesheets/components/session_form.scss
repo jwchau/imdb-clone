@@ -1,6 +1,6 @@
 .session-form {
   width: 80%;
-  height: 400px;
+  height: 460px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +25,20 @@
     font-weight: normal;
     margin-bottom: 5px;
   }
+
+  > .misc {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    > * {
+      padding: 4px;
+    }
+    :last-child {
+      border-top: 1px solid grey;
+    }
+  }
 }
 
 
@@ -35,7 +49,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin: 5px;
+  margin: 0 0 10px 0;
   > span {
     position: absolute;
     font-size: 12px;
@@ -50,6 +64,7 @@
     height: 100%;
     width: 100%;
     border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   input:focus {
@@ -60,26 +75,21 @@
   }
 }
 
-#forgot-password {
-  > span {
-    color: blue;
-  }
-  > span:hover {
-    cursor: pointer;
-    padding: 2px;
-    background-color: rgba(64, 64, 64, 0.4);
-    border-radius: 3px;
-  }
-  position: relative;
-  top: 70px;
-}
-
-
 //sign in button
 
 .imdb-button {
-  
+  height: 35px;
+  width: 100%;
+  background-color: rgba(#fa9e35, 0.8);
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
 
+.imdb-button:active {
+  background-color: $button-color;
+}
 
+.imdb-button:focus {
+  outline: none;
+}
