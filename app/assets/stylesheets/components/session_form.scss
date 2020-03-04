@@ -3,11 +3,86 @@
   height: 400px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .login, .signup {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  width: 30%;
+  height: 70%;
+  padding: 20px 26px;
+  border: 2px solid rgba(64, 64, 64, 0.8);
+  border-radius: 5px;
+  > * {
+    padding: 5px;
+  }
+
+  > h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 5px;
+  }
 }
+
+
+.input-div {
+  height: 40px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 5px;
+  > span {
+    position: absolute;
+    font-size: 12px;
+    top: 10px;
+    z-index: 2;
+    color: black;
+    pointer-events: none;
+  }
+  > input {
+    left: 0;
+    font-size: 14px;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  input:focus {
+    outline: none;
+    border: 3px solid rgba(255, 166, 0, 0.9);
+    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.5);
+    transition: 0.2s;
+  }
+}
+
+.session-form #submit {
+  position: relative;
+  top: 20px;
+  width: 30%;
+  height: 100%;
+}
+
+#forgot-password {
+  > span {
+    color: blue;
+  }
+  > span:hover {
+    cursor: pointer;
+    padding: 2px;
+    background-color: rgba(64, 64, 64, 0.4);
+    border-radius: 3px;
+  }
+  position: relative;
+  top: 70px;
+}
+
+
+
+
+
+
