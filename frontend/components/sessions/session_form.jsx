@@ -38,24 +38,23 @@ class SessionForm extends React.Component {
       );
     return(
       <div className='fade session-form'>
-        
-        <h2>{this.props.formType} Form</h2>
         <form onSubmit={this.handleSubmit} className={this.props.formType}>
-          <label>Username: 
+          <h2>{this.props.formType} Form</h2>
+          <label>Username: </label>
             <input
               onChange={this.handleChange('username')}
               type="text" 
               value={this.state.username}>
             </input>
-          </label>
+          
           {inputEmail}
-          <label>Password:
+          <label>Password: </label>
             <input
               onChange={this.handleChange('password')} 
               type="password"
               value={this.state.password}>
             </input>
-          </label>
+          
           <input type="submit" value={this.props.formType}/>
         </form>
       </div>

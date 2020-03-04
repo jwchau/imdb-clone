@@ -1,0 +1,13 @@
+.session-form {
+  width: 80%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.login, .signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
