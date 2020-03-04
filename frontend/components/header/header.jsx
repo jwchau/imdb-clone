@@ -30,7 +30,7 @@ class Header extends React.Component {
         <Searchbar />
         <Link to='/imdbpro'><Logo pic={'imdbpro_logo.svg'}/></Link>
         <Link to='/watchlist'><WatchlistButton /></Link>
-        <Link to='/login'><LoginButton /></Link>
+        <Link to='/signin'><LoginButton /></Link>
       </div>
     );
   }

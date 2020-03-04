@@ -25,6 +25,17 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let inputEmail = (<span></span>);
+    if (this.props.formType === 'signup') 
+      inputEmail = (
+        <label>Email:
+              <input
+            onChange={this.handleChange('email')}
+            type="email"
+            value={this.state.email}>
+          </input>
+        </label>
+      );
     return(
       <div className='session-form'>
         <h2>{this.props.formType} Form</h2>
@@ -36,16 +47,8 @@ class SessionForm extends React.Component {
               value={this.state.username}>
             </input>
           </label>
-          <br/>
-          <label>Email:
-            <input
-              onChange={this.handleChange('email')}
-              type="email"
-              value={this.state.email}>
-            </input>
-          </label>
-          <br />
-          <label>Password: 
+          {inputEmail}
+          <label>Password:
             <input
               onChange={this.handleChange('password')} 
               type="password"

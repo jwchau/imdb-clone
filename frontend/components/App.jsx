@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from 'react-router-dom';
-import LFC from './sessions/LoginFormContainer';
-import SFC from './sessions/SignupFormContainer';
+import SignInPage from './sessions/SignInContainer';
 import { AuthRoute } from '../util/route_util';
 
 //components
@@ -15,8 +14,7 @@ const App = () => (
     <div id='fade-overlay'></div>
     <HeaderContainer />
     <Switch>
-      <AuthRoute path='/signup' component={SFC} />
-      <AuthRoute path='/login' component={LFC} />
+      <AuthRoute path='/signin' component={SignInPage}/>
       <Route path='/explore' component={Explore} />
       <Route path='/' component={BillboardContainer}/>
     </Switch>
