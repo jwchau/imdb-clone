@@ -43,7 +43,7 @@ class Header extends React.Component {
     let cu = this.props.currentUser;
     return (
       <div className='header'>
-        <Link to='/'><img className='header-logo' src="/assets/imdb_logo.svg"/></Link>
+        <Link to='/'><img className='header-logo' src={window.imdbLogoURL}/></Link>
         <Menu />
         <Link to='/imdbtv'><Logo pic={'imdbtv_logo.svg'}/></Link>
         <Searchbar />

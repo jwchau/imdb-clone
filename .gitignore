@@ -5,6 +5,9 @@ bundle.js.map
 Gemfile.lock
 tmp/
 
+.byebug_history
+.DS_Store
+
 #internet
 *.rbc
 capybara-*.html
