@@ -5,6 +5,26 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script type="text/javascript">
+      //header
+      window.imdbLogoURL = "<%= image_url('imdb_logo.svg') %>";
+      window.imdbProURL = "<%= image_url('imdbpro_logo.png') %>";
+      window.imdbTvURL = "<%= image_url('imdbtv_logo.svg') %>";
+
+      //footer
+      window.fbURL = "<%= image_url('fb_logo.svg') %>";
+      window.instaURL = "<%= image_url('insta_logo.svg') %>";
+      window.twitchURL = "<%= image_url('twitch_logo.svg') %>";
+      window.twitterURL = "<%= image_url('twitter_logo.svg') %>";
+      window.youtubeURL = "<%= image_url('youtube_logo.svg') %>";
+
+      //signin
+      //#use imdb logo
+      window.amazonSprite = "<%= image_url('amazon_sprite.png') %>";
+      window.facebookSprite = "<%= image_url('facebook_sprite.png') %>";
+      window.googleSprite = "<%= image_url('google_sprite.jpg') %>";
+    </script>
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
