@@ -5,18 +5,15 @@
     "inline-style-prefixer": "^2.0.5",
     "jquery": "^3.4.1",
     "lodash": "^4.17.4",
-    "pure-react-carousel": "^1.25.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-fade": "^1.1.1",
-    "react-hook-form": "^4.10.1",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.3.1",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "slick-carousel": "^1.8.1",
     "webpack": "^4.42.0"
   },
   "devDependencies": {
