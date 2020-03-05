@@ -27,21 +27,21 @@ export const clearSessionErrors = () => ({
 export const login = user => dispatch => (
     Sutils.login(user).then(
         user => (dispatch(receiveCurrentUser(user))),
-        errors => (dispatch(receiveErrors(errors)))
+        errors => (dispatch(receiveErrors(errors.responseJSON)))
     )
 );
 
 export const logout = user => dispatch => (
     Sutils.logout().then(
         () => dispatch(logoutCurrentUser()),
-        errors => (dispatch(receiveErrors(errors)))
+        errors => (dispatch(receiveErrors(errors.responseJSON)))
     )
 );
 
 export const signup = (user) => dispatch => (
     Sutils.signup(user).then(
         user => dispatch(receiveCurrentUser(user)),
-        errors => (dispatch(receiveErrors(errors)))
+        errors => (dispatch(receiveErrors(errors.responseJSON)))
     )
 );
 

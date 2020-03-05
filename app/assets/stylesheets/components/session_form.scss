@@ -19,7 +19,9 @@
   > h2 {
     font-size: 30px;
     font-weight: normal;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 4px rgba($button-color, 0.6);
   }
 
   > .misc {
