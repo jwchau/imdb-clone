@@ -10,5 +10,7 @@
 #  updated_at :datetime         not null
 #
 class Movie < ApplicationRecord
-    Gutentag::ActiveRecord.call self
+  Gutentag::ActiveRecord.call self
+
+  has_many_attached :photos
 end
