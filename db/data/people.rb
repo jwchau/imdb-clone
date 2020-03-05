@@ -1,4 +1,4 @@
-People.import(
+Person.import(
 [:name],
 [['Woody Allen'],
 ['Clint Eastwood'],

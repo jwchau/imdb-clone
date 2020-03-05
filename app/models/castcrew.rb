@@ -10,4 +10,11 @@
 #  updated_at :datetime         not null
 #
 class Castcrew < ApplicationRecord
+  validates :role, presence: true
+
+  belongs_to :movie
+
+  belongs_to :person
+
+
 end

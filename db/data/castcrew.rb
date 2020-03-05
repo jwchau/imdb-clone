@@ -1,5 +1,5 @@
 Castcrew.import(
-[:movie_id, :actor_id, :ord],
+[:movie_id, :person_id, :role],
 [[373, 588, 'actor'],
 [280, 591, 'actor'],
 [1153, 591, 'actor'],
@@ -15715,4 +15715,4 @@ Castcrew.import(
 [644, 5944, 'actor'],
 [1688, 5945, 'actor'],
 [1605, 5945, 'actor'],
-[542, 5945, 'actor'])
+[542, 5945, 'actor']])

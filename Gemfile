@@ -35,6 +35,7 @@ gem 'fast_jsonapi'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.2.0'
 gem 'gutentag', '~> 2.5'
+gem 'activerecord-import'
 
 
 group :development, :test do

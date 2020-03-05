@@ -6,20 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Actor.destroy_all
+Person.destroy_all
 Movie.destroy_all
-Casting.destroy_all
+Castcrew.destroy_all
 
-ApplicationRecord.connection.reset_pk_sequence!('actors')
+ApplicationRecord.connection.reset_pk_sequence!('person')
 ApplicationRecord.connection.reset_pk_sequence!('movies')
-ApplicationRecord.connection.reset_pk_sequence!('castings')
+ApplicationRecord.connection.reset_pk_sequence!('castcrew')
 
 ApplicationRecord.transaction do
-	puts 'Loading actors...'
-	require_relative 'data/actors.rb'
+	puts 'Loading people...'
+	require_relative 'data/people.rb'
 	puts 'Loading movies...'
 	require_relative 'data/movies.rb'
-	puts 'Loading castings...'
-	require_relative 'data/castings.rb'
+	puts 'Loading castcrew...'
+	require_relative 'data/castcrew.rb'
 	puts 'Done!'
 end

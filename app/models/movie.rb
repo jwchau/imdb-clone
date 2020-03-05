@@ -12,5 +12,7 @@
 class Movie < ApplicationRecord
   Gutentag::ActiveRecord.call self
 
+  validates :title, :year, :score, presence: true
+
   has_one_attached :poster
 end
