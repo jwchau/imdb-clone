@@ -12,5 +12,5 @@
 class Movie < ApplicationRecord
   Gutentag::ActiveRecord.call self
 
-  has_many_attached :photos
+  has_one_attached :poster
 end
