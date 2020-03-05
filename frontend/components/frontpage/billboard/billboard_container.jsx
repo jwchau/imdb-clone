@@ -106,3 +106,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Billboard);
+
+// m1 = Movie.first
+// file = File.open('../starwars_poster.jpeg')
+// m1.poster.attach(io: file, filename: 'starwars_poster.jpeg')
