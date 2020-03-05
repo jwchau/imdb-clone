@@ -16,10 +16,10 @@ class SignInPage extends React.Component{
       <div className='signin-page fade'>
         <div className='signin-options'>
           <h3>Sign In</h3>
-          <Link to='/login' className='opt'>with IMDB <img src="assets/imdb_logo.svg"/></Link>
-          <div className='opt'>with Amazon <img src="assets/amazon_sprite.png" /></div>
-          <div className='opt'>with Facebook <img src="assets/facebook_sprite.png" /></div>
-          <div className='opt'>with Google <img src="assets/google_sprite.jpg" /></div>
+          <Link to='/login' className='opt'>with IMDB <img src={window.imdbLogoURL}/></Link>
+          <div className='opt'>with Amazon <img src={window.amazonSprite} /></div>
+          <div className='opt'>with Facebook <img src={window.facebookSprite}/></div>
+          <div className='opt'>with Google <img src={window.googleSprite} /></div>
           <span id='divider'>------------------ or ------------------</span>
           <Link to='/signup' className='opt' id='create'>Create a New Account</Link>
           <p>By signing in, you agree to IMDb's Conditions of Use and Privacy Policy.</p>

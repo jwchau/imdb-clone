@@ -4,7 +4,7 @@ export default props => {
   let { pic } = props;
   return (
     <div className='logo grey-hover'>
-      <img className='header-logo' src={`/assets/${pic}`} />
+      <img className='header-logo' src={`${pic}`} />
     </div>
   );
 }

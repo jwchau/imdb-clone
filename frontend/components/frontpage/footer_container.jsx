@@ -10,11 +10,11 @@ class Footer extends React.Component {
         return(
             <footer id='footer'>
                 <div className='social-media'>
-                    <div className='icon'><img src="assets/fb_logo.svg"/></div>
-                    <div className='icon'><img src="assets/insta_logo.svg" /></div>
-                    <div className='icon'><img src="assets/twitch_logo.svg" /></div>
-                    <div className='icon'><img src="assets/twitter_logo.svg" /></div>
-                    <div className='icon'><img src="assets/youtube_logo.svg" /></div>
+                    <div className='icon'><img src={window.fbURL}/></div>
+                    <div className='icon'><img src={window.instaURL} /></div>
+                    <div className='icon'><img src={window.twitchURL} /></div>
+                    <div className='icon'><img src={window.twitterURL}/></div>
+                    <div className='icon'><img src={window.youtubeURL} /></div>
                 </div>
 
                 <div className='misc'>

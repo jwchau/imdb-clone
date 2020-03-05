@@ -1,1 +1,0 @@
-window.imdbLogoURL = image_url('imdb_logo.svg');
