@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-// import 'pure-react-carousel/dist/react-carousel.es.css';
-import { ButtonBack, ButtonNext } from 'pure-react-carousel';
 //billboard components
 // import Poster from './billboard/poster';
 
