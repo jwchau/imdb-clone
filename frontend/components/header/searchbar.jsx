@@ -31,7 +31,7 @@ class Searchbar extends React.Component {
   render() {
 
     return ( //<div>hi</div>
-      <div className='problem-box' id='header-searchbar'>
+      <div id='header-searchbar'>
        <form onSubmit={this.handleSubmit} className='search-form'>
           <div className="search-filter">
             <select id='select-filter' onChange={(e) => this.onSelect(e.target.value)}>

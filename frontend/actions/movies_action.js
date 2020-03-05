@@ -20,17 +20,17 @@ export const receiveMovieErrors = errors => ({
   errors
 });
 
-export const fetchMovies = () => dispatch (
-  Mutils.fetchMovies.then(
-    movies => (dispatch(receiveAllMovies(movies))),
-    errors => (dispatch(receiveMovieErrors(errors)))
+export const fetchMovies = () => dispatch => (
+  Mutils.fetchMovies().then(
+    movies => dispatch(receiveAllMovies(movies)),
+    errors => dispatch(receiveMovieErrors(errors))
   )
 );
 
-export const getMovie = movie => dispatch (
+export const getMovie = movie => dispatch => (
   Mutils.getMovie(movie).then(
-    movie => (dispatch(receiveMovie(movie))),
-    errors => (dispatch(receiveMovieErrors(errors)))
+    movie => dispatch(receiveMovie(movie)),
+    errors => dispatch(receiveMovieErrors(errors))
   )
 );
 

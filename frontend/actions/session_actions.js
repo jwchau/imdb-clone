@@ -31,7 +31,7 @@ export const login = user => dispatch => (
     )
 );
 
-export const logout = user => dispatch => (
+export const logout = () => dispatch => (
     Sutils.logout().then(
         () => dispatch(logoutCurrentUser()),
         errors => (dispatch(receiveSessionErrors(errors.responseJSON)))

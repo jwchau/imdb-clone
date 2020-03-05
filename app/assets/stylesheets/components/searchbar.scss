@@ -21,19 +21,34 @@
   width: 60%;
   height: 30px;
   padding: 0;
+  position: relative;
 }
 
 .search-form {
   display: flex;
   border-radius: 3px;
-
+  height: 100%;
   > * {
     border-radius: 1px 2px 3px 4px;
     min-height: 20px;
   }
+  :nth-child(3) {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 0;
+    &:focus {
+        outline: none;
+    }
+  }
+  
 }
 
 .input-text {
   width: 100%;
+  padding-right: 25px;
+}
+
+#search-filter {
 
 }

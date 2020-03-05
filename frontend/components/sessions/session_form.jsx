@@ -51,38 +51,43 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'signup')
       inputEmail = (
         <div className='input-div' id='email'>
+          <input
+          onChange={this.handleChange('email')}
+          type="text"
+          value={this.state.email}
+          maxLength="30"
+          required
+        >
+          </input>
           <span>Email</span>
-              <input
-              onChange={this.handleChange('email')}
-              type="email"
-              value={this.state.email}
-              maxLength="30">
-            </input>
-          
         </div>
       );
 
       const inputUsername = (
         <div className="input-div" id='username'>
-          <span>Username</span>
           <input
             onChange={this.handleChange('username')}
             type="text"
             value={this.state.username}
-            maxLength="24">
+            maxLength="24"
+            required
+          >
           </input>
+          <span>Username</span>
         </div>
       );
 
       const inputPassword = (
         <div className='input-div' id='password'>
-          <span>Password</span>
           <input
             onChange={this.handleChange('password')}
             type="password"
             value={this.state.password}
-            maxLength="24">
+            maxLength="24"
+            required
+          >
           </input>
+          <span>Password</span>
         </div>
       );
 

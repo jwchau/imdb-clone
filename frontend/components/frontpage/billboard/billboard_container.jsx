@@ -98,7 +98,7 @@ class Billboard extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
-
+  movies: state.entities.movies,
 });
 
 const mapDispatchToProps = dispatch => ({
