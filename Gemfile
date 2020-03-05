@@ -34,6 +34,7 @@ gem 'bootsnap'
 gem 'fast_jsonapi'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.2.0'
+gem 'gutentag', '~> 2.5'
 
 
 group :development, :test do
@@ -44,7 +45,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'faker'
   gem 'factory_bot_rails'
-  gem 'gutentag', '~> 2.5'
+
 
 end
 
