@@ -1,0 +1,54 @@
+
+#menu-page {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  > * {
+    padding: 20px;
+    cursor: pointer;
+  }
+}
+
+
+
+#menu-page.active {
+  display: flex;
+  cursor: initial;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  animation: pullFromTop 0.5s ease-in-out 0s forwards;
+}
+
+.menu-logo {
+  min-width: 200px;
+  pointer-events: none;
+}
+
+#menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gradient {
+  background-color: #303641;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0,0,0, .2) 0%,
+      rgba(0,0,0, .1) 60%,
+      rgba(0,0,0, .2) 100%
+    ),
+    linear-gradient(
+      90deg,
+      #3f030371,
+      #380707af,
+      #000000e3
+    );
+  background-size: 5px, 100%;
+}

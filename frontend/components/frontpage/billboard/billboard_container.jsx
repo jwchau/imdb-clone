@@ -66,16 +66,17 @@ class Billboard extends React.Component {
     this.showSlide(1);
   }
 
+  componentWillUnmount() {
+    shuffle(this.props.movies);
+  }
 
   componentDidUpdate() {
     this.showSlide(this.state.slideIndex);
   }
 
-
   render() {
     const bbItems = this.props.movies.map(movie => <BillboardItem key={movie.id} movie={movie}/>);
     if (bbItems.length === 0) return (null);
-    shuffle(bbItems);
 
     const dots = [];
     for (let i = 1; i <= this.state.numSlides; i++) {

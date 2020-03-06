@@ -17,7 +17,6 @@
   color: rgba($errors-color, 0.8);
 }
 
-
 .grey-hover {
   text-align: center;
   padding: 4px 6px;
@@ -26,5 +25,26 @@
   cursor: pointer;
   * {
     transition: 0.15s;
+  }
+}
+
+.grey-hover:hover {
+  background-color: rgba(64, 64, 64, 1);
+  border-radius: 2px;
+    > * {
+      color: white;
+      background-color: rgba(64, 64, 64, 1);
+    }
+}
+
+@keyframes pullFromTop {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
   }
 }

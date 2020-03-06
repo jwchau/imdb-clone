@@ -25,9 +25,16 @@ ApplicationRecord.transaction do
 	puts 'Done!'
 end
 
-m5 = Movie.find_by(id: 5)
-# file = File.open('../pics/starwars5_poster.jpeg')
-file = open("https://imdb-clone-dev.s3-us-west-1.amazonaws.com/starwars5_poster.jpeg")
-m5.poster.attach(io: file, filename: 'starwars5_poster.jpeg')
+# m5 = Movie.find_by(id: 5)
+# file = open("https://imdb-clone-dev.s3-us-west-1.amazonaws.com/starwars5_poster.jpeg")
+# m5.poster.attach(io: file, filename: 'starwars5_poster.jpeg')
 
+#.gsub(/[^a-zA-Z]/,'').downcase
+
+Movie.all.each do |movie|
+	# debugger
+	file = open("https://imdb-clone-dev.s3-us-west-1.amazonaws.com/posters/#{movie.id}.jpeg")
+	fname = movie.title.gsub(/[^a-zA-Z]/,'').downcase
+	movie.poster.attach(io: file, filename: "#{fname}_poster.jpeg")
+end
 

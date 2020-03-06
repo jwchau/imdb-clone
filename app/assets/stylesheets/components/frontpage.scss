@@ -6,38 +6,3 @@
   position: relative;
   width: 100vw;
 }
-
-#menu-page {
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  > * {
-    padding: 20px;
-    cursor: pointer;
-  }
-}
-
-#menu-page.active {
-  display: flex;
-  cursor: initial;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  animation: pullFromTop 0.5s ease-in-out 0s forwards;
-}
-
-@keyframes pullFromTop {
-  from {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-
-  to {
-    -webkit-transform: none;
-    transform: none;
-  }
-}
