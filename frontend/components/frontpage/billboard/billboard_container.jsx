@@ -67,7 +67,7 @@ class Billboard extends React.Component {
   }
 
   componentWillUnmount() {
-    shuffle(this.props.movies);
+    // shuffle(this.props.movies);
   }
 
   componentDidUpdate() {
