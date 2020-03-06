@@ -15,9 +15,11 @@ class Billboard extends React.Component {
     this.handleSlide = this.handleSlide.bind(this);
     this.showSlide = this.showSlide.bind(this);
 
+    this.visited = {};
+
     this.state = {
       slideIndex: 1,
-      numSlides: 10,
+      numSlides: 5,
     };
   }
 
@@ -71,15 +73,13 @@ class Billboard extends React.Component {
 
 
   render() {
-    const bbItems = this.props.movies.map( movie => <BillboardItem movie={movie}/>);
-
-    
-    
+    const bbItems = this.props.movies.map(movie => <BillboardItem key={movie.id} movie={movie}/>);
     if (bbItems.length === 0) return (null);
-    const rnd = Math.random(bbItems.length);
+    shuffle(bbItems);
+
     const dots = [];
     for (let i = 1; i <= this.state.numSlides; i++) {
-      dots.push(<span className="dot" onClick={this.handleClick(i)}></span>);
+      dots.push(<span key={i} className="dot" onClick={this.handleClick(i)}></span>);
     }
     
     return(
@@ -98,7 +98,7 @@ class Billboard extends React.Component {
     );
   }
 }
-// <Link to='/explore'>Explore</Link> 
+// <Link to='/explore'>Explore</Link>
 
 
 const mapStateToProps = (state, ownProps) => ({

@@ -33,7 +33,6 @@ class App extends React.Component {
     return (
       <div className="app">
         <div id='fade-overlay'></div>
-        <div id='menu-page'>menu page</div>
         <HeaderContainer />
         <Switch>
           <AuthRoute path='/signin' component={SignInPage}/>
