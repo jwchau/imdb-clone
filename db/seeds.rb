@@ -32,9 +32,13 @@ end
 #.gsub(/[^a-zA-Z]/,'').downcase
 
 Movie.all.each do |movie|
-	# debugger
-	file = open("https://imdb-clone-dev.s3-us-west-1.amazonaws.com/posters/#{movie.id}.jpeg")
 	fname = movie.title.gsub(/[^a-zA-Z]/,'').downcase
-	movie.poster.attach(io: file, filename: "#{fname}_poster.jpeg")
+
+	poster = open("https://imdb-clone-dev.s3-us-west-1.amazonaws.com/posters/#{movie.id}.jpeg")
+	movie.poster.attach(io: poster, filename: "#{fname}_poster.jpeg")
+
+	# debugger
+	trailer = open("https://imdb-clone-dev.s3-us-west-1.amazonaws.com/trailers/#{movie.id}.mp4")
+	movie.trailer.attach(io: trailer, filename: "#{fname}_trailer.jpeg")
 end
 

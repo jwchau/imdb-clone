@@ -1,4 +1,17 @@
-.billboard-item > img {
-  height: 100%;
-  max-width: 33%;
+.billboard-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > img {
+    height: 100%;
+    max-width: 33.333333333%;
+  }
+
+  > video {
+    height: 100%;
+    max-width: 66.6666666666%;
+    // width: 600px;
+  }
+  
 }

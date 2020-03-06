@@ -1,8 +1,12 @@
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     context: __dirname,
     entry: './frontend/entry_imdb.jsx',
+    optimization: {
+        minimizer: [new UglifyJsPlugin()],
+    },
     output: {
         path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
         filename: 'bundle.js'
