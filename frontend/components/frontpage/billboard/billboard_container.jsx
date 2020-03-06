@@ -45,6 +45,7 @@ class Billboard extends React.Component {
       var i;
       var slides = document.getElementsByClassName("mySlides");
       var dots = document.getElementsByClassName("dot");
+      if (dots.length === 0) return null;
       
       if (n > slides.length) { slideIndex = 1; }
       if (n < 1) { slideIndex = slides.length; }
@@ -60,6 +61,7 @@ class Billboard extends React.Component {
 
   componentDidMount() {
     this.props.fetchMovies();
+    this.showSlide(1);
   }
 
 
@@ -93,11 +95,6 @@ class Billboard extends React.Component {
         </div>
         <div className='dots'>
           {dots}
-          
-          {/* <span className="dot" onClick={this.handleClick(2)}></span>
-          <span className="dot" onClick={this.handleClick(3)}></span>
-          <span className="dot" onClick={this.handleClick(4)}></span>
-          <span className="dot" onClick={this.handleClick(5)}></span> */}
         </div>
       </div>
     );
