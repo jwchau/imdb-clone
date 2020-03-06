@@ -20,10 +20,6 @@ class Header extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchMovies();
-  }
-
   handleLogout(e) {
     // e.preventDefault();
     this.props.logout();

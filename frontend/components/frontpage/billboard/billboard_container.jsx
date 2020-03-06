@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {fetchMovies} from '../../../actions/movies_action';
 
 //billboard components
-// import Poster from './billboard/poster';
+import BillboardItem from './billboard_item';
 
 
 class Billboard extends React.Component {
@@ -58,8 +59,9 @@ class Billboard extends React.Component {
   }
 
   componentDidMount() {
-    this.showSlide(1);
+    this.props.fetchMovies();
   }
+
 
   componentDidUpdate() {
     this.showSlide(this.state.slideIndex);
@@ -67,28 +69,35 @@ class Billboard extends React.Component {
 
 
   render() {
-    const posters = ['words', 'words2', 'words3'];
-    const trailers = ['trailer1', 'trailer2', 'trailer3'];
+    const bbItems = this.props.movies.map( movie => <BillboardItem movie={movie}/>);
+
+    
+    
+    if (bbItems.length === 0) return (null);
+    const dots = [];
+    // for (let i = 1; i <= bbItems.length; i++) {
+    //   dots.push(<span className="dot" onClick={this.handleClick(i)}></span>);
+    // }
+    for (let i = 1; i <= this.state.numSlides; i++) {
+      dots.push(<span className="dot" onClick={this.handleClick(i)}></span>);
+    }
+    
     return(
       <div className='billboard'>
         <div className='slides slideshow-container'>
-          {/* <BillboardItem /> */}
-          <div className='problem-box slide mySlides fade'>element1</div>
-          <div className='problem-box slide mySlides fade'>element2</div>
-          <div className='problem-box slide mySlides fade'>element3</div>
-          <div className='problem-box slide mySlides fade'>element4</div>
-          <div className='problem-box slide mySlides fade'>element5</div>
+          {bbItems}
           <div className='nav-buttons'>
             <a className="prev" onClick={this.handleSlide('prev')}>&#10094;</a>
             <a className="next" onClick={this.handleSlide('next')}>&#10095;</a>
           </div>
         </div>
-        <div>
-          <span className="dot" onClick={this.handleClick(1)}></span>
-          <span className="dot" onClick={this.handleClick(2)}></span>
+        <div className='dots'>
+          {dots}
+          
+          {/* <span className="dot" onClick={this.handleClick(2)}></span>
           <span className="dot" onClick={this.handleClick(3)}></span>
           <span className="dot" onClick={this.handleClick(4)}></span>
-          <span className="dot" onClick={this.handleClick(5)}></span>
+          <span className="dot" onClick={this.handleClick(5)}></span> */}
         </div>
       </div>
     );
@@ -98,15 +107,11 @@ class Billboard extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
-  movies: state.entities.movies,
+  movies: Object.values(state.entities.movies),
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchMovies: () => dispatch(fetchMovies()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Billboard);
-
-// m1 = Movie.first
-// file = File.open('../starwars_poster.jpeg')
-// m1.poster.attach(io: file, filename: 'starwars_poster.jpeg')

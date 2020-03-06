@@ -12,28 +12,43 @@ import SignUpPage from './sessions/signup_container';
 import LoginPage from './sessions/login_container';
 import Watchlist from './frontpage/watchlist';
 
+//extra
+import {fetchMovies} from '../actions/movies_action';
+
 // class App extends React.Component {
 //   constructor(props) {
 //     super(props);
 //   }
 
-const App = () => {
-  return (
-    <div className="app">
-      <div id='fade-overlay'></div>
-      <HeaderContainer />
-      <Switch>
-        <AuthRoute path='/signin' component={SignInPage}/>
-        <AuthRoute path='/signup' component={SignUpPage}/>
-        <AuthRoute path='/login' component={LoginPage}/>
-        <ProtectedRoute path='/watchlist' component={Watchlist}/>
-        <Route path='/explore' component={Explore} />
-        <Route path='/' component={BillboardContainer}/>
-      </Switch>
-      <FooterContainer />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  // componentDidMount() {
+  //   // this.props.dispatch(fetchMovies());
+  // }
+
+  render() {
+    return (
+      <div className="app">
+        <div id='fade-overlay'></div>
+        <HeaderContainer />
+        <Switch>
+          <AuthRoute path='/signin' component={SignInPage}/>
+          <AuthRoute path='/signup' component={SignUpPage}/>
+          <AuthRoute path='/login' component={LoginPage}/>
+          <ProtectedRoute path='/watchlist' component={Watchlist}/>
+          <Route path='/explore' component={Explore} />
+          <Route path='/' component={BillboardContainer}/>
+        </Switch>
+        <FooterContainer />
+      </div>
+    );
+  }
+
 };
+
 // }
 
 export default App;
