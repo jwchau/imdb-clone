@@ -17,7 +17,7 @@ class Billboard extends React.Component {
 
     this.state = {
       slideIndex: 1,
-      numSlides: 5,
+      numSlides: 10,
     };
   }
 
@@ -76,10 +76,8 @@ class Billboard extends React.Component {
     
     
     if (bbItems.length === 0) return (null);
+    const rnd = Math.random(bbItems.length);
     const dots = [];
-    // for (let i = 1; i <= bbItems.length; i++) {
-    //   dots.push(<span className="dot" onClick={this.handleClick(i)}></span>);
-    // }
     for (let i = 1; i <= this.state.numSlides; i++) {
       dots.push(<span className="dot" onClick={this.handleClick(i)}></span>);
     }
