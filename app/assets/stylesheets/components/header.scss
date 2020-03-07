@@ -1,5 +1,6 @@
 .header {
   width: 80%;
+  height: 52px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -12,18 +13,18 @@
 }
 
 .header > * {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 
 .header-logo {
-  width: 60px;
-  height: 24px;
+  width: 66px;
+  height: 26px;
 }
 
 #login-button {
-  padding: 10px 0;
+  // padding: 10px 0;
 }
 
 #header-menu, #watchlist-button {

@@ -32,6 +32,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        <div className='gradient-2'></div>
         <div id='fade-overlay'></div>
         <HeaderContainer />
         <Switch>

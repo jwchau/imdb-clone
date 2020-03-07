@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {fetchMovies} from '../../../actions/movies_action';
+import {shuffle} from '../../../util/util';
 
 //billboard components
 import BillboardItem from './billboard_item';
-
 
 class Billboard extends React.Component {
   constructor(props) {
@@ -59,15 +59,18 @@ class Billboard extends React.Component {
       }
       slides[slideIndex - 1].style.display = "flex";
       dots[slideIndex - 1].className += " active";
+
+      this.stopVid();
+  }
+
+  stopVid() {
+    const trailers = document.getElementsByClassName("trailer");
+    Array.from(trailers).forEach(trailer => trailer.pause());
   }
 
   componentDidMount() {
     this.props.fetchMovies();
     this.showSlide(1);
-  }
-
-  componentWillUnmount() {
-    // shuffle(this.props.movies);
   }
 
   componentDidUpdate() {
@@ -77,7 +80,6 @@ class Billboard extends React.Component {
   render() {
     const bbItems = this.props.movies.map(movie => <BillboardItem key={movie.id} movie={movie}/>);
     if (bbItems.length === 0) return (null);
-    // shuffle(bbItems);
 
     const dots = [];
     for (let i = 1; i <= this.state.numSlides; i++) {
@@ -104,7 +106,7 @@ class Billboard extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
-  movies: Object.values(state.entities.movies),
+  movies: shuffle(Object.values(state.entities.movies)),
 });
 
 const mapDispatchToProps = dispatch => ({

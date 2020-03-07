@@ -13,7 +13,9 @@
   }
 }
 
-
+.close-button {
+  border-radius: 10px;
+}
 
 #menu-page.active {
   display: flex;
@@ -33,22 +35,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.gradient {
-  background-color: #303641;
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(0,0,0, .2) 0%,
-      rgba(0,0,0, .1) 60%,
-      rgba(0,0,0, .2) 100%
-    ),
-    linear-gradient(
-      90deg,
-      #3f030371,
-      #380707af,
-      #000000e3
-    );
-  background-size: 5px, 100%;
 }
