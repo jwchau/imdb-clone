@@ -1,6 +1,6 @@
 .session-form {
   width: 80%;
-  height: 460px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,7 +101,19 @@
       font-size: 12px;
       transition: 0.2s ease all;;
     }
-
   }
 
 }
+
+.guest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  > span {
+    color: black;
+    font-size: 14px;
+    font-weight: bolder;
+  }
+}
+

@@ -10,10 +10,12 @@ require 'open-uri'
 Person.destroy_all
 Movie.destroy_all
 Castcrew.destroy_all
+User.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('person')
 ApplicationRecord.connection.reset_pk_sequence!('movies')
 ApplicationRecord.connection.reset_pk_sequence!('castcrew')
+ApplicationRecord.connection.reset_pk_sequence!('user')
 
 ApplicationRecord.transaction do
 	puts 'Loading people...'
@@ -25,12 +27,16 @@ ApplicationRecord.transaction do
 	puts 'Done!'
 end
 
-# m5 = Movie.find_by(id: 5)
-# file = open("https://imdb-clone-dev.s3-us-west-1.amazonaws.com/starwars5_poster.jpeg")
-# m5.poster.attach(io: file, filename: 'starwars5_poster.jpeg')
+5.times do |i|
+  User.create(
+    id: i + 1,
+    username: "guestuser#{i + 1}",
+    password: 'password',
+    email: "guestuser#{i + 1}@email.com"
+	)
+end
 
-#.gsub(/[^a-zA-Z]/,'').downcase
-
+#attach aws
 Movie.all.each do |movie|
 	fname = movie.title.gsub(/[^a-zA-Z]/,'').downcase
 
@@ -41,4 +47,3 @@ Movie.all.each do |movie|
 	trailer = open("https://imdb-clone-dev.s3-us-west-1.amazonaws.com/trailers/#{movie.id}.mp4")
 	movie.trailer.attach(io: trailer, filename: "#{fname}_trailer.jpeg")
 end
-
