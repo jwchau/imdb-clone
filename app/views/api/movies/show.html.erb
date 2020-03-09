@@ -1,6 +1,0 @@
-<h1><%= @movie.title %></h1>
-<ul>
-  <% @movie.photos.each do |photo| %>
-  <li> <img src="<%= url_for(photo) %>" alt=""/> </li>
-  <% end %>
-</ul>

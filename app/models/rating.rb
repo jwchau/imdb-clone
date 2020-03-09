@@ -10,4 +10,9 @@
 #  updated_at :datetime         not null
 #
 class Rating < ApplicationRecord
+
+  validates :score, presence: true
+
+  belongs_to :movie
+  belongs_to :user
 end

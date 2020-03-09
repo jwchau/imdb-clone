@@ -1,0 +1,30 @@
+.movie-show-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+
+  #movie-billboard {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+  
+  > .information {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+    > * {
+      padding: 0 5px;
+      font-size: 24px;
+      max-width: 60%;
+    }
+    
+    :nth-child(1) {
+      font-size: 40px;
+    }
+
+  }
+}

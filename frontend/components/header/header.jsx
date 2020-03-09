@@ -21,7 +21,6 @@ class Header extends React.Component {
   }
 
   handleLogout(e) {
-    // e.preventDefault();
     this.props.logout();
   }
 
@@ -29,9 +28,13 @@ class Header extends React.Component {
   createSignin() {
     let signin = (<Link to='/signin'><LoginButton /></Link>);
     if (this.props.currentUser !== undefined) {
+      let {currentUser} = this.props;
       signin = (
-        <div onClick={this.handleLogout} className='grey-hover regular-button'>
-          Logout
+        <div className='regular-button'>
+          <Link to={`/users/${currentUser.id}`} className='grey-hover person-icon'>&#x1f464;</Link>
+          <div className='grey-hover' onClick={this.handleLogout}>
+            <p>Logout</p>
+          </div>
         </div>
       );
     }

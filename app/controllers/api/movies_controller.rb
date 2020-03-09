@@ -1,7 +1,7 @@
 class Api::MoviesController < ApplicationController
 
   def show
-    @movie = Movie.find_by(id: params[:id])
+    @movie = Movie.find_by(id: params[:id])#.includes(:reviews, :ratings)
     render :show
   end
 
@@ -11,6 +11,6 @@ class Api::MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :year, :score)
+    params.require(:movie).permit(:title, :year)
   end
 end

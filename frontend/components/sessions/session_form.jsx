@@ -51,8 +51,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     let { location, history } = this.props;
     if (location.pathname !== '/login') history.push('/login');
-    this.setState({username: 'guest_user', password: 'password'});
-    this.props.processForm(this.state);
+    this.setState({username: `guestuser${Math.ceil(Math.random() * 5)}`, password: 'password'});
   }
 
   inputEmail() {

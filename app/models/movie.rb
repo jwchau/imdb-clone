@@ -16,4 +16,7 @@ class Movie < ApplicationRecord
 
   has_one_attached :poster
   has_one_attached :trailer
+
+  has_many :reviews
+  has_many :ratings
 end

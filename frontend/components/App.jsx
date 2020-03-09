@@ -11,6 +11,8 @@ import FooterContainer from './frontpage/footer_container';
 import SignUpPage from './sessions/signup_container';
 import LoginPage from './sessions/login_container';
 import Watchlist from './frontpage/watchlist';
+import UserShowContainer from './users/user_show_container';
+import MovieShowContainer from './movies/movie_show_container';
 
 //extra
 import {fetchMovies} from '../actions/movies_action';
@@ -40,6 +42,8 @@ class App extends React.Component {
           <AuthRoute path='/signup' component={SignUpPage}/>
           <AuthRoute path='/login' component={LoginPage}/>
           <ProtectedRoute path='/watchlist' component={Watchlist}/>
+          <ProtectedRoute path='/users/:id' component={UserShowContainer}/>
+          <Route path='/movies/:id' component={MovieShowContainer}/>
           <Route path='/explore' component={Explore} />
           <Route path='/' component={BillboardContainer}/>
         </Switch>

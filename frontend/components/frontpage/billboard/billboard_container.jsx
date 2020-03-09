@@ -78,8 +78,13 @@ class Billboard extends React.Component {
   }
 
   render() {
-    const bbItems = this.props.movies.map(movie => <BillboardItem key={movie.id} movie={movie}/>);
-    if (bbItems.length === 0) return (null);
+    if (this.props.movies.length < this.state.numSlides) return (null);
+
+    const bbItems = [];
+    for (let i = 0; i < this.state.numSlides; i++) {
+      const movie = this.props.movies[i];
+      bbItems.push(<BillboardItem key={movie.id} movie={movie}/>);
+    }
 
     const dots = [];
     for (let i = 1; i <= this.state.numSlides; i++) {

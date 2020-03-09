@@ -27,8 +27,8 @@ export const fetchMovies = () => dispatch => (
   )
 );
 
-export const getMovie = movie => dispatch => (
-  Mutils.getMovie(movie).then(
+export const getMovie = movieId => dispatch => (
+  Mutils.getMovie(movieId).then(
     movie => dispatch(receiveMovie(movie)),
     errors => dispatch(receiveMovieErrors(errors))
   )
