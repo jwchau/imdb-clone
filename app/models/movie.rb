@@ -19,4 +19,12 @@ class Movie < ApplicationRecord
 
   has_many :reviews
   has_many :ratings
+
+  has_many :reviewers,
+    through: :reviews,
+    source: :user
+
+  has_many :raters,
+    through: :ratings,
+    source: :user
 end

@@ -11,3 +11,18 @@ export const getMovie = movieId => (
   })
 );
 
+export const postReview = review => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/movies/${review.movieId}/reviews`,
+    data: {review},
+  });
+};
+
+export const patchReview = review => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/reviews/${review.id}`,
+    data: { review },
+  });
+};

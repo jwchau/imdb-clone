@@ -1,4 +1,5 @@
 .movie-show-page {
+  // background-color: rgba(32, 32, 32, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,6 +26,6 @@
     :nth-child(1) {
       font-size: 40px;
     }
-
   }
 }
+

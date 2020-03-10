@@ -1,16 +1,20 @@
 import {
-  RECEIVE_ALL_MOVIES,
-  RECEIVE_MOVIE,
+  RECEIVE_REVIEW,
+  RECEIVE_MOVIE
 } from '../actions/movies_action';
 import merge from 'lodash/merge';
 
 export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_ALL_MOVIES:
-      return action.movies;
     case RECEIVE_MOVIE:
-      return merge({}, state, {movie: action.payload.movie});
+      return action.payload.reviews;
+    case RECEIVE_REVIEW:
+      return merge(
+        {},
+        state,
+        {[action.review.userId]: action.review}
+      );
     default:
       return state;
   }

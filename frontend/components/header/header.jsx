@@ -33,7 +33,7 @@ class Header extends React.Component {
         <div className='regular-button'>
           <Link to={`/users/${currentUser.id}`} className='grey-hover person-icon'>&#x1f464;</Link>
           <div className='grey-hover' onClick={this.handleLogout}>
-            <p>Logout</p>
+            Logout
           </div>
         </div>
       );

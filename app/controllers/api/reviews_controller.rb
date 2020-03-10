@@ -1,2 +1,37 @@
 class Api::ReviewsController < ApplicationController
+
+  def create
+    @review = Review.new(
+      body: params[:review][:body],
+      movie_id: params[:review][:movieId],
+      user_id: params[:review][:userId]
+    )
+    if @review.save
+      render 'api/reviews/show'
+    else
+      render json: @review.errors.full_messages, status: 422
+    end
+    
+    
+  end
+
+  def destroy
+
+  end
+
+  def index
+
+  end
+
+  def update
+    # debugger
+    @review = Review.find_by(id: params[:review][:id])
+    if @review.update(body: params[:review][:body])
+      render :show
+    else
+      render json: @review.errors.full_messages, status: 422
+    end
+  end
+
+
 end

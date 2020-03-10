@@ -32,7 +32,9 @@
 }
 
 .icon {
-  border-radius: 10rem;
+  border-radius: 100%;
+  height: 24px;
+  width: 24px;
 }
 
 .misc-link:hover, .icon:hover {
