@@ -6,7 +6,15 @@ class Api::MoviesController < ApplicationController
   end
 
   def index 
-    @movies = Movie.all
+    # if (query) @movies.select { |movie| movie.includes?(query) }
+    query = params[:query]
+    if query
+      @movies = Movie.all
+        .where("title ILIKE ?", "%#{query}%")
+    else
+      @movies = Movie.all
+    end
+
     render :index
   end
 

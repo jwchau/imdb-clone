@@ -48,6 +48,7 @@
   padding-right: 25px;
   background-color: white;
   color: black;
+  position: relative;
 }
 
 .select {
@@ -61,4 +62,14 @@
 
 .select::-ms-expand {
 	display: none;
+}
+
+.movie-searched {
+  z-index: 1;
+  position: absolute;
+
+  > li {
+    background-color: white;
+    color: black;
+  }
 }

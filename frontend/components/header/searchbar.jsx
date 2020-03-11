@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {searchAll} from '../../util/util';
+
 class Searchbar extends React.Component {
 
   constructor(props) {
@@ -8,15 +10,24 @@ class Searchbar extends React.Component {
     this.state = {
       searchterm: "",
       filter: "",
-    }
+      results: [],
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.onSelect = this.onSelect.bind(this);
   }
 
-  handleChange(type) {
-    return e => this.setState({[type]: e.target.value});
+  handleSearch(e) {
+    if (e.target.value === "") {
+      this.setState({searchterm: e.target.value, results: []});
+      return;
+    }
+
+    this.setState({ searchterm: e.target.value },
+      () => searchAll(this.state.searchterm)
+        .then(movies => this.setState({ results: movies }) ));
+    
   }
 
   handleSubmit(e) {
@@ -28,10 +39,16 @@ class Searchbar extends React.Component {
     this.setState({filter: value});
   }
 
-  render() {
+  searchResults() {
+    return this.state.results
+      .map( movie => (
+        <li>{movie.title}</li>
+      ));
+  }
 
+  render() {
     return ( //<div>hi</div>
-      <div id='header-searchbar'>
+      <nav id='header-searchbar'>
        <form onSubmit={this.handleSubmit} className='search-form'>
           <div id='search-filter'>
             <select className='select' onChange={(e) => this.onSelect(e.target.value)}>
@@ -44,13 +61,16 @@ class Searchbar extends React.Component {
             </select>
           </div>
           <input className='input-text'
-            onChange={this.handleChange('searchterm')}
+            onChange={this.handleSearch}
             type="text" name="searchterm"
             value={this.state.searchterm}
           />
+          <div className='movie-searched'>
+            {this.searchResults()}
+          </div>
           <input type="submit" value="&#128269;"/>
        </form>
-      </div>
+      </nav>
     );
   }
 }

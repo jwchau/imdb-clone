@@ -5,3 +5,12 @@ export const shuffle = (a) => {
   });
   return a;
 };
+
+export const searchAll = (query) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/movies',
+    data: {query}
+  });
+
+};
