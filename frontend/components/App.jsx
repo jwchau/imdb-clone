@@ -41,10 +41,10 @@ class App extends React.Component {
           <AuthRoute path='/signin' component={SignInPage}/>
           <AuthRoute path='/signup' component={SignUpPage}/>
           <AuthRoute path='/login' component={LoginPage}/>
-          <ProtectedRoute path='/watchlist' component={Watchlist}/>
           <ProtectedRoute path='/users/:id' component={UserShowContainer}/>
+          <ProtectedRoute path='/watchlist' component={Watchlist}/>
           <Route path='/movies/:id' component={MovieShowContainer}/>
-          <Route path='/explore' component={Explore} />
+          {/* <Route path='/explore' component={Explore} /> */}
           <Route path='/' component={BillboardContainer}/>
         </Switch>
         <FooterContainer />

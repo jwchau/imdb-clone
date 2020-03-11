@@ -1,9 +1,58 @@
 .review-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  width: 60%;
   > h3 {
     cursor: pointer;
+    padding: 10px;
+    width: 20%;
+  }
+  > form {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 20px;
+    > textarea {
+      padding: 20px;
+      font-size: 16px;
+      width: 100%;
+      height: 100%;
+    }
+    > input[type="submit"] {
+      position: absolute;
+      background-color: black;
+      padding: 5px;
+      right: -30px;
+      bottom: -30px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($hover-color, 0.8);
+        color: black;
+      }
+    }
   }
 }
 
 .movie-reviews {
-  
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px;
+  > h3 {
+    font-size: 32px;
+  }
+
+  > .review {
+    width: 100%;
+    > * {
+      padding: 5px;
+    }
+  }
+
 }

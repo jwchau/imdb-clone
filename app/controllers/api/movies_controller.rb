@@ -11,6 +11,7 @@ class Api::MoviesController < ApplicationController
     if query
       @movies = Movie.all
         .where("title ILIKE ?", "%#{query}%")
+        .limit(5)
     else
       @movies = Movie.all
     end

@@ -14,9 +14,10 @@
   
   > .information {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-end;
-    
+    width: 80%;
+
     > * {
       padding: 0 5px;
       font-size: 24px;

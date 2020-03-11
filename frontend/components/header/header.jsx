@@ -43,13 +43,12 @@ class Header extends React.Component {
 
 
   render() {
-    let cu = this.props.currentUser;
     return (
       <div className='header'>
         <Link to='/'><img className='header-logo' src={window.imdbLogoURL}/></Link>
         <Menu />
         <Link to='/imdbtv'><Logo pic={window.imdbTvURL}/></Link>
-        <Searchbar />
+        <Searchbar/>
         <Link to='/imdbpro'><Logo pic={window.imdbProURL}/></Link>
         <Link to='/watchlist'><WatchlistButton /></Link>
         {/* conditionally signed in already */}

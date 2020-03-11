@@ -34,6 +34,12 @@ class MovieShow extends React.Component {
     this.props.getMovie(this.props.movieId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (parseInt(prevProps.match.params.id) !== this.props.movieId) {
+      this.props.getMovie(this.props.movieId);
+    }
+  }
+
   movieReviews() {
     if (this.props.reviews.length === 0) return null;
     const {users, ratings, currentuser} = this.props;
@@ -49,10 +55,8 @@ class MovieShow extends React.Component {
 
     return (
       <div className='movie-reviews'>
-        <h3>Movie Reviews</h3>
-        <ul>
-          <li>{reviews}</li>
-        </ul>
+        <h3>User Reviews</h3>
+          {reviews}
       </div>
     );
   }

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ReviewForm from './review_form';
+
 
 class Review extends React.Component {
   constructor(props){
@@ -42,17 +44,22 @@ class Review extends React.Component {
     if (userId !== review.userId) return (<div>{review.body}</div>);
     else if (this.state.showEdit === false)
       return (
-        <div>
-          {review.body}
-          <button onClick={this.toggleEdit}>Edit</button>
+        <div>{review.body}
+          <div
+            className='grey-hover regular-button'
+            onClick={this.toggleEdit}>
+            <p>Edit</p>
+          </div>
         </div>
       );
     else {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <textarea onChange={this.handleChange} value={this.state.body}></textarea>
-          <input type="submit" value="submit edits"/>
-        </form>
+        <div className='review-form'>
+          <form onSubmit={this.handleSubmit}>
+            <textarea onChange={this.handleChange} value={this.state.body}></textarea>
+            <input type="submit" value="submit edits" />
+          </form>
+        </div>
       )
     }
   }
@@ -61,9 +68,9 @@ class Review extends React.Component {
     let { userId, username, rating } = this.props;
     return (
       <div className='review'>
-        {this.reviewOrEdit()}
         {rating ? <p>{rating}</p> : <p>no rating</p>}
         <Link to={`/users/${userId}`}>{username}</Link>
+        {this.reviewOrEdit()}
       </div>
     );
   }
