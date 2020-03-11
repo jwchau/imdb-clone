@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ReviewForm from './review_form';
+// import ReviewForm from './review_form';
 
 
 class Review extends React.Component {
@@ -16,6 +16,7 @@ class Review extends React.Component {
     this.reviewOrEdit = this.reviewOrEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
 
@@ -39,16 +40,26 @@ class Review extends React.Component {
     this.setState({showEdit: false});
   }
 
+  handleRemove(e) {
+    e.preventDefault();
+    this.props.removeReview(this.props.review.id);
+  }
+
   reviewOrEdit() {
     let {userId, review} = this.props;
-    if (userId !== review.userId) return (<div>{review.body}</div>);
+    if (userId !== review.userId) return null;
     else if (this.state.showEdit === false)
       return (
-        <div>{review.body}
+        <div>
           <div
             className='grey-hover regular-button'
             onClick={this.toggleEdit}>
             <p>Edit</p>
+          </div>
+          <div 
+            className='grey-hover regular-button'
+            onClick={this.handleRemove}>
+            <p>Delete</p>
           </div>
         </div>
       );
@@ -56,8 +67,11 @@ class Review extends React.Component {
       return (
         <div className='review-form'>
           <form onSubmit={this.handleSubmit}>
-            <textarea onChange={this.handleChange} value={this.state.body}></textarea>
-            <input type="submit" value="submit edits" />
+            <textarea
+              id='edit-review'
+              onChange={this.handleChange}
+              value={this.state.body}></textarea>
+            <input type="submit" value="Submit Edits" />
           </form>
         </div>
       )
@@ -65,11 +79,17 @@ class Review extends React.Component {
   }
 
   render() {
-    let { userId, username, rating } = this.props;
+    let { userId, username, rating, review } = this.props;
     return (
       <div className='review'>
-        {rating ? <p>{rating}</p> : <p>no rating</p>}
-        <Link to={`/users/${userId}`}>{username}</Link>
+        <div id='review-info' className='showedit'>
+          <Link to={`/users/${userId}`}>{username}</Link>
+          {rating ? <p>Rating: {rating}</p> : <p>Rating: N/A</p>}
+          {(this.state.showEdit)
+            ? null 
+            : <div className='review-body'>{review.body}
+          </div>}
+        </div>
         {this.reviewOrEdit()}
       </div>
     );

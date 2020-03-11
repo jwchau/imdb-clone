@@ -9,7 +9,7 @@ end
 json.set! :reviews, {}
 json.reviews do
   @movie.reviews.each do |review|
-    json.set! review.user_id do 
+    json.set! review.id do 
       json.extract! review, :body, :user_id, :id
     end
   end
@@ -18,7 +18,7 @@ end
 json.set! :ratings, {}
 json.ratings do
   @movie.ratings.each do |rating|
-    json.set! rating.user_id do 
+    json.set! rating.id do 
       json.extract! rating, :score, :user_id
     end
   end

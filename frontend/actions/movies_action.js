@@ -2,6 +2,7 @@ import * as Mutils from '../util/movies_api_util';
 
 export const RECEIVE_ALL_MOVIES = "RECEIVE_ALL_MOVIES";
 export const RECEIVE_MOVIE = "RECEIVE_MOVIE";
+export const DELETE_REVIEW = 'DELETE_REVIEW';
 export const RECEIVE_MOVIE_ERRORS = 'RECEIVE_MOVIE_ERRORS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
@@ -31,6 +32,10 @@ export const receiveReview = review => ({
 export const receiveMovieReviews = reviews => ({
   type: RECEIVE_MOVIE_REVIEWS,
   reviews,
+});
+export const deleteReview = review => ({
+  type: DELETE_REVIEW,
+  review
 });
 
 export const fetchMovies = () => dispatch => (
@@ -64,6 +69,13 @@ export const patchReview = review => dispatch => (
 export const postRating = rating => dispatch => (
   Mutils.postRating(rating).then(
     rating => dispatch(receiveRating(rating)),
+    errors => dispatch(receiveMovieErrors(errors))
+  )
+);
+
+export const removeReview = reviewId => dispatch => (
+  Mutils.removeReview(reviewId).then(
+    review => dispatch(deleteReview(review)),
     errors => dispatch(receiveMovieErrors(errors))
   )
 );

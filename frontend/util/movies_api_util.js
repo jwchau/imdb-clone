@@ -26,3 +26,10 @@ export const patchReview = review => {
     data: { review },
   });
 };
+
+export const removeReview = id => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/reviews/${id}`,
+  });
+};

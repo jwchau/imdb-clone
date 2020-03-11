@@ -5,6 +5,7 @@ import {
   getMovie,
   postReview,
   patchReview,
+  removeReview,
 } from '../../actions/movies_action';
 
 //component
@@ -51,6 +52,7 @@ class MovieShow extends React.Component {
           username={users[r.userId].username}
           rating={ratings[r.userId]}
           submitEdits={this.props.submitEdits}
+          removeReview={this.props.removeReview}
       />);
 
     return (
@@ -61,9 +63,20 @@ class MovieShow extends React.Component {
     );
   }
 
+  alreadyReviewed(id) {
+    const arr = Object.values(this.props.reviews);
+    for (let i = 0; i < arr.length; i++) {
+      const el = arr[i];
+      if (el.userId === id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   reviewForm() {
-    let {reviews, currentuser} = this.props;
-    if (currentuser === undefined || reviews[currentuser.id]) return null;
+    let {currentuser} = this.props;
+    if (currentuser === undefined || this.alreadyReviewed(currentuser.id)) return null;
     else return (
       <div className='review-form'>
         {
@@ -119,6 +132,7 @@ const MDTP = (dispatch, ownProps) => ({
   getMovie: id => dispatch(getMovie(id)),
   postReview: review => dispatch(postReview(review)),
   submitEdits: review => dispatch(patchReview(review)),
+  removeReview: id => dispatch(removeReview(id)),
 });
 
 export default connect(

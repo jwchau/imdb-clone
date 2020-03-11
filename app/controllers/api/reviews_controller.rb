@@ -16,7 +16,12 @@ class Api::ReviewsController < ApplicationController
   end
 
   def destroy
-
+    @review = Review.find_by(id: params[:id])
+    if @review.destroy
+      render :show
+    else
+      render json: @review.errors.full_messages, status: 422
+    end
   end
 
   def index
