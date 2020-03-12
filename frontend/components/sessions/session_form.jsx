@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.loginAsGuest = this.loginAsGuest.bind(this);
+    this.animateLogin = this.animateLogin.bind(this);
   }
 
   componentWillUnmount() {
@@ -47,12 +48,38 @@ class SessionForm extends React.Component {
     return e => this.setState({[key]: e.target.value });
   }
 
+  animateLogin(name) {
+    const speed = 150;
+    if (this.state.username.length !== name.length) {
+      const fillUsername = setInterval(() => {
+        // console.log("filling username");
+        if (this.state.username.length !== name.length) {
+          this.setState({username: name.slice(0, this.state.username.length + 1)})
+        } else {
+          this.animateLogin(name);
+          clearInterval(fillUsername);
+        }
+      }, speed);
+    } else {
+      const pass = 'password';
+      const fillPassword = setInterval(() => {
+        // console.log("filling password");
+        if (this.state.password.length !== pass.length) {
+          this.setState({ password: pass.slice(0, this.state.password.length + 1) })
+        } else {
+          clearInterval(fillPassword);
+        }
+      }, speed);
+    }
+
+  }
+
   loginAsGuest(e) {
     e.preventDefault();
     let { location, history } = this.props;
     if (location.pathname !== '/login') history.push('/login');
-    this.setState({username: `guestuser${Math.ceil(Math.random() * 5)}`, password: 'password'});
-    // this.processForm(this.state);
+
+    this.animateLogin(`guestuser${Math.ceil(Math.random() * 5)}`);
   }
 
   inputEmail() {
