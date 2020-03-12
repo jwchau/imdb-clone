@@ -3,8 +3,16 @@
   flex-direction: row-reverse;
 }
 
+#rating-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .faStar {
   color: white;
+  cursor: pointer;
 }
 
 .faStar:hover {
@@ -21,4 +29,16 @@
 
 .faStar.checked {
   color: $button-color
+}
+
+#open-rating {
+  cursor: pointer;
+  margin: 2px;
+  > * {
+    padding: 1px;
+  }
+}
+
+.static {
+  pointer-events: none;
 }

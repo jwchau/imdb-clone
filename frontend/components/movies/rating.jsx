@@ -10,16 +10,51 @@ class Rating extends React.Component {
 
     // this.makeStars = this.makeStars.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
+    this.state = {star: 0};
+  }
+
+  componentDidMount() {
+    let rating = this.props.userRating;
+    if (rating !== undefined && rating.score !== null) {
+      this.setState({star: 10 - this.props.userRating.score});
+    }
+  }
+
+  componentDidUpdate() {
+    this.clearChecked();
+    const stars = document.getElementsByClassName('faStar');
+    stars[this.state.star + 1].classList.add('checked');
+  }
+
+  clearChecked() {
+    const stars = document.getElementsByClassName('faStar');
+    for (let i = 0; i < 10; i++) {
+      const star = stars[i];
+      star.classList.remove('checked');
+    }
   }
 
   handleClick(e) {
-    e.currentTarget.classList.add("checked");
-    const rating = {
-      score: parseInt(e.currentTarget.id),
-      user_id: 1,
-      movie_id: 1,
-    };
-    this.props.postRating(rating);
+    if (this.props.userRating === undefined) {
+      const rating = {
+        score: parseInt(e.currentTarget.id),
+        user_id: this.props.userId,
+        movie_id: this.props.movieId,
+        // id: this.props.id,
+      };
+      this.props.postRating(rating);
+    } else {
+      const rating = {
+        score: parseInt(e.currentTarget.id),
+        user_id: this.props.userRating.userId,
+        movie_id: this.props.userRating.movieId,
+        id: this.props.userRating.id,
+      };
+      this.props.editRating(rating);
+    }
+
+    this.setState({star: 10 - parseInt(e.currentTarget.id)});
   }
 
   makeStars() {

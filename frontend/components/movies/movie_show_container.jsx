@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { Route } from 'react-router-dom';
+import merge from 'lodash/merge';
+
 import {
   getMovie,
   postReview,
   patchReview,
   removeReview,
+  postRating,
+  patchRating,
 } from '../../actions/movies_action';
 
 //component
@@ -17,6 +20,7 @@ import ReviewForm from '../movies/review_form';
 //fa
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 
 class MovieShow extends React.Component {
   constructor(props) {
@@ -56,9 +60,11 @@ class MovieShow extends React.Component {
           review={r}
           userId={(currentuser) ? currentuser.id : null}
           username={users[r.userId].username}
-          rating={ratings[r.userId]}
+          rating={this.getUserRating(r.userId)}
           submitEdits={this.props.submitEdits}
           removeReview={this.props.removeReview}
+          postRating={this.props.postRating}
+          editRating={this.props.editRating}
       />);
 
     return (
@@ -102,6 +108,37 @@ class MovieShow extends React.Component {
       </div>
     );
   }
+  
+  getUserRating(id = this.props.currentuser.id) {
+    const {ratings} = this.props;
+    for (let i in ratings) {
+      if (ratings[i].userId === id)
+        return merge({}, {id: i}, ratings[i]);
+    }
+    return undefined;
+  }
+
+  ratingButton() {
+    if (this.props.currentuser !== undefined) {
+      return (
+        <div id='rating-button'>
+          <div id='open-rating' onClick={this.openRating}>
+            Rate Me!
+            <FontAwesomeIcon className='faStar' icon={faStar}/>
+          </div>
+          {(this.state.ratingBool)
+            ? <Rating
+              userId={this.props.currentuser.id}
+              movieId={this.props.movieId}
+              postRating={this.props.postRating}
+              editRating={this.props.editRating}
+              userRating={this.getUserRating()}
+            />
+            : null}
+        </div>
+      );
+    }
+  }
 
   openRating(e) {
     e.preventDefault();
@@ -116,10 +153,7 @@ class MovieShow extends React.Component {
       <div className='movie-show-page'>
         <div className='information'>
           <span>{movie.title} ({movie.year})</span>
-          <div id='rating-button'>
-            <FontAwesomeIcon onClick={this.openRating} icon={faStar}/>
-            {(this.state.ratingBool) ? <Rating /> : null}
-          </div>
+          {this.ratingButton()}
           <div>{movie.score.toFixed(2)}</div>
         </div>
 
@@ -149,6 +183,7 @@ const MDTP = (dispatch, ownProps) => ({
   submitEdits: review => dispatch(patchReview(review)),
   removeReview: id => dispatch(removeReview(id)),
   postRating: rating => dispatch(postRating(rating)),
+  editRating: (rating) => dispatch(patchRating(rating)),
 });
 
 export default connect(

@@ -66,6 +66,13 @@ export const patchReview = review => dispatch => (
   )
 );
 
+export const patchRating = rating => dispatch => (
+  Mutils.patchRating(rating).then(
+    rating => dispatch(receiveRating(rating)),
+    errors => dispatch(receiveMovieErrors(errors))
+  )
+);
+
 export const postRating = rating => dispatch => (
   Mutils.postRating(rating).then(
     rating => dispatch(receiveRating(rating)),

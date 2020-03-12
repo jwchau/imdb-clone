@@ -10,6 +10,7 @@ export default (state = {}, action) => {
     case RECEIVE_MOVIE:
       return action.payload.ratings;
     case RECEIVE_RATING:
+      
       return merge(
         {},
         state,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import ReviewForm from './review_form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 
 class Review extends React.Component {
@@ -78,16 +79,42 @@ class Review extends React.Component {
     }
   }
 
+  stars() {
+    const stars = [];
+    for (let i = 10; i > 0; i--) {
+      if (this.props.rating.score === i) {
+        stars.push(
+          <FontAwesomeIcon
+            key={i}
+            id={i}
+            className='faStar checked'
+            icon={faStar}
+            onClick={this.handleClick} />);
+      } else {
+        stars.push(
+          <FontAwesomeIcon
+            key={i}
+            id={i}
+            className='faStar'
+            icon={faStar}
+            onClick={this.handleClick} />);
+      }
+    }
+    return stars;
+  }
+
   render() {
     let { userId, username, rating, review } = this.props;
     return (
       <div className='review'>
-        <div id='review-info' className='showedit'>
+        <div id='review-info'>
           <Link to={`/users/${userId}`}>{username}</Link>
-          {rating ? <p>Rating: {rating}</p> : <p>Rating: N/A</p>}
+          {rating 
+            ? <div className='user-rating static'>{this.stars()}</div>
+            : <p>Rating: N/A</p>}
           {(this.state.showEdit)
             ? null 
-            : <div className='review-body'>{review.body}
+            : <div className='review-body showedit'>{review.body}
           </div>}
         </div>
         {this.reviewOrEdit()}

@@ -23,3 +23,6 @@ names = [
 
 load_array(names, people)
 Person.import([:id, :name], people)
+
+#returns an array of all files in argument, as string
+#Dir["/path/to/search/*"]

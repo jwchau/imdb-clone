@@ -35,10 +35,17 @@ export const removeReview = id => {
 };
 
 export const postRating = rating => {
-  debugger
   return $.ajax({
     method: 'POST',
-    url: `/api/ratings`,
+    url: `/api/movies/${rating.movieId}/ratings`,
     data: {rating}
+  });
+};
+
+export const patchRating = (rating) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/ratings/${rating.id}`,
+    data: { rating }
   });
 };

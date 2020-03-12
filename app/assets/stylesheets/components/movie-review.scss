@@ -57,19 +57,31 @@
   > .review {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     border: 1px solid rgba($hover-color, 0.8);
     padding: 20px;
     margin: 5px;
-    :first-child > * {
+  }
+}
+
+#review-info {
+  width: 90%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  > * {
+    padding: 5px;
+    > div {
       padding: 5px;
     }
   }
 }
 
+
 .showedit {
-  max-width: 90%;
+  max-width: 100%;
   word-wrap: break-word;
 }
 
