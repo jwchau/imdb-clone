@@ -15,7 +15,8 @@ import UserShowContainer from './users/user_show_container';
 import MovieShowContainer from './movies/movie_show_container';
 
 //extra
-import {fetchMovies} from '../actions/movies_action';
+// import {fetchMovies} from '../actions/movies_action';
+
 
 // class App extends React.Component {
 //   constructor(props) {
@@ -57,3 +58,4 @@ class App extends React.Component {
 // }
 
 export default App;
+

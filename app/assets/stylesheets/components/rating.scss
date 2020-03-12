@@ -1,0 +1,24 @@
+.user-rating {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.faStar {
+  color: white;
+}
+
+.faStar:hover {
+  color: $button-color;
+}
+
+.faStar:hover ~ .faStar {
+  color: $button-color;
+}
+
+.faStar.checked ~ .faStar {
+  color: $button-color
+}
+
+.faStar.checked {
+  color: $button-color
+}

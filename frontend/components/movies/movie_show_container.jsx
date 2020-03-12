@@ -14,16 +14,22 @@ import Rating from '../movies/rating';
 import Review from '../movies/review';
 import ReviewForm from '../movies/review_form';
 
+//fa
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 class MovieShow extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       formBool: false,
+      ratingBool: false,
     };
 
     this.toggleForm = this.toggleForm.bind(this);
     this.reviewForm = this.reviewForm.bind(this);
+    this.openRating = this.openRating.bind(this);
   }
 
   toggleForm() {
@@ -97,15 +103,24 @@ class MovieShow extends React.Component {
     );
   }
 
+  openRating(e) {
+    e.preventDefault();
+    this.setState({ratingBool: !this.state.ratingBool});
+  }
+
   render() {
     if (this.props.movies.movie === undefined) return null;
     let {movie} = this.props.movies;
-    // let {rating} = this.props.ratings.
+    // let {ratings} = this.props.ratings;
     return (
       <div className='movie-show-page'>
         <div className='information'>
           <span>{movie.title} ({movie.year})</span>
-          <Rating key={movie.id} score={movie.score.toFixed(2)}/>
+          <div id='rating-button'>
+            <FontAwesomeIcon onClick={this.openRating} icon={faStar}/>
+            {(this.state.ratingBool) ? <Rating /> : null}
+          </div>
+          <div>{movie.score.toFixed(2)}</div>
         </div>
 
         <div id='movie-billboard'>
@@ -133,6 +148,7 @@ const MDTP = (dispatch, ownProps) => ({
   postReview: review => dispatch(postReview(review)),
   submitEdits: review => dispatch(patchReview(review)),
   removeReview: id => dispatch(removeReview(id)),
+  postRating: rating => dispatch(postRating(rating)),
 });
 
 export default connect(

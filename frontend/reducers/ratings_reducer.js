@@ -13,7 +13,7 @@ export default (state = {}, action) => {
       return merge(
         {},
         state,
-        { [action.rating.userId]: action.rating }
+        { [action.rating.id]: action.rating }
       );
     default:
       return state;

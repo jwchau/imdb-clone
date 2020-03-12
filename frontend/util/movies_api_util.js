@@ -33,3 +33,12 @@ export const removeReview = id => {
     url: `/api/reviews/${id}`,
   });
 };
+
+export const postRating = rating => {
+  debugger
+  return $.ajax({
+    method: 'POST',
+    url: `/api/ratings`,
+    data: {rating}
+  });
+};

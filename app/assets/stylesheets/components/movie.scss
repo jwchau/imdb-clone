@@ -26,10 +26,14 @@
       font-size: 24px;
       max-width: 60%;
     }
-    
-    :nth-child(1) {
-      font-size: 40px;
+
+    > span {
+      font-size: 36px;
     }
+    
+    // :nth-child(1) {
+    //   font-size: 40px;
+    // }
   }
 }
 
