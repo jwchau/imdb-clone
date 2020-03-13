@@ -47,9 +47,9 @@ class Header extends React.Component {
       <div className='header'>
         <Link to='/'><img className='header-logo' src={window.imdbLogoURL}/></Link>
         <Menu />
-        <Link to='/imdbtv'><Logo pic={window.imdbTvURL}/></Link>
+        <Link className='dead' to='/imdbtv'><Logo pic={window.imdbTvURL}/></Link>
         <Searchbar/>
-        <Link to='/imdbpro'><Logo pic={window.imdbProURL}/></Link>
+        <Link className='dead' to='/imdbpro'><Logo pic={window.imdbProURL}/></Link>
         <Link to='/watchlist'><WatchlistButton /></Link>
         {/* conditionally signed in already */}
         {this.createSignin()}

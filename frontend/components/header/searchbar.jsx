@@ -65,18 +65,11 @@ class Searchbar extends React.Component {
       ));
   }
 
-  searchContainer() {
-    // if (this.state.showSearch)
-      return (<div id='movie-searched'>{this.searchResults()}</div>)
-    // else return null;
-  }
-
-
   render() {
     return ( 
       <nav id='header-searchbar'>
        <form onSubmit={this.handleSubmit} className='search-form'>
-          <div id='search-filter'>
+          {/* <div id='search-filter'>
             <select className='select' onChange={(e) => this.onSelect(e.target.value)}>
               <option value="all">All</option>
               <option value="titles">Titles</option>
@@ -85,15 +78,18 @@ class Searchbar extends React.Component {
               <option value="companies">Companies</option>
               <option value="keyword">Keyword</option>
             </select>
-          </div>
+          </div> */}
+
           <input className='input-text'
             onChange={this.handleSearch}
-            // onClick={this.showSearch}
             type="text" name="searchterm"
             value={this.state.searchterm}
           />
-          {this.searchContainer()}
-          
+
+          <div id='movie-searched'>
+            {this.searchResults()}
+          </div>
+
           <input type="submit" value="&#128269;" />
        </form>
       </nav>
