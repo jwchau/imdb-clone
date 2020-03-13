@@ -11,6 +11,8 @@ Person.destroy_all
 Movie.destroy_all
 Castcrew.destroy_all
 User.destroy_all
+Review.destroy_all
+Rating.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('person')
 ApplicationRecord.connection.reset_pk_sequence!('movies')
