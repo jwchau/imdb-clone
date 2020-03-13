@@ -4,7 +4,7 @@ Clone of the website Imdb.com: a site where users can create accounts, look up m
 
 ## Getting Started
 
-Project is not reproducable on local machine due to the use of personalized API keys. An online version hosted in Herokuapp is accessable and functional through mi-imdb.herokuapp.com
+Project is not reproducable on local machine due to the use of personalized API keys. An online version hosted in Herokuapp is accessable and functional through [mi-imdb](mi-imdb.herokuapp.com)
 
 ### Prerequisites
 * Ruby
