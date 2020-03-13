@@ -11,16 +11,13 @@ Project is not reproducable on local machine due to the use of personalized API 
 * Ruby on Rails
 * NPM
 
-```
-npm install
-bundle install
-```
+### Cloning
+
+* Clone project using git clone https://github.com/jwchau/fullstackproject or download directly from github
+* run `npm install` and `bundle install`
+* open code using prefered text editor
 
 ## Author
 
 * **John Chau** - [github](https://github.com/jwchau)
 
-
-## Acknowledgments
-
-* TBD
