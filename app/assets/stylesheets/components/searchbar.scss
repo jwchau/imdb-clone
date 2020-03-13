@@ -18,8 +18,13 @@
     border: none;
     position: absolute;
     right: 0;
+    padding: 1px;
+    border-radius: 5px;
     &:focus {
         outline: none;
+    }
+    &:hover {
+      background-color: rgba($hover-color, 0.15);
     }
   }
 }
@@ -30,7 +35,14 @@
   background-color: white;
   color: black;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: 0.5s;
+  &:focus{
+    background-color: white;
+    transition: 0.5s;
+  }
 }
+
 
 .select {
   display: block;
@@ -52,6 +64,7 @@
   top: 30px;
   left: 10%;
   display: flex;
+  // display: none;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -75,3 +88,4 @@
     background-color: rgba($hover-color, 0.7);
   }
 }
+

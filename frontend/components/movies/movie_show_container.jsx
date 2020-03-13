@@ -69,7 +69,7 @@ class MovieShow extends React.Component {
 
     return (
       <div className='movie-reviews'>
-        <h3>User Reviews</h3>
+        {(reviews.length === 0) ? null : <h3>User Reviews</h3>}
           {reviews}
       </div>
     );

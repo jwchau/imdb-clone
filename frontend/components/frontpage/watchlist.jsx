@@ -8,8 +8,8 @@ class Watchlist extends React.Component {
   render() {
 
     return (
-      <div>
-        "i'm watchlist"
+      <div className='watchlist'>
+        TODO WATCHLIST
       </div>
     );
   }

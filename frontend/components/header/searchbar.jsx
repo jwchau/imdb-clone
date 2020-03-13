@@ -42,6 +42,7 @@ class Searchbar extends React.Component {
     this.setState({filter: value});
   }
 
+
   clickMovie(mid) {
     const {history} = this.props;
     return e => {
@@ -51,7 +52,7 @@ class Searchbar extends React.Component {
   }
 
   // showSearch(e) {
-  //   this.setState({showSearch: true});
+  //   this.setState({showSearch: !this.state.showSearch});
   // }
 
   searchResults() {
@@ -87,6 +88,7 @@ class Searchbar extends React.Component {
           </div>
           <input className='input-text'
             onChange={this.handleSearch}
+            // onClick={this.showSearch}
             type="text" name="searchterm"
             value={this.state.searchterm}
           />
