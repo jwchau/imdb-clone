@@ -59,8 +59,6 @@ class Billboard extends React.Component {
       }
       slides[slideIndex - 1].style.display = "flex";
       dots[slideIndex - 1].className += " active";
-
-      this.stopVid();
   }
 
   stopVid() {

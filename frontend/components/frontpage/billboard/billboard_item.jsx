@@ -8,7 +8,7 @@ export default ({movie}) => {
       <Link movie={movie} to={`/movies/${movie.id}`}>
         <img src={movie.posterUrl} alt={movie.title}></img>
       </Link>
-      <video className='trailer' controls>
+      <video className='trailer' controls autoPlay='autoplay' muted>
         <source src={movie.trailerUrl} type="video/mp4"/>
       </video>
     </div>

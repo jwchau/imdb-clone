@@ -23,13 +23,14 @@
   height: 26px;
 }
 
-#login-button {
-  // padding: 10px 0;
-}
 
 .person-icon {
   padding: 10px;
   margin-right: 5px;
+}
+
+#header-menu {
+  pointer-events: none;
 }
 
 #header-menu, #watchlist-button {

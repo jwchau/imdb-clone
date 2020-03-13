@@ -35,7 +35,12 @@ class Searchbar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    //fetch data based on filter, then match with searchterm
+
+    // if (this.state.searchterm === "") return;
+    // else {
+    //   this.props.history.push(`/movies`);
+    //   this.setState({searchterm: "", results: []});
+    // }
   }
 
   onSelect(value) {
@@ -50,10 +55,6 @@ class Searchbar extends React.Component {
       history.push(`/movies/${mid}`);
     };
   }
-
-  // showSearch(e) {
-  //   this.setState({showSearch: !this.state.showSearch});
-  // }
 
   searchResults() {
     return this.state.results

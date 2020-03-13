@@ -1,0 +1,1 @@
+table = CSV.parse(File.read("cats.csv"), headers: true)

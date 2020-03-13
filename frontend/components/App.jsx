@@ -6,13 +6,13 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignInPage from './sessions/signin_container';
 import HeaderContainer from './header/header_container';
 import BillboardContainer from './frontpage/billboard/billboard_container';
-import Explore from './frontpage/explore';
 import FooterContainer from './frontpage/footer_container';
 import SignUpPage from './sessions/signup_container';
 import LoginPage from './sessions/login_container';
 import Watchlist from './frontpage/watchlist';
 import UserShowContainer from './users/user_show_container';
 import MovieShowContainer from './movies/movie_show_container';
+import AllMoviesContainer from './movies/all_movies_container';
 
 //extra
 // import {fetchMovies} from '../actions/movies_action';
@@ -45,7 +45,7 @@ class App extends React.Component {
           <ProtectedRoute path='/users/:id' component={UserShowContainer}/>
           <ProtectedRoute path='/watchlist' component={Watchlist}/>
           <Route path='/movies/:id' component={MovieShowContainer}/>
-          {/* <Route path='/explore' component={Explore} /> */}
+          <Route path='/movies' component={AllMoviesContainer}/>
           <Route path='/' component={BillboardContainer}/>
         </Switch>
         <FooterContainer />
