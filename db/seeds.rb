@@ -29,7 +29,6 @@ end
 
 5.times do |i|
   User.create(
-    id: i + 1,
     username: "guestuser#{i + 1}",
     password: 'password',
     email: "guestuser#{i + 1}@email.com"

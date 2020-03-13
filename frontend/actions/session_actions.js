@@ -38,11 +38,12 @@ export const logout = () => dispatch => (
     )
 );
 
-export const signup = (user) => dispatch => (
-    Sutils.signup(user).then(
+export const signup = (user) => dispatch => {
+    return Sutils.signup(user).then(
         user => dispatch(receiveCurrentUser(user)),
         errors => (dispatch(receiveSessionErrors(errors.responseJSON)))
-    )
-);
+    );
+};
+    
 
  
