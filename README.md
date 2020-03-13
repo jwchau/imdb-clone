@@ -1,22 +1,26 @@
-# README
+# IMDB Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clone of the website Imdb.com: a site where users can create accounts, look up movie information, post reviews about movies, post ratings about movies, form watchlist lists containing movies, etc.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+Project is not reproducable on local machine due to the use of personalized API keys. An online version hosted in Herokuapp is accessable and functional through mi-imdb.herokuapp.com
 
-* System dependencies
+### Prerequisites
+* Ruby
+* Ruby on Rails
+* NPM
 
-* Configuration
+```
+npm install
+bundle install
+```
 
-* Database creation
+## Author
 
-* Database initialization
+* **John Chau** - [github](https://github.com/jwchau)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Acknowledgments
 
-* Deployment instructions
+* TBD
