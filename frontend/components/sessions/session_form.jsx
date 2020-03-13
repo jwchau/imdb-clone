@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
   }
 
   animateLogin(name) {
-    const speed = 75;
+    const speed = 50;
     if (this.state.username.length !== name.length) {
       const fillUsername = setInterval(() => {
         // console.log("filling username");
