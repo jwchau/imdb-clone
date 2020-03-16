@@ -6,6 +6,8 @@ import {shuffle} from '../../../util/util';
 
 //billboard components
 import BillboardItem from './billboard_item';
+import Loading from '../../loading/loading';
+
 
 class Billboard extends React.Component {
   constructor(props) {
@@ -76,7 +78,7 @@ class Billboard extends React.Component {
   }
 
   render() {
-    if (this.props.movies.length < this.state.numSlides) return (null);
+    if (this.props.movies.length < this.state.numSlides) return <Loading />;
 
     const bbItems = [];
     for (let i = 0; i < this.state.numSlides; i++) {

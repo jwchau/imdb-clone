@@ -36,26 +36,21 @@
   color: black;
   position: relative;
   background-color: rgba(255, 255, 255, 0.9);
-  transition: 0.5s;
+  transition: background-color 0.5s;
   &:focus{
     background-color: white;
-    transition: 0.5s;
+  }
+  &:hover {
+    background-color: red;
+  }
+
+  &:hover #movie-searched{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
-
-
-// .select {
-//   display: block;
-//   width: 110px;
-//   font-size: 16px;
-//   padding: 2px;
-//   font-family: $imdb-font;
-//   outline: none;
-// }
-
-// .select::-ms-expand {
-// 	display: none;
-// }
 
 #movie-searched {
   z-index: 1;
@@ -64,10 +59,7 @@
   top: 30px;
   left: 5%;
   padding: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: none;
   > li {
     padding: 5px;
     margin: 3px;
@@ -88,8 +80,3 @@
     background-color: rgba($hover-color, 0.7);
   }
 }
-
-// display: flex;
-// flex-direction: column;
-// justify-content: center;
-// align-items: center;

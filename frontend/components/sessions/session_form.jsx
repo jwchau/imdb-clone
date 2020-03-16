@@ -68,6 +68,9 @@ class SessionForm extends React.Component {
           this.setState({ password: pass.slice(0, this.state.password.length + 1) })
         } else {
           clearInterval(fillPassword);
+          const user = Object.assign({}, this.state);
+          this.props.processForm({ user });
+          this.setState({ username: "", password: "", email: "" });
         }
       }, speed);
     }

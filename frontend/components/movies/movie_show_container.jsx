@@ -28,12 +28,10 @@ class MovieShow extends React.Component {
 
     this.state = {
       formBool: false,
-      ratingBool: false,
     };
 
     this.toggleForm = this.toggleForm.bind(this);
     this.reviewForm = this.reviewForm.bind(this);
-    this.openRating = this.openRating.bind(this);
   }
 
   toggleForm() {
@@ -52,7 +50,7 @@ class MovieShow extends React.Component {
   }
 
   movieReviews() {
-    if (this.props.reviews.length === 0) return null;
+    if (this.props.reviews.length === 0) return <Loading />;
     const {users, ratings, currentuser} = this.props;
     const reviews = Object.values(this.props.reviews)
       .map(r => <Review
@@ -122,27 +120,20 @@ class MovieShow extends React.Component {
     if (this.props.currentuser !== undefined) {
       return (
         <div id='rating-button'>
-          <div id='open-rating' onClick={this.openRating}>
+          <div id='open-rating'>
             Rate Me!
-            <FontAwesomeIcon className='faStar' icon={faStar}/>
+            <FontAwesomeIcon id='rate-me-star' icon={faStar}/>
           </div>
-          {(this.state.ratingBool)
-            ? <Rating
+            <Rating
               userId={this.props.currentuser.id}
               movieId={this.props.movieId}
               postRating={this.props.postRating}
               editRating={this.props.editRating}
               userRating={this.getUserRating()}
             />
-            : null}
         </div>
       );
     }
-  }
-
-  openRating(e) {
-    e.preventDefault();
-    this.setState({ratingBool: !this.state.ratingBool});
   }
 
   render() {

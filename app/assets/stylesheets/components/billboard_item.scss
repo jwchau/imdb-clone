@@ -17,11 +17,13 @@
     height: 90%;
     width: 90%;
     cursor: pointer;
+    object-fit: contain;
   }
 
   video {
     height: 100%;
     width: 66.6666666666%;
+    object-fit: contain;
   }
 
 }

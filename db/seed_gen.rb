@@ -1,1 +1,4 @@
-table = CSV.parse(File.read("cats.csv"), headers: true)
+require 'csv'
+table = CSV.parse(File.read('imdb.csv'), headers: true)
+
+

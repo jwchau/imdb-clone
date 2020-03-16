@@ -110,7 +110,7 @@ class Review extends React.Component {
         <div id='review-info'>
           <Link to={`/users/${userId}`}>{username}</Link>
           {rating 
-            ? <div className='user-rating static'>{this.stars()}</div>
+            ? <div className='user-rating-static static'>{this.stars()}</div>
             : <p>Rating: N/A</p>}
           {(this.state.showEdit)
             ? null 

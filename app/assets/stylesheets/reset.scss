@@ -30,6 +30,11 @@ time, mark, audio, video {
     list-style: none;
 }
 
+
+.static {
+  pointer-events: none;
+}
+
 .dead {
     pointer-events: none;
     text-decoration: line-through;

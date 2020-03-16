@@ -1,6 +1,32 @@
+#open-rating {
+  transition: color ease-in-out 0.2s;
+
+  &:hover {
+    // text-shadow: 2px 2px 5px $button-color;
+    color: $button-color;
+  }
+}
+
+#rating-button {
+  &:hover .user-rating {
+    visibility: visible;
+    animation: growFromCenter ease-in-out 0.5s;
+  }
+}
+
 .user-rating {
   display: flex;
   flex-direction: row-reverse;
+  visibility: hidden;
+  &:hover {
+    visibility: visible;
+  }
+}
+
+.user-rating-static {
+  display: flex;
+  flex-direction: row-reverse;
+  visibility: visible;
 }
 
 #rating-button {
@@ -13,6 +39,7 @@
 .faStar {
   color: white;
   cursor: pointer;
+  transition: color 0.3333s;
 }
 
 .faStar:hover {
@@ -39,6 +66,3 @@
   }
 }
 
-.static {
-  pointer-events: none;
-}

@@ -17,14 +17,14 @@ class Rating extends React.Component {
   componentDidMount() {
     let rating = this.props.userRating;
     if (rating !== undefined && rating.score !== null) {
-      this.setState({star: 10 - this.props.userRating.score});
+      this.setState({star: 9 - this.props.userRating.score});
     }
   }
 
   componentDidUpdate() {
     this.clearChecked();
     const stars = document.getElementsByClassName('faStar');
-    stars[this.state.star + 1].classList.add('checked');
+    stars[this.state.star].classList.add('checked');
   }
 
   clearChecked() {

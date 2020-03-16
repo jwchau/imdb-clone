@@ -84,3 +84,56 @@
     );
   background-size: 5px, 100%;
 }
+
+@keyframes growFromCenter {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+@keyframes color-cycle-border {
+  0% { border-color: hsl(0, 100%, 50%) transparent hsl(0, 100%, 50%) transparent; }
+  5% { border-color: hsl(18, 100%, 50%) transparent hsl(18, 100%, 50%) transparent; }
+  10% { border-color: hsl(36, 100%, 50%) transparent hsl(36, 100%, 50%) transparent; }
+  15% { border-color: hsl(54, 100%, 50%) transparent  hsl(54, 100%, 50%) transparent; }
+  20% { border-color: hsl(72, 100%, 50%) transparent hsl(72, 100%, 50%) transparent; }
+  25% { border-color: hsl(90, 100%, 50%) transparent hsl(90, 100%, 50%) transparent; }
+  30% { border-color: hsl(108, 100%, 50%) transparent hsl(108, 100%, 50%) transparent; }
+  35% { border-color: hsl(126, 100%, 50%) transparent hsl(126, 100%, 50%) transparent; }
+  40% { border-color: hsl(144, 100%, 50%) transparent hsl(144, 100%, 50%) transparent; }
+  45% { border-color: hsl(162, 100%, 50%) transparent hsl(162, 100%, 50%) transparent; }
+  50% { border-color: hsl(180, 100%, 50%) transparent hsl(180, 100%, 50%) transparent; }
+  55% { border-color: hsl(198, 100%, 50%) transparent hsl(198, 100%, 50%) transparent; }
+  60% { border-color: hsl(216, 100%, 50%) transparent hsl(216, 100%, 50%) transparent; }
+  65% { border-color: hsl(234, 100%, 50%) transparent hsl(234, 100%, 50%) transparent; }
+  70% { border-color: hsl(252, 100%, 50%) transparent hsl(252, 100%, 50%) transparent; }
+  75% { border-color: hsl(270, 100%, 50%) transparent hsl(270, 100%, 50%) transparent; }
+  80% { border-color: hsl(288, 100%, 50%) transparent hsl(288, 100%, 50%) transparent; }
+  85% { border-color: hsl(306, 100%, 50%) transparent hsl(306, 100%, 50%) transparent; }
+  90% { border-color: hsl(324, 100%, 50%) transparent hsl(324, 100%, 50%) transparent; }
+  95% { border-color: hsl(342, 100%, 50%) transparent hsl(342, 100%, 50%) transparent; }
+  100% { border-color: hsl(360, 50%, 75%) transparent hsl(360, 100%, 50%) transparent; }
+}
+
+@keyframes color-cycle-background {
+  0% { background: hsl(0, 100%, 50%); }
+  5% { background: hsl(18, 100%, 50%); }
+  10% { background: hsl(36, 100%, 50%); }
+  15% { background: hsl(54, 100%, 50%); }
+  20% { background: hsl(72, 100%, 50%); }
+  25% { background: hsl(90, 100%, 50%); }
+  30% { background: hsl(108, 100%, 50%); }
+  35% { background: hsl(126, 100%, 50%); }
+  40% { background: hsl(144, 100%, 50%); }
+  45% { background: hsl(162, 100%, 50%); }
+  50% { background: hsl(180, 100%, 50%); }
+  55% { background: hsl(198, 100%, 50%); }
+  60% { background: hsl(216, 100%, 50%); }
+  65% { background: hsl(234, 100%, 50%); }
+  70% { background: hsl(252, 100%, 50%); }
+  75% { background: hsl(270, 100%, 50%); }
+  80% { background: hsl(288, 100%, 50%); }
+  85% { background: hsl(306, 100%, 50%); }
+  90% { background: hsl(324, 100%, 50%); }
+  95% { background: hsl(342, 100%, 50%); }
+  100% { background: hsl(360, 50%, 75%); }
+}

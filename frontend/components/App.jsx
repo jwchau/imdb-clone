@@ -13,6 +13,7 @@ import Watchlist from './frontpage/watchlist';
 import UserShowContainer from './users/user_show_container';
 import MovieShowContainer from './movies/movie_show_container';
 import AllMoviesContainer from './movies/all_movies_container';
+import Loading from "./loading/loading";
 
 //extra
 // import {fetchMovies} from '../actions/movies_action';
@@ -39,6 +40,7 @@ class App extends React.Component {
         <div id='fade-overlay'></div>
         <HeaderContainer />
         <Switch>
+          <Route exact path='/loading' component={Loading} />
           <AuthRoute path='/signin' component={SignInPage}/>
           <AuthRoute path='/signup' component={SignUpPage}/>
           <AuthRoute path='/login' component={LoginPage}/>

@@ -14,7 +14,8 @@ class ReviewForm extends React.Component {
 
   handleChange(e) {
     // e.preventDefault();
-    this.setState({body: e.target.value});
+    if (this.state.body.length < 1024)
+      this.setState({body: e.target.value});
   }
 
   handleSubmit(e) {
