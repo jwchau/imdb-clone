@@ -145,7 +145,7 @@ class MovieShow extends React.Component {
         <div className='information'>
           <span>{movie.title} ({movie.year})</span>
           {this.ratingButton()}
-          <div>{movie.score.toFixed(2)}</div>
+          {/* <div>{movie.score.toFixed(2)}</div> */}
         </div>
 
         <div id='movie-billboard'>

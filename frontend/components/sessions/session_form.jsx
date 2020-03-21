@@ -23,9 +23,9 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className='errors'>
         {this.props.errors.map((error, i) => (
-          <li className='errors' key={`error-${i}`}>
+          <li className='error' key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -81,8 +81,9 @@ class SessionForm extends React.Component {
     e.preventDefault();
     let { location, history } = this.props;
     if (location.pathname !== '/login') history.push('/login');
-
-    this.animateLogin(`guestuser${Math.ceil(Math.random() * 5)}`);
+    else {
+      this.animateLogin(`guestuser${Math.ceil(Math.random() * 5)}`);
+    }
   }
 
   inputEmail() {

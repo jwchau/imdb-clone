@@ -13,7 +13,12 @@
 }
 
 .errors {
-  font-size: 12px;
+  margin: 2px;
+}
+
+.error {
+  font-size: 16px;
+  padding: 4px 0;
   color: rgba($errors-color, 0.8);
 }
 

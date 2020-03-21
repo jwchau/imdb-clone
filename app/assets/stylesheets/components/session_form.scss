@@ -52,7 +52,6 @@
 }
 
 
-
 .input-div {
   height: 40px;
   position: relative;
@@ -61,6 +60,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 0 10px 0;
+
   > span {
     position: absolute;
     font-size: 20px;
@@ -82,24 +82,21 @@
     color: rgba(0, 0, 0, 0.9);
     text-indent: 25%;
     
-    &:focus {
-      
+    transition: all 0.2s ease;
+
+    &:focus, &:active {
       outline: none;
       border: 3px solid rgba(255, 166, 0, 0.9);
       box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.5);
-      transition: all 0.2s;
       +span {
         left: 5%;
-        text-indent: 0;
         font-size: 12px;
-        transition: all 0.2s ease;
       }
     }
 
     &:not(:focus):valid+span {
-      text-indent: 0;
       font-size: 12px;
-      transition: 0.2s ease all;;
+      left: 5%;
     }
   }
 

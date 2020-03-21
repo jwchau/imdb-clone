@@ -1,12 +1,19 @@
 .billboard {
     width: 90%;
-    height: 530px;
+    height: 60vh;
     padding: 2px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    > h1 {
+      font-size: 64px;
+      border-bottom: 1px solid rgba($button-color, 0.6);
+      width: 80%;
+      text-align: center;
+    }
 }
 
 .slides {

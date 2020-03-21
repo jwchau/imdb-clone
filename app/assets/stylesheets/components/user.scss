@@ -1,0 +1,12 @@
+.user-show {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > h1 {
+    font-size: 64px;
+    color: $button-color;
+  }
+}

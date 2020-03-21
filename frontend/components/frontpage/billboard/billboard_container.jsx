@@ -93,6 +93,7 @@ class Billboard extends React.Component {
     
     return(
       <div className='billboard'>
+        <h1>Movies</h1>
         <div className='slides slideshow-container'>
           {bbItems}
           <div className='nav-buttons'>

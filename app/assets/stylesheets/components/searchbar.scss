@@ -40,16 +40,16 @@
   &:focus{
     background-color: white;
   }
-  &:hover {
-    background-color: red;
-  }
+  // &:hover {
+  //   background-color: red;
+  // }
 
-  &:hover #movie-searched{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  // &:hover #movie-searched{
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
 }
 
 #movie-searched {
@@ -59,7 +59,10 @@
   top: 30px;
   left: 5%;
   padding: 5px;
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   > li {
     padding: 5px;
     margin: 3px;
