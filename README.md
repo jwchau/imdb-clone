@@ -20,6 +20,11 @@ Project is not reproducable on local machine due to the use of personalized API 
 * run `npm install` and `bundle install`
 * open code using prefered text editor
 
+### Let's take a look
+
+
+
+
 ## Challenges
 
 * Due to the large amount of data this project naturally encompasses I needed a programmative solution to seed the database.
