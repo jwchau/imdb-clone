@@ -36,6 +36,7 @@ class Searchbar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    //TODO
     // if (this.state.searchterm === "") return;
     // else {
     //   this.props.history.push(`/movies`);
