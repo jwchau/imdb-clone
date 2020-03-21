@@ -15,6 +15,16 @@
   > div {
     padding: 12px;
   }
+
+  > a {
+    color: rgba($button-color, 0.9);
+    transition: all 0.25s ease-in-out;
+    border-radius: 10px;
+    &:hover {
+      color: $button-color;
+      box-shadow: 0 0 1px 5px rgba($button-color, 0.5);
+    }
+  }
 }
 
 .misc {
@@ -54,6 +64,7 @@
 }
 
 .fai {
+  margin: 0 5px;
   font-size: 64px;
   padding: 8px;
 }

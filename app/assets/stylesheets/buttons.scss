@@ -4,16 +4,16 @@
 .imdb-button {
   min-height: 40px;
   width: 100%;
-  background-color: rgba($button-color, 0.7);
+  background-color: rgba($button-color, 0.9);
   border-radius: 5px;
   margin-top: 5px;
   font-weight: bold;
   color: black;
   cursor: pointer;
-  transition: box-shadow 0.5s;
+  transition: box-shadow 0.25s;
 
   &:hover {
-    box-shadow: 0px 0px 5px 2px hsl(42, 100%, 50%);
+    box-shadow: 0px 0px 5px 2px hsl(42, 100%, 75%);
   }
 }
 

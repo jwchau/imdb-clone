@@ -12,14 +12,18 @@ class Footer extends React.Component {
         return(
             <footer id='footer'>
                 <div className='social-media'>
-                    <FontAwesomeIcon key={0} className='fai github' icon={faGithub}/>
-                    {/* https://github.com/jwchau */}
-                    <FontAwesomeIcon key={1} className='fai faLinkedin' icon={faLinkedin}/>
-                    {/* https://linkedin.com/in/jwchau */}
-                    <FontAwesomeIcon key={1} className='fai faAngellist' icon={faAngellist}/>
-                    {/* https://angel.co/john-chau-4 */}
-                    
-                    {/* <div className='icon'><img src={window.instaURL} /></div> */}
+                    <a href='https://github.com/jwchau'>
+                        <FontAwesomeIcon key={0} className='fai github' icon={faGithub}/>
+                    </a>
+                    <a href="https://linkedin.com/in/jwchau">
+                        <FontAwesomeIcon key={1} className='fai faLinkedin' icon={faLinkedin}/>
+                    </a>
+                    <a href="https://angel.co/john-chau-4">
+                        <FontAwesomeIcon key={1} className='fai faAngellist' icon={faAngellist}/>
+                    </a>
+                    {/* <a href="https://www.instagram.com/johnseeyaa/?hl=en">
+                        <div className='icon'><img src={window.instaURL} /></div>
+                    </a> */}
                 </div>
 
                 <div className='dead misc'>
