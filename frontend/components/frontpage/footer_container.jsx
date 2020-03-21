@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faAngellist } from '@fortawesome/free-brands-svg-icons';
 
 class Footer extends React.Component {
     constructor(props) {
@@ -10,14 +12,17 @@ class Footer extends React.Component {
         return(
             <footer id='footer'>
                 <div className='social-media'>
-                    <div className='icon'><img src={window.fbURL}/></div>
-                    <div className='icon'><img src={window.instaURL} /></div>
-                    <div className='icon'><img src={window.twitchURL} /></div>
-                    <div className='icon'><img src={window.twitterURL}/></div>
-                    <div className='icon'><img src={window.youtubeURL} /></div>
+                    <FontAwesomeIcon key={0} className='fai github' icon={faGithub}/>
+                    {/* https://github.com/jwchau */}
+                    <FontAwesomeIcon key={1} className='fai faLinkedin' icon={faLinkedin}/>
+                    {/* https://linkedin.com/in/jwchau */}
+                    <FontAwesomeIcon key={1} className='fai faAngellist' icon={faAngellist}/>
+                    {/* https://angel.co/john-chau-4 */}
+                    
+                    {/* <div className='icon'><img src={window.instaURL} /></div> */}
                 </div>
 
-                <div className='misc'>
+                <div className='dead misc'>
                     <div className='misc-link'>Get the IMDb App</div>
                     <div className='misc-link'>Help</div>
                     <div className='misc-link'>Site Index</div>
@@ -28,7 +33,7 @@ class Footer extends React.Component {
                     <div className='misc-link'>Advertising</div>
                 </div>
 
-                <div className='misc'>
+                <div className='dead misc'>
                     <div className='misc-link'>Jobs</div>
                     <div className='misc-link'>Conditions of Use</div>
                     <div className='misc-link'>Privacy Policy</div>

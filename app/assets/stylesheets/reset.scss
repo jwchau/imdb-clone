@@ -38,6 +38,11 @@ time, mark, audio, video {
 .dead {
     pointer-events: none;
     text-decoration: line-through;
+
+    * {
+        pointer-events: none;
+        text-decoration: line-through;
+    }
 }
 
 .show {

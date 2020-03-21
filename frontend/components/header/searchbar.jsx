@@ -70,17 +70,6 @@ class Searchbar extends React.Component {
     return ( 
       <nav id='header-searchbar'>
        <form onSubmit={this.handleSubmit} className='search-form'>
-          {/* <div id='search-filter'>
-            <select className='select' onChange={(e) => this.onSelect(e.target.value)}>
-              <option value="all">All</option>
-              <option value="titles">Titles</option>
-              <option value="tv">Television</option>
-              <option value="celebs">Celebs</option>
-              <option value="companies">Companies</option>
-              <option value="keyword">Keyword</option>
-            </select>
-          </div> */}
-
           <input className='input-text'
             onChange={this.handleSearch}
             type="text" name="searchterm"

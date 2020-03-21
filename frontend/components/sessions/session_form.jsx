@@ -142,7 +142,7 @@ class SessionForm extends React.Component {
       let forgotPassword = ("")
       if (this.props.formType === 'login') {
         forgotPassword = (
-          <Link to='/forgotpassword'>Forgot your password?</Link>
+          <Link className='dead hyperlink' to='/forgotpassword'>Forgot your password?</Link>
         );
       }
 
@@ -152,9 +152,9 @@ class SessionForm extends React.Component {
         </div>
       );
 
-      let reverseLink = (<Link to='/signup'>Create your IMDb account</Link>);
+      let reverseLink = (<Link className='hyperlink' to='/signup'>Create your IMDb account</Link>);
       if (this.props.formType === 'signup')
-        reverseLink = (<Link to='/login'>Already have an account? Sign-in</Link>);
+        reverseLink = (<Link className='hyperlink' to='/login'>Already have an account? Sign-in</Link>);
 
       const title = (this.props.formType === "login") ? "Sign-In" : "Create account";
 
