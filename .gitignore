@@ -83,3 +83,5 @@ yarn-debug.log*
 # credentials*
 # Ignore application configuration
 /config/application.yml
+
+the-movies-dataset/
