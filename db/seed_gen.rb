@@ -24,8 +24,8 @@ table = CSV.parse(File.read('./the-movies-dataset/movies_metadata.csv'), headers
 # File.open("test.rb", "w") do |f|
 #   f.write("Movie.import(\n[:id, :title, :year, :score],\n[")
 #   for i in 0..5000 do
-#     id = table[i][1].gsub(/[^0-9]/,'')
-#     name = table[i][2].gsub(/[^a-z ]/i,'').strip
+#     id = table[i][6].gsub(/[^0-9]/,'')
+#     name = table[i][8].gsub(/[^a-z ]/i,'').strip
 #     year = table[i][8].to_i
 #     score = table[i][5].to_f
 #     f.write("[")
