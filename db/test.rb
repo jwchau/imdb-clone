@@ -1,3 +1,15 @@
 Movie.import(
 [:id, :title, :year, :score],
-[
+[[The Big Red One],
+[Das dreckige Dutzend],
+[Brotherhood],
+[Das Reich der Sonne],
+[Indignes],
+[Memphis Belle],
+[Hamburger Hill],
+[U],
+[King of Texas TV Movie],
+[Alien],
+[Pandorum],
+[Contagion],
+])
