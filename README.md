@@ -22,11 +22,13 @@ Project is not reproducable on local machine due to the use of personalized API 
 
 ### Let's take a look
 
+## screenshots
 ![main-page](https://github.com/jwchau/imdb-clone/blob/master/github_readme/main-page.png)
 ![signin](https://github.com/jwchau/imdb-clone/blob/master/github_readme/signin.png)
-![signup](https://github.com/jwchau/imdb-clone/blob/master/github_readme/signup.png)
 ![login](https://github.com/jwchau/imdb-clone/blob/master/github_readme/login.png)
 ![movie-show](https://github.com/jwchau/imdb-clone/blob/master/github_readme/movie-show.png)
+
+## code
 
 
 ## Challenges
