@@ -40,7 +40,7 @@ class App extends React.Component {
         <div id='fade-overlay'></div>
         <HeaderContainer />
         <Switch>
-          <Route exact path='/loading' component={Loading} />
+          <Route exact path='/loading' component={Loading}/>
           <AuthRoute path='/signin' component={SignInPage}/>
           <AuthRoute path='/signup' component={SignUpPage}/>
           <AuthRoute path='/login' component={LoginPage}/>
@@ -50,7 +50,7 @@ class App extends React.Component {
           <Route path='/movies' component={AllMoviesContainer}/>
           <Route path='/' component={BillboardContainer}/>
         </Switch>
-        <FooterContainer />
+        <Route exact path='/' component={FooterContainer}/>
       </div>
     );
   }

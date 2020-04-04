@@ -38,6 +38,15 @@ export const deleteReview = review => ({
   review
 });
 
+//https://image.tmdb.org/t/p/w600_and_h900_bestv2/${img_url}
+
+export const fetchMoviesAPI = () => dispatch => {
+  return Mutils.fetchMoviesAPI().then(
+    movies => dispatch(receiveAllMovies(movies)),
+    errors => dispatch(receiveMovieErrors(errors))
+  );
+}
+
 export const fetchMovies = () => dispatch => (
   Mutils.fetchMovies().then(
     movies => dispatch(receiveAllMovies(movies)),

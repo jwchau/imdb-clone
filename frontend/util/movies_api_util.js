@@ -1,9 +1,18 @@
+export const fetchMoviesAPI = () => {
+  let key = "f850a0ee7a817202212394a72e760dfa";
+  return $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`
+  });
+}
+
 export const fetchMovies = () => (
   $.ajax({
     method: 'GET',
     url: '/api/movies',
   })
 );
+
 export const getMovie = movieId => (
   $.ajax({
     method: 'GET',

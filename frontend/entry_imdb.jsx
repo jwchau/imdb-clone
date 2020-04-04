@@ -3,6 +3,10 @@ import configureStore from "./store/store";
 import Root from "./components/root";
 import React from 'react';
 
+
+//testing
+//eot
+
 document.addEventListener("DOMContentLoaded", () => {
     let store;
     if (window.currentUser) {
@@ -19,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // window.dispatch = store.dispatch;
-    // window.getState = store.getState;
+    window.getState = store.getState;
+    // window.fetchMoviesAPI = fetchMoviesAPI;
 
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store} />, root);

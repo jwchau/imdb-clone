@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {fetchMovies} from '../../../actions/movies_action';
+import {fetchMovies, fetchMoviesAPI} from '../../../actions/movies_action';
 import {shuffle} from '../../../util/util';
 
 //billboard components
@@ -69,7 +69,9 @@ class Billboard extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMovies();
+    // this.props.fetchMovies();
+    this.props.fetchMoviesAPI();
+
     this.showSlide(1);
   }
 
@@ -116,6 +118,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchMovies: () => dispatch(fetchMovies()),
+  fetchMoviesAPI: () => dispatch(fetchMoviesAPI()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Billboard);

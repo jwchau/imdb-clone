@@ -47,8 +47,8 @@ class Footer extends React.Component {
 
                 
 
-                <div className='company-logo'> ∞ </div>
-                <div className='founded'>© 1900-2077 by John, Inc.</div>
+                {/* <div className='company-logo'> ∞ </div> */}
+                <div className='founded'>© 2020 by John</div>
             </footer>
         );
     }

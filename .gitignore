@@ -85,3 +85,4 @@ yarn-debug.log*
 /config/application.yml
 
 the-movies-dataset/
+application.yml
