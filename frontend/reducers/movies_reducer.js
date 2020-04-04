@@ -33,7 +33,8 @@ const convertMovies = (movies) => {
       year: cut(data.release_date),
       score: data.vote_average,
       posterUrl: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`,
-      trailerUrl: 'https://www.youtube.com/embed/jKCj3XuPG8M',
+      // trailerUrl: 'https://www.youtube.com/embed/jKCj3XuPG8M',
+      trailerUrl: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`
     };
     res[data.id] = movie;
   }

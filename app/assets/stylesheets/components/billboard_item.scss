@@ -19,11 +19,33 @@
     cursor: pointer;
     object-fit: contain;
   }
-
-  .trailer {
+  
+  > div {
     height: 100%;
-    width: 66.6666666666%;
-    object-fit: contain;
+    width: 66.6666%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    > .empty {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    > .trailer {
+      width: 90%;
+      height: 90%;
+      border-radius: 10px;
+      object-fit: cover;
+      filter: blur(10px);
+    }
   }
 
 }
