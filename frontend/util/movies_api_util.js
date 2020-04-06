@@ -1,8 +1,31 @@
-export const fetchMoviesAPI = () => {
-  let key = "f850a0ee7a817202212394a72e760dfa";
+const TMDB_KEY = "f850a0ee7a817202212394a72e760dfa";
+
+export const fetchUpcoming = () => {
+  // debugger
   return $.ajax({
     method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`
+    url: `https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_KEY}&language=en-US&page=1`
+  });
+}
+
+export const fetchNowPlaying = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_KEY}&language=en-US&page=1`
+  });
+}
+
+export const fetchPopular = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_KEY}&language=en-US&page=1`
+  });
+}
+
+export const fetchTopRated = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/top_rated?api_key=${TMDB_KEY}&language=en-US&page=1`
   });
 }
 

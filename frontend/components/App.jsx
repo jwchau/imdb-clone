@@ -2,10 +2,12 @@ import React from "react";
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
+//bootstrap
+
 //components
 import SignInPage from './sessions/signin_container';
 import HeaderContainer from './header/header_container';
-import BillboardContainer from './frontpage/billboard/billboard_container';
+import FrontPageContainer from './frontpage/frontpage_container';
 import FooterContainer from './frontpage/footer_container';
 import SignUpPage from './sessions/signup_container';
 import LoginPage from './sessions/login_container';
@@ -48,7 +50,7 @@ class App extends React.Component {
           <ProtectedRoute path='/watchlist' component={Watchlist}/>
           <Route path='/movies/:id' component={MovieShowContainer}/>
           <Route path='/movies' component={AllMoviesContainer}/>
-          <Route path='/' component={BillboardContainer}/>
+          <Route path='/' component={FrontPageContainer}/>
         </Switch>
         <Route exact path='/' component={FooterContainer}/>
       </div>

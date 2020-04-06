@@ -1,13 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import {fetchMovies, fetchMoviesAPI} from '../../../actions/movies_action';
-import {shuffle} from '../../../util/util';
 
 //billboard components
 import BillboardItem from './billboard_item';
 import Loading from '../../loading/loading';
-
 
 class Billboard extends React.Component {
   constructor(props) {
@@ -69,9 +65,7 @@ class Billboard extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchMovies();
-    this.props.fetchMoviesAPI();
-
+    this.props.fetchMoviesType();
     this.showSlide(1);
   }
 
@@ -94,7 +88,7 @@ class Billboard extends React.Component {
     }
     
     return(
-      <div className='billboard'>
+      <div className={`billboard ${this.props.name}`}>
         <div className='slides slideshow-container'>
           {bbItems}
           <div className='nav-buttons'>
@@ -113,12 +107,11 @@ class Billboard extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
-  movies: shuffle(Object.values(state.entities.movies)),
+  movies: Object.values(state.entities.movies),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchMovies: () => dispatch(fetchMovies()),
-  fetchMoviesAPI: () => dispatch(fetchMoviesAPI()),
+  // fetchMovies: () => dispatch(fetchMovies()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Billboard);

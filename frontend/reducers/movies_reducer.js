@@ -8,8 +8,8 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_MOVIES:
-      return convertMovies(action.movies.results);
-      // return action.movies;
+    const newState = merge({}, state, convertMovies(action.movies.results));  
+    return newState
     case RECEIVE_MOVIE:
       return merge({}, state, {movie: action.payload.movie});
     default:

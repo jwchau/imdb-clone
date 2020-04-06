@@ -40,8 +40,30 @@ export const deleteReview = review => ({
 
 //https://image.tmdb.org/t/p/w600_and_h900_bestv2/${img_url}
 
-export const fetchMoviesAPI = () => dispatch => {
-  return Mutils.fetchMoviesAPI().then(
+export const fetchUpcoming = () => dispatch => {
+  // debugger
+  return Mutils.fetchUpcoming().then(
+    movies => dispatch(receiveAllMovies(movies)),
+    errors => dispatch(receiveMovieErrors(errors))
+  );
+}
+
+export const fetchNowPlaying = () => dispatch => {
+  return Mutils.fetchNowPlaying().then(
+    movies => dispatch(receiveAllMovies(movies)),
+    errors => dispatch(receiveMovieErrors(errors))
+  );
+}
+
+export const fetchPopular = () => dispatch => {
+  return Mutils.fetchPopular().then(
+    movies => dispatch(receiveAllMovies(movies)),
+    errors => dispatch(receiveMovieErrors(errors))
+  );
+}
+
+export const fetchTopRated = () => dispatch => {
+  return Mutils.fetchTopRated().then(
     movies => dispatch(receiveAllMovies(movies)),
     errors => dispatch(receiveMovieErrors(errors))
   );
