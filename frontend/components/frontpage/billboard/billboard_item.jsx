@@ -9,8 +9,8 @@ export default ({movie}) => {
       <Link movie={movie} to={`/movies/${movie.id}`}>
         <img src={movie.posterUrl} alt={movie.title}></img>
       </Link>
-      <div>
-        <img className='trailer' src={movie.trailerUrl}></img>
+      <div className='trailer'>
+        <img className='blur-me' src={movie.trailerUrl}></img>
         <div className='empty'>
           <svg version="1.1" id="play" xmlns="http://www.w3.org/2000/svg"
             xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100px" width="100px"
