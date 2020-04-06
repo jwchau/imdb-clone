@@ -1,10 +1,9 @@
-.app {
-  position: relative;
-  width: 100vw;
-}
-
 #frontpage {
-  width: 100%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   a.carousel-control-next, a.carousel-control-prev {
     border-radius: 2rem;
@@ -24,7 +23,15 @@
 
 .billboard {
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  margin: 3% 0;
+  box-shadow: 0 0 10px 5px rgba($button-color, 1);
+
+  > h1 {
+    letter-spacing: 10px;
+  }
 }

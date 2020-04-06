@@ -17,15 +17,16 @@ class Frontpage extends Component {
   componentDidMount() {
     this.props.fetchPopular();
     this.props.fetchTopRated();
+    this.props.fetchUpcoming();
   }
 
   render() {
     return (
       <div id='frontpage'>
+        <BillboardContainer name='Upcoming'/>
         <BillboardContainer name='Popular'/>
         <BillboardContainer name='Top Rated'/>
 
-        {/* <BillboardContainer name='Upcoming' fetchMoviesType={this.props.fetchUpcoming}/> */}
         {/* <BillboardContainer name='now-playing' fetchMoviesType={this.props.fetchNowPlaying}/> */}
       </div>
     );

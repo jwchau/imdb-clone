@@ -20,11 +20,12 @@ class Billboard extends Component {
   }
 
   setMovies() {
-    debugger
     if (this.props.name.toLowerCase() === 'popular') {
       this.movies = Object.values(this.props.movies.popular);
     } else if (this.props.name.toLowerCase() === 'top rated') {
       this.movies = Object.values(this.props.movies.topRated);
+    } else if (this.props.name.toLowerCase() === 'upcoming') {
+      this.movies = Object.values(this.props.movies.upcoming);
     }
   }
 
@@ -46,7 +47,7 @@ class Billboard extends Component {
   }
 
   render() {
-    if (Object.values(this.props.movies).length < 2) return <Loading />;
+    if (Object.values(this.props.movies).length < 3) return <Loading />;
     this.setMovies();
     const temp = this.movieItems();
     return (
