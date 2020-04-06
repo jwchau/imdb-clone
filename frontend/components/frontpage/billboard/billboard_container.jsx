@@ -59,11 +59,6 @@ class Billboard extends React.Component {
       dots[slideIndex - 1].className += " active";
   }
 
-  stopVid() {
-    const trailers = document.getElementsByClassName("trailer");
-    Array.from(trailers).forEach(trailer => trailer.pause());
-  }
-
   componentDidMount() {
     this.props.fetchMoviesType();
     this.showSlide(1);
@@ -103,7 +98,6 @@ class Billboard extends React.Component {
     );
   }
 }
-// <Link to='/explore'>Explore</Link>
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -111,7 +105,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fetchMovies: () => dispatch(fetchMovies()),
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Billboard);

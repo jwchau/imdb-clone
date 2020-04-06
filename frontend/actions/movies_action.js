@@ -41,7 +41,6 @@ export const deleteReview = review => ({
 //https://image.tmdb.org/t/p/w600_and_h900_bestv2/${img_url}
 
 export const fetchUpcoming = () => dispatch => {
-  // debugger
   return Mutils.fetchUpcoming().then(
     movies => dispatch(receiveAllMovies(movies)),
     errors => dispatch(receiveMovieErrors(errors))
