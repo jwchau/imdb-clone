@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 //bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import './App.scss';
 
 //components
 import SignInPage from './sessions/signin_container';

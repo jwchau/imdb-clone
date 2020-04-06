@@ -1,43 +1,46 @@
-import React from 'react';
+import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
 
 //billboard components
 import BillboardItem from './billboard_item';
 import Loading from '../../loading/loading';
+import Carousel from 'react-bootstrap/Carousel'
 
-class Billboard extends React.Component {
+class Billboard extends Component {
   constructor(props) {
     super(props);
 
+    this.movieItems = this.movieItems.bind(this);
     };
 
   componentDidMount() {
-    // this.props.fetchMoviesType();
-  }
-
-  componentDidUpdate() {
-
+    this.props.fetchMoviesType();
   }
 
   movieItems() {
-    const bbItems = [];
-    for (let i = 0; i < this.state.numSlides; i++) {
+    const caroItems = [];
+    for (let i = 0; i < this.props.movies.length; i++) {
       const movie = this.props.movies[i];
-      bbItems.push(<BillboardItem key={movie.id} movie={movie}/>);
+      caroItems.push(
+        <Carousel.Item key={i}>
+          <BillboardItem key={movie.id} movie={movie}/>
+          <Carousel.Caption>
+            <h3>movie derp derp</h3>
+            <p>derp derp derp derp derp derrp derp ederp durp</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      );
     }
-    return bbItems;
+    return caroItems;
   }
 
   render() {
     if (this.props.movies.length < 1) return <Loading />;
-
-    return(
-      <div >
-        <div className='nav-buttons'>
-          <a className="prev">&#10094;</a>
-          <a className="next">&#10095;</a>
-        </div>
-      </div>
+    const temp = this.movieItems();
+    return (
+      <Carousel>
+        {temp}
+      </Carousel>
     );
   }
 }

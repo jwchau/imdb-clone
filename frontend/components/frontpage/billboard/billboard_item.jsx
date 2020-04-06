@@ -4,14 +4,11 @@ import {Link} from 'react-router-dom';
 export default ({movie}) => {
 
   return (
-    <div className='billboard-item slide mySlides fade'>
+    // <div className='billboard-item slide mySlides fade'>
+    <div className='billboard-item'>
       <Link movie={movie} to={`/movies/${movie.id}`}>
         <img src={movie.posterUrl} alt={movie.title}></img>
       </Link>
-      {/* <video className='trailer' controls autoPlay='autoplay' muted>
-        <source src={movie.trailerUrl} type="video/mp4"/>
-      </video> */}
-      {/* <iframe className='trailer' src={movie.trailerUrl}></iframe> */}
       <div>
         <img className='trailer' src={movie.trailerUrl}></img>
         <div className='empty'>

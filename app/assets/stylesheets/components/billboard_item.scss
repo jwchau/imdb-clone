@@ -1,51 +1,10 @@
 .billboard-item {
-  position: static;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
 
-  > a {
-    height: 100%;
-    width: 33.333333%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+}
 
-  img {
-    height: 90%;
-    width: 90%;
-    cursor: pointer;
-    object-fit: contain;
-  }
-  
-  > div {
-    height: 100%;
-    width: 66.6666%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    > .empty {
-      position: absolute;
-      width: 90%;
-      height: 90%;
-      border-radius: 10px;
-      background-color: rgba(255, 255, 255, 0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    > .trailer {
-      width: 90%;
-      height: 90%;
-      border-radius: 10px;
-      object-fit: cover;
-      filter: blur(10px);
-    }
-  }
-
+.trailer {
+  filter: blur(10px);
 }
