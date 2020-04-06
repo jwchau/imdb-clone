@@ -1,7 +1,7 @@
 const TMDB_KEY = "f850a0ee7a817202212394a72e760dfa";
 
 export const fetchUpcoming = () => {
-  // debugger
+  debugger
   return $.ajax({
     method: 'GET',
     url: `https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_KEY}&language=en-US&page=1`
@@ -9,6 +9,7 @@ export const fetchUpcoming = () => {
 }
 
 export const fetchNowPlaying = () => {
+  debugger
   return $.ajax({
     method: 'GET',
     url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_KEY}&language=en-US&page=1`
