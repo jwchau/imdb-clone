@@ -13,11 +13,20 @@ import {
 import BillboardContainer from './billboard/billboard_container';
 
 class Frontpage extends Component {
+
+  componentDidMount() {
+    this.props.fetchPopular();
+    this.props.fetchTopRated();
+  }
+
   render() {
     return (
       <div id='frontpage'>
-        <BillboardContainer name='upcoming' fetchMoviesType={this.props.fetchUpcoming}/>
-        <BillboardContainer name='now-playing' fetchMoviesType={this.props.fetchNowPlaying}/>
+        <BillboardContainer name='Popular'/>
+        <BillboardContainer name='Top Rated'/>
+
+        {/* <BillboardContainer name='Upcoming' fetchMoviesType={this.props.fetchUpcoming}/> */}
+        {/* <BillboardContainer name='now-playing' fetchMoviesType={this.props.fetchNowPlaying}/> */}
       </div>
     );
   }
@@ -30,6 +39,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   fetchUpcoming: () => dispatch(fetchUpcoming()),
   fetchNowPlaying: () => dispatch(fetchNowPlaying()),
+  fetchPopular: () => dispatch(fetchPopular()),
+  fetchTopRated: () => dispatch(fetchTopRated()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Frontpage);

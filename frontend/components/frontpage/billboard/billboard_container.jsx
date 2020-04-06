@@ -10,17 +10,28 @@ class Billboard extends Component {
   constructor(props) {
     super(props);
 
+    this.movies = [];
     this.movieItems = this.movieItems.bind(this);
+    this.setMovies = this.setMovies.bind(this);
     };
 
   componentDidMount() {
-    this.props.fetchMoviesType();
+
+  }
+
+  setMovies() {
+    debugger
+    if (this.props.name.toLowerCase() === 'popular') {
+      this.movies = Object.values(this.props.movies.popular);
+    } else if (this.props.name.toLowerCase() === 'top rated') {
+      this.movies = Object.values(this.props.movies.topRated);
+    }
   }
 
   movieItems() {
     const caroItems = [];
-    for (let i = 0; i < this.props.movies.length; i++) {
-      const movie = this.props.movies[i];
+    for (let i = 0; i < this.movies.length; i++) {
+      const movie = this.movies[i];
       caroItems.push(
         <Carousel.Item key={i}>
           <BillboardItem key={movie.id} movie={movie}/>
@@ -35,19 +46,24 @@ class Billboard extends Component {
   }
 
   render() {
-    if (this.props.movies.length < 1) return <Loading />;
+    if (Object.values(this.props.movies).length < 2) return <Loading />;
+    this.setMovies();
     const temp = this.movieItems();
     return (
-      <Carousel>
-        {temp}
-      </Carousel>
+      <div className='billboard'>
+        <h1>{this.props.name}</h1>
+        <Carousel>
+          {temp}
+        </Carousel>
+      </div>
+
     );
   }
 }
 
 
 const mapStateToProps = (state, ownProps) => ({
-  movies: Object.values(state.entities.movies),
+  movies: state.entities.movies,
 });
 
 const mapDispatchToProps = dispatch => ({

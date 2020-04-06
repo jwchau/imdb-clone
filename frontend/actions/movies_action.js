@@ -7,9 +7,10 @@ export const RECEIVE_MOVIE_ERRORS = 'RECEIVE_MOVIE_ERRORS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
 
-export const receiveAllMovies = movies => ({
+export const receiveAllMovies = (movies, source) => ({
   type: RECEIVE_ALL_MOVIES,
-  movies
+  movies,
+  source
 });
 
 export const receiveMovie = payload => ({
@@ -42,28 +43,28 @@ export const deleteReview = review => ({
 
 export const fetchUpcoming = () => dispatch => {
   return Mutils.fetchUpcoming().then(
-    movies => dispatch(receiveAllMovies(movies)),
+    movies => dispatch(receiveAllMovies(movies, 'upcoming')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
 
 export const fetchNowPlaying = () => dispatch => {
   return Mutils.fetchNowPlaying().then(
-    movies => dispatch(receiveAllMovies(movies)),
+    movies => dispatch(receiveAllMovies(movies, 'nowPlaying')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
 
 export const fetchPopular = () => dispatch => {
   return Mutils.fetchPopular().then(
-    movies => dispatch(receiveAllMovies(movies)),
+    movies => dispatch(receiveAllMovies(movies, 'popular')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
 
 export const fetchTopRated = () => dispatch => {
   return Mutils.fetchTopRated().then(
-    movies => dispatch(receiveAllMovies(movies)),
+    movies => dispatch(receiveAllMovies(movies, 'topRated')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
