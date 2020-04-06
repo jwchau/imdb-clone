@@ -17,7 +17,7 @@ class Frontpage extends Component {
     return (
       <div id='frontpage'>
         <BillboardContainer name='upcoming' fetchMoviesType={this.props.fetchUpcoming}/>
-        <BillboardContainer name='now-playing' fetchMoviesType={this.props.fetchNowPlaying}/>
+        {/* <BillboardContainer name='now-playing' fetchMoviesType={this.props.fetchNowPlaying}/> */}
       </div>
     );
   }
