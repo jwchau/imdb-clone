@@ -1,5 +1,5 @@
 #frontpage {
-  width: 95%;
+  width: 98%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,7 @@
   align-items: center;
 
   margin: 3% 0;
-  box-shadow: 0 0 10px 5px rgba($button-color, 1);
+  box-shadow: 0 0 15px 6px rgba($button-color, 1);
 
   > h1 {
     letter-spacing: 10px;
