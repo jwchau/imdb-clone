@@ -12,6 +12,7 @@
   > * {
     border-radius: 1px 2px 3px 4px;
   }
+
   > input[type=submit] {
     background-color: transparent;
     border: none;
@@ -26,6 +27,7 @@
       background-color: rgba($hover-color, 0.15);
     }
   }
+
 }
 
 .input-text {
@@ -37,19 +39,13 @@
   position: relative;
   background-color: rgba(255, 255, 255, 0.9);
   transition: background-color 0.5s;
-  &:focus{
+  &:focus {
     background-color: white;
   }
-  // &:hover {
-  //   background-color: red;
-  // }
 
-  // &:hover #movie-searched{
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  // }
+  &:not(:focus) + #movie-searched {
+    display: none;
+  }
 }
 
 #movie-searched {
