@@ -36,13 +36,15 @@ class Searchbar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    return;
     //TODO
-    // if (this.state.searchterm === "") return;
-    // else {
-    //   this.props.history.push(`/movies`);
-    //   this.setState({searchterm: "", results: []});
-    // }
+    if (this.state.searchterm === "") return;
+    else {
+      //push results into redux store;
+      // this.props.pushMovies(this.state.results);
+      this.props.history.push(`/movies`);
+      this.setState({searchterm: "", results: []});
+    }
   }
 
   onSelect(value) {

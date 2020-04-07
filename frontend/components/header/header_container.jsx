@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
+  // pushMovies: (movies) => dispatch(pushMovies()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

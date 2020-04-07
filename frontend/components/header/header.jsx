@@ -1,16 +1,13 @@
 import React from 'react';
 import {
-//   BrowserRouter as Router,
   Link,
-//   Route,
-//   Switch,
 } from 'react-router-dom';
 
 //header buttons
-import Menu from './menu';
+// import Menu from './menu';
 import Searchbar from './searchbar';
-import Logo from './logo';
-import WatchlistButton from './watchlistbutton';
+// import Logo from './logo';
+// import WatchlistButton from './watchlistbutton';
 import LoginButton from './loginbutton';
 
 class Header extends React.Component {
@@ -48,7 +45,7 @@ class Header extends React.Component {
         <Link to='/'><img className='header-logo' src={window.imdbLogoURL}/></Link>
         {/* <Menu className='dead'/> */}
         {/* <Link className='dead' to='/imdbtv'><Logo pic={window.imdbTvURL}/></Link> */}
-        <Searchbar/>
+        <Searchbar />
         {/* <Link className='dead' to='/imdbpro'><Logo pic={window.imdbProURL}/></Link> */}
         {/* <Link className='dead' to='/watchlist'><WatchlistButton /></Link> */}
         {/* conditionally signed in already */}
