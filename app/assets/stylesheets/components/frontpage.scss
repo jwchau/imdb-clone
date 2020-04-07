@@ -8,17 +8,12 @@
   a.carousel-control-next, a.carousel-control-prev {
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.185);
-    width: 10%;
   }
 
-  .carousel-item {
+  .carousel-item.active {
     justify-content: center;
     align-items: center;
   }
-}
-
-.carousel-item.active {
-  display: flex !important;
 }
 
 .billboard {
