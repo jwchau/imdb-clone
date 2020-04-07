@@ -3,7 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 //bootstrap
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+import './react_bootstrap.css';
 // import './App.scss';
 
 //components
