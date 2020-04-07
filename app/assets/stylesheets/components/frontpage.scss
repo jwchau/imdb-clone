@@ -1,5 +1,5 @@
 #frontpage {
-  width: 98%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,11 +8,6 @@
   a.carousel-control-next, a.carousel-control-prev {
     border-radius: 2rem;
     background-color: rgba(255, 255, 255, 0.185);
-  }
-
-  .carousel-item.active {
-    justify-content: center;
-    align-items: center;
   }
 }
 
@@ -23,7 +18,7 @@
   justify-content: center;
   align-items: center;
 
-  margin: 3% 0;
+  margin: 2% 0;
   box-shadow: 0 0 15px 6px rgba($button-color, 1);
 
   > h1 {

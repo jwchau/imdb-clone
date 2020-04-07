@@ -53,7 +53,7 @@ class Billboard extends Component {
     return (
       <div className='billboard'>
         <h1>{this.props.name}</h1>
-        <Carousel>
+        <Carousel interval={10000}>
           {temp}
         </Carousel>
       </div>
