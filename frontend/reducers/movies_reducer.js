@@ -3,6 +3,7 @@ import {
   RECEIVE_MOVIE,
 } from '../actions/movies_action';
 import merge from 'lodash/merge';
+import { convertMovies } from '../util/util';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -17,29 +18,3 @@ export default (state = {}, action) => {
       return state;
   }
 };
-
-//https://www.youtube.com/embed/jKCj3XuPG8M
-//https://image.tmdb.org/t/p/w600_and_h900_bestv2/${img_url}
-
-const convertMovies = (movies) => {
-  const cut = (str) => {
-    return str.slice(0, 5).to_i;
-  }
-  const res = {};
-  for (let i = 0; i < movies.length; i++) {
-    const data = movies[i];
-    const movie = {
-      id: data.id,
-      title: data.title,
-      year: cut(data.release_date),
-      score: data.vote_average,
-      posterUrl: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`,
-      // trailerUrl: 'https://www.youtube.com/embed/jKCj3XuPG8M',
-      trailerUrl: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`
-    };
-    res[data.id] = movie;
-  }
-
-
-  return res;
-}

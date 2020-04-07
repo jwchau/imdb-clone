@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-import {searchAll} from '../../util/util';
+import { searchTMDB, convertMovies } from '../../util/util';
 
 class Searchbar extends React.Component {
 
@@ -12,14 +12,12 @@ class Searchbar extends React.Component {
       searchterm: "",
       filter: "",
       results: [],
-      // showSearch: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.onSelect = this.onSelect.bind(this);
     this.clickMovie = this.clickMovie.bind(this);
-    // this.showSearch = this.showSearch.bind(this);
   }
 
   handleSearch(e) {
@@ -29,8 +27,11 @@ class Searchbar extends React.Component {
     }
 
     this.setState({ searchterm: e.target.value },
-      () => searchAll(this.state.searchterm)
-        .then(movies => this.setState({ results: movies })));
+      () => searchTMDB(this.state.searchterm)
+        .then(res => {
+          const results = Object.values(convertMovies(res.results));
+          this.setState({ results });
+        }));
   }
 
   handleSubmit(e) {
@@ -59,12 +60,14 @@ class Searchbar extends React.Component {
 
   searchResults() {
     return this.state.results
-      .map( movie => (
-        <li key={movie.id} onClick={this.clickMovie(movie.id)} className='movie-link'>
-          <img src={movie.posterUrl} alt={movie.title}/>
-          <span>{movie.title} ({movie.year})</span>
-        </li>
-      ));
+      .map(movie => {
+        return (
+          <li key={movie.id} onClick={this.clickMovie(movie.id)} className='movie-link'>
+            <img src={movie.posterUrl} alt={movie.title}/>
+            <span>{movie.title} ({movie.year})</span>
+          </li>
+        )
+      });
   }
 
   render() {
@@ -77,10 +80,11 @@ class Searchbar extends React.Component {
             type="text" name="searchterm"
             value={this.state.searchterm}
           />
-
-          <div id='movie-searched'>
-            {this.searchResults()}
-          </div>
+          {(this.state.results.length > 1)
+            ? (<div id='movie-searched'>{this.searchResults()}</div>)
+            : null
+          }
+          
 
           <input type="submit" value="&#128269;" />
        </form>
