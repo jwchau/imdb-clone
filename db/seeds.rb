@@ -14,39 +14,39 @@ User.destroy_all
 Review.destroy_all
 Rating.destroy_all
 
-ApplicationRecord.connection.reset_pk_sequence!('person')
-ApplicationRecord.connection.reset_pk_sequence!('movies')
-ApplicationRecord.connection.reset_pk_sequence!('castcrew')
-ApplicationRecord.connection.reset_pk_sequence!('user')
+# ApplicationRecord.connection.reset_pk_sequence!('person')
+# ApplicationRecord.connection.reset_pk_sequence!('movies')
+# ApplicationRecord.connection.reset_pk_sequence!('castcrew')
+# ApplicationRecord.connection.reset_pk_sequence!('user')
 
-ApplicationRecord.transaction do
-	puts 'Loading people...'
-	require_relative 'data/people.rb'
-	puts 'Loading movies...'
-	require_relative 'data/movies.rb'
-	puts 'Loading castcrew...'
-	require_relative 'data/castcrew.rb'
-	puts 'Done!'
-end
+# ApplicationRecord.transaction do
+# 	puts 'Loading people...'
+# 	require_relative 'data/people.rb'
+# 	puts 'Loading movies...'
+# 	require_relative 'data/movies.rb'
+# 	puts 'Loading castcrew...'
+# 	require_relative 'data/castcrew.rb'
+# 	puts 'Done!'
+# end
 
-5.times do |i|
-  User.create(
-    username: "guestuser#{i + 1}",
-    password: 'password',
-    email: "guestuser#{i + 1}@email.com"
-	)
-end
+# 5.times do |i|
+#   User.create(
+#     username: "guestuser#{i + 1}",
+#     password: 'password',
+#     email: "guestuser#{i + 1}@email.com"
+# 	)
+# end
 
-#attach aws
-Movie.all.each do |movie|
-	fname = movie.title.gsub(/[^a-zA-Z]/,'').downcase
+# #attach aws
+# Movie.all.each do |movie|
+# 	fname = movie.title.gsub(/[^a-zA-Z]/,'').downcase
 
-	poster = open("https://imdb-clone-seeds.s3-us-west-1.amazonaws.com/posters/#{movie.id}.jpeg")
-	movie.poster.attach(io: poster, filename: "#{fname}_poster.jpeg")
+# 	poster = open("https://imdb-clone-seeds.s3-us-west-1.amazonaws.com/posters/#{movie.id}.jpeg")
+# 	movie.poster.attach(io: poster, filename: "#{fname}_poster.jpeg")
 
-	trailer = open("https://imdb-clone-seeds.s3-us-west-1.amazonaws.com/trailers/#{movie.id}.mp4")
-	movie.trailer.attach(io: trailer, filename: "#{fname}_trailer.jpeg")
-end
+# 	trailer = open("https://imdb-clone-seeds.s3-us-west-1.amazonaws.com/trailers/#{movie.id}.mp4")
+# 	movie.trailer.attach(io: trailer, filename: "#{fname}_trailer.jpeg")
+# end
 
 
 #get popular movies, page 1
