@@ -56,7 +56,7 @@ export const fetchUpcoming = () => dispatch => {
 
 export const fetchNowPlaying = () => dispatch => {
   return Mutils.fetchNowPlaying().then(
-    movies => dispatch(receiveAllMovies(movies, 'nowPlaying')),
+    movies => dispatch(receiveAllMovies(movies, 'nowplaying')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
@@ -70,7 +70,7 @@ export const fetchPopular = () => dispatch => {
 
 export const fetchTopRated = () => dispatch => {
   return Mutils.fetchTopRated().then(
-    movies => dispatch(receiveAllMovies(movies, 'topRated')),
+    movies => dispatch(receiveAllMovies(movies, 'toprated')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
@@ -84,6 +84,7 @@ export const fetchMovies = () => dispatch => (
 
 //fix reducer
 export const getMovie = movieId => dispatch => {
+
   Mutils.getReviews(movieId).then(
     reviews => dispatch(receiveMovieReviews(reviews))
   );

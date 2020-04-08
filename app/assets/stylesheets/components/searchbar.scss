@@ -80,4 +80,8 @@
   > li:hover {
     background-color: rgba($hover-color, 0.7);
   }
+
+  &:hover {
+    display: flex !important;
+  }
 }

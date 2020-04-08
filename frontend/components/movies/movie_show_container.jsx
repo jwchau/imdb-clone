@@ -55,7 +55,7 @@ class MovieShow extends React.Component {
   }
 
   movieReviews() {
-    if (this.props.reviews.length === 0) return <Loading />;
+
     const {users, ratings, currentuser} = this.props;
     const reviews = Object.values(this.props.reviews)
       .map(r => <Review

@@ -13,17 +13,17 @@ class Billboard extends Component {
     this.movies = [];
     this.movieItems = this.movieItems.bind(this);
     this.setMovies = this.setMovies.bind(this);
-    };
+  };
 
   componentDidMount() {
-
+    this.props.fetch();
   }
 
   setMovies() {
     if (this.props.name.toLowerCase() === 'popular') {
       this.movies = Object.values(this.props.movies.popular);
-    } else if (this.props.name.toLowerCase() === 'top rated') {
-      this.movies = Object.values(this.props.movies.topRated);
+    } else if (this.props.name.toLowerCase() === 'toprated') {
+      this.movies = Object.values(this.props.movies.toprated);
     } else if (this.props.name.toLowerCase() === 'upcoming') {
       this.movies = Object.values(this.props.movies.upcoming);
     }
@@ -43,7 +43,8 @@ class Billboard extends Component {
   }
 
   render() {
-    if (Object.values(this.props.movies).length < 3) return <Loading />;
+    const type = this.props.name.toLowerCase();
+    if (this.props.movies[type] === undefined) return <Loading />;
     this.setMovies();
     const temp = this.movieItems();
     return (
