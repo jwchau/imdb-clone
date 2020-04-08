@@ -29,6 +29,32 @@ Project is not reproducable on local machine due to the use of personalized API 
 ![movie-show](https://github.com/jwchau/imdb-clone/blob/master/github_readme/movie-show.png)
 
 ## code
+```
+  movieItems() {
+    const caroItems = [];
+    for (let i = 0; i < this.movies.length; i++) {
+      const movie = this.movies[i];
+      caroItems.push(
+        <Carousel.Item key={i}>
+          <BillboardItem key={movie.id} movie={movie}/>
+        </Carousel.Item>
+      );
+    }
+    return caroItems;
+  }
+```
+The carousel is a react element of billboard items
+
+```
+  handleSubmit(e) {
+    e.preventDefault();
+    let {username, email, password} = this.state;
+    const user = Object.assign({}, this.state);
+    this.props.processForm({user});
+    this.setState({username: "", password: "", email: ""});
+  }
+```
+Login and Signup form use the same react component passed in as processForm(<user>)
 
 
 ## Challenges
