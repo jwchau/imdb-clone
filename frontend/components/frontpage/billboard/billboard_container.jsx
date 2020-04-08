@@ -36,10 +36,6 @@ class Billboard extends Component {
       caroItems.push(
         <Carousel.Item key={i}>
           <BillboardItem key={movie.id} movie={movie}/>
-          {/* <Carousel.Caption>
-            <h3>movie derp derp</h3>
-            <p>derp derp derp derp derp derrp derp ederp durp</p>
-          </Carousel.Caption> */}
         </Carousel.Item>
       );
     }
