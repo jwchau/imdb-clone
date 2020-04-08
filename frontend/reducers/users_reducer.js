@@ -9,8 +9,8 @@ export default (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             const newUser = {[action.user.id]: action.user};
             return merge({}, state, newUser);
-        case RECEIVE_MOVIE:
-            return merge({}, state, action.payload.users);
+        // case RECEIVE_MOVIE:
+        //     return merge({}, state, action.payload.users);
         case RECEIVE_LOGOUT:
             return state;
         default:

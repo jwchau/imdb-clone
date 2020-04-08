@@ -38,9 +38,30 @@ export const fetchMovies = () => (
 export const getMovie = movieId => (
   $.ajax({
     method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_KEY}&language=en-US`,
+  })
+);
+
+export const getMovieOld = movieId => (
+  $.ajax({
+    method: 'GET',
     url: `/api/movies/${movieId}`,
   })
 );
+
+export const getRatings = movieId => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/movies/${movieId}/ratings`,
+  });
+};
+
+export const getReviews = movieId => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/movies/${movieId}/reviews`,
+  });
+};
 
 export const postReview = review => {
   return $.ajax({

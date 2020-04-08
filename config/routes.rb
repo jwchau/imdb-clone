@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :ratings, only: [ :update, :destroy ]
     resources :movies, only: [ :index, :show ] do
       resources :reviews, only: [ :index, :create]
-      resources :ratings, only: [ :create ]
+      resources :ratings, only: [ :index, :create ]
     end
   end
 

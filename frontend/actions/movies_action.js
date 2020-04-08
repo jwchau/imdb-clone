@@ -5,7 +5,9 @@ export const RECEIVE_MOVIE = "RECEIVE_MOVIE";
 export const DELETE_REVIEW = 'DELETE_REVIEW';
 export const RECEIVE_MOVIE_ERRORS = 'RECEIVE_MOVIE_ERRORS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+export const RECEIVE_MOVIE_REVIEWS = 'RECEIVE_MOVIE_REVIEWS';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
+export const RECEIVE_MOVIE_RATINGS = 'RECEIVE_MOVIE_RATINGS';
 
 export const receiveAllMovies = (movies, source) => ({
   type: RECEIVE_ALL_MOVIES,
@@ -13,9 +15,9 @@ export const receiveAllMovies = (movies, source) => ({
   source
 });
 
-export const receiveMovie = payload => ({
+export const receiveMovie = movie => ({
   type: RECEIVE_MOVIE,
-  payload
+  movie
 });
 
 export const receiveMovieErrors = errors => ({
@@ -25,6 +27,10 @@ export const receiveMovieErrors = errors => ({
 export const receiveRating = rating => ({
   type: RECEIVE_RATING,
   rating,
+});
+export const receiveMovieRatings = ratings => ({
+  type: RECEIVE_MOVIE_RATINGS,
+  ratings,
 });
 export const receiveReview = review => ({
   type: RECEIVE_REVIEW,
@@ -76,12 +82,21 @@ export const fetchMovies = () => dispatch => (
   )
 );
 
-export const getMovie = movieId => dispatch => (
-  Mutils.getMovie(movieId).then(
+//fix reducer
+export const getMovie = movieId => dispatch => {
+  Mutils.getReviews(movieId).then(
+    reviews => dispatch(receiveMovieReviews(reviews))
+  );
+
+  Mutils.getRatings(movieId).then(
+    ratings => dispatch(receiveMovieRatings(ratings))
+  );
+
+  return Mutils.getMovie(movieId).then( 
     movie => dispatch(receiveMovie(movie)),
     errors => dispatch(receiveMovieErrors(errors))
-  )
-);
+  );
+};
 
 export const postReview = review => dispatch => (
   Mutils.postReview(review).then(

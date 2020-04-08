@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import merge from 'lodash/merge';
+import { convertMovie } from '../../util/util';
 
 import {
   getMovie,
@@ -16,6 +17,7 @@ import BillboardItem from '../frontpage/billboard/billboard_item';
 import Rating from '../movies/rating';
 import Review from '../movies/review';
 import ReviewForm from '../movies/review_form';
+import Loading from '../loading/loading';
 
 //fa
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,6 +32,8 @@ class MovieShow extends React.Component {
       formBool: false,
     };
 
+    this.trailer = null;
+
     this.toggleForm = this.toggleForm.bind(this);
     this.reviewForm = this.reviewForm.bind(this);
   }
@@ -41,6 +45,7 @@ class MovieShow extends React.Component {
 
   componentDidMount() {
     this.props.getMovie(this.props.movieId);
+    //set trailer
   }
 
   componentDidUpdate(prevProps) {
@@ -137,19 +142,42 @@ class MovieShow extends React.Component {
   }
 
   render() {
-    if (this.props.movies.movie === undefined) return null;
-    let {movie} = this.props.movies;
-    // let {ratings} = this.props.ratings;
+    if (this.props.movies.movie === undefined) return <Loading />;
+    // if (this.trailer === null) return <Loading />;
+    let movie = convertMovie(this.props.movies.movie);
+
     return (
       <div className='movie-show-page'>
         <div className='information'>
           <span>{movie.title} ({movie.year})</span>
           {this.ratingButton()}
-          {/* <div>{movie.score.toFixed(2)}</div> */}
         </div>
 
-        <div id='movie-billboard'>
-          <BillboardItem key={movie.id} movie={movie} />
+        <div className='details'>
+          <span>Runtime: {movie.runtime} Minutes</span>
+          <br></br>
+          <span>Genres: {extractGenres(movie.genres)}</span>
+        </div>
+
+        <div className='poster-trailer'>
+          <div id='poster'>
+            <img src={movie.posterUrl} alt={movie.title}></img>
+          </div>
+          <div className='trailer'>
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowFullScreen>
+          </iframe>
+          </div>
+        </div>
+
+        <div className='overview'>
+          <p>{movie.overview}</p>
+        </div>
+
+        <div className='credits'>
+
         </div>
 
         {this.reviewForm()}
@@ -157,6 +185,15 @@ class MovieShow extends React.Component {
       </div>
     );
   }
+}
+
+const extractGenres = (genres) => {
+  const res = [];
+  for (let i = 0; i < genres.length; i++) {
+    const g = genres[i];
+    res.push(g.name + ", ");
+  }
+  return res;
 }
 
 const MSTP = (state, ownProps) => ({

@@ -25,7 +25,8 @@ class Api::ReviewsController < ApplicationController
   end
 
   def index
-
+    @reviews = Review.all.where(movie_id: params[:movie_id].to_i);
+    render :index
   end
 
   def update

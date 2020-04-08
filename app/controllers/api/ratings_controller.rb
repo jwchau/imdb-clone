@@ -1,5 +1,10 @@
 class Api::RatingsController < ApplicationController
 
+  def index 
+    @ratings = Rating.all.where(movie_id: params[:movie_id]);
+    render :index
+  end
+
   def create
     @rating = Rating.new(rating_params)
     if @rating.save
