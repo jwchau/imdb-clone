@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [ :update, :destroy ]
     resources :ratings, only: [ :update, :destroy ]
     resources :movies, only: [ :index, :show ] do
+      resources :users, only: [ :index ]
       resources :reviews, only: [ :index, :create]
       resources :ratings, only: [ :index, :create ]
     end

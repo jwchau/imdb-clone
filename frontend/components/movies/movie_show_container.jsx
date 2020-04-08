@@ -45,7 +45,6 @@ class MovieShow extends React.Component {
 
   componentDidMount() {
     this.props.getMovie(this.props.movieId);
-    //set trailer
   }
 
   componentDidUpdate(prevProps) {
@@ -55,10 +54,11 @@ class MovieShow extends React.Component {
   }
 
   movieReviews() {
-
     const {users, ratings, currentuser} = this.props;
     const reviews = Object.values(this.props.reviews)
-      .map(r => <Review
+      .map(r => {
+        if (users[r.userId] === undefined) return <Loading key={r.userId} />;
+        return (<Review
           key={r.userId}
           review={r}
           userId={(currentuser) ? currentuser.id : null}
@@ -67,8 +67,8 @@ class MovieShow extends React.Component {
           submitEdits={this.props.submitEdits}
           removeReview={this.props.removeReview}
           postRating={this.props.postRating}
-          editRating={this.props.editRating}
-      />);
+          editRating={this.props.editRating}/>)
+      });
 
     return (
       <div className='movie-reviews'>

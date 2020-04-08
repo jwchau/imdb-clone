@@ -1,4 +1,15 @@
 class Api::UsersController < ApplicationController
+
+  def index
+    #all reviews - Review.where(movie_id: params['movie_id'])
+    @users = [];
+    reviews = Review.where(movie_id: params['movie_id'])
+    reviews.each do |review|
+      @users.push(User.find_by(id: review.user_id))
+    end
+    render :index
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

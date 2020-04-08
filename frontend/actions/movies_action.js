@@ -8,13 +8,17 @@ export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const RECEIVE_MOVIE_REVIEWS = 'RECEIVE_MOVIE_REVIEWS';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
 export const RECEIVE_MOVIE_RATINGS = 'RECEIVE_MOVIE_RATINGS';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 
+export const receiveUsers = (users) => ({
+  type: RECEIVE_USERS,
+  users
+});
 export const receiveAllMovies = (movies, source) => ({
   type: RECEIVE_ALL_MOVIES,
   movies,
   source
 });
-
 export const receiveMovie = movie => ({
   type: RECEIVE_MOVIE,
   movie
@@ -84,6 +88,9 @@ export const fetchMovies = () => dispatch => (
 
 //fix reducer
 export const getMovie = movieId => dispatch => {
+  Mutils.getUsers(movieId).then(
+    users => dispatch(receiveUsers(users))
+  );
 
   Mutils.getReviews(movieId).then(
     reviews => dispatch(receiveMovieReviews(reviews))

@@ -49,6 +49,13 @@ export const getMovieOld = movieId => (
   })
 );
 
+export const getUsers = movieId => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/movies/${movieId}/users`,
+  });
+};
+
 export const getRatings = movieId => {
   return $.ajax({
     method: 'GET',
