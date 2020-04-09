@@ -29,13 +29,13 @@ Rating.destroy_all
 # 	puts 'Done!'
 # end
 
-# 5.times do |i|
-#   User.create(
-#     username: "guestuser#{i + 1}",
-#     password: 'password',
-#     email: "guestuser#{i + 1}@email.com"
-# 	)
-# end
+5.times do |i|
+  User.create(
+    username: "guestuser#{i + 1}",
+    password: 'password',
+    email: "guestuser#{i + 1}@email.com"
+	)
+end
 
 # #attach aws
 # Movie.all.each do |movie|
