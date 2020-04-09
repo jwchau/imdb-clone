@@ -16,7 +16,13 @@ export default (state = {}, action) => {
     case RECEIVE_MOVIE:
       return merge({}, state, {movie: action.movie});
     case RECEIVE_VIDEOS:
-      newState = merge({}, state, {movie: {videos: action.videos.results}});
+      if (action.videos.results.length < 1) {
+        newState = Object.assign({}, state);
+        if (newState.movie === undefined) newState['movie'] = {};
+        newState.movie['videos'] = [];
+      } else {
+        newState = merge({}, state, {movie: {videos: action.videos.results}});
+      }
       return newState;
     default:
       return state;

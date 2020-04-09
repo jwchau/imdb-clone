@@ -149,7 +149,9 @@ class MovieShow extends React.Component {
   }
 
   getTrailer(videos) {
-    if (videos.length < 1) return <Loading />
+    if (videos.length < 1) return (
+        <img id='no-trailer' src={window.noTrailer}></img>
+    );
     const videoUrl = videos[Math.floor(Math.random() * videos.length)].key;
     return (
       <iframe
