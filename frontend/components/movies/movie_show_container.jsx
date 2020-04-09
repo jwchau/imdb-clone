@@ -91,11 +91,18 @@ class MovieShow extends React.Component {
 
   reviewForm() {
     let {currentuser} = this.props;
-    if (currentuser === undefined || this.alreadyReviewed(currentuser.id)) return null;
+    if (currentuser === undefined) return (
+      <div>
+        <br></br>
+        <h3>Login to review movie</h3>
+        <br></br>
+      </div>
+    );
+    if (this.alreadyReviewed(currentuser.id)) return null;
     else return (
       <div className='review-form'>
         {
-          this.props.currentuser
+          (this.props.currentuser)
             ? <h3 onClick={this.toggleForm}>Write a review</h3>
             : null
         }
