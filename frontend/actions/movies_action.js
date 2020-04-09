@@ -9,7 +9,14 @@ export const RECEIVE_MOVIE_REVIEWS = 'RECEIVE_MOVIE_REVIEWS';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
 export const RECEIVE_MOVIE_RATINGS = 'RECEIVE_MOVIE_RATINGS';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 
+
+
+export const receiveVideos = videos => ({
+  type: RECEIVE_VIDEOS,
+  videos
+});
 export const receiveUsers = (users) => ({
   type: RECEIVE_USERS,
   users
@@ -23,7 +30,6 @@ export const receiveMovie = movie => ({
   type: RECEIVE_MOVIE,
   movie
 });
-
 export const receiveMovieErrors = errors => ({
   type: RECEIVE_MOVIE_ERRORS,
   errors
@@ -98,6 +104,10 @@ export const getMovie = movieId => dispatch => {
 
   Mutils.getRatings(movieId).then(
     ratings => dispatch(receiveMovieRatings(ratings))
+  );
+
+  Mutils.getVideos(movieId).then(
+    videos => dispatch(receiveVideos(videos))
   );
 
   return Mutils.getMovie(movieId).then( 

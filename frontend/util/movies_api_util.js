@@ -42,10 +42,10 @@ export const getMovie = movieId => (
   })
 );
 
-export const getMovieOld = movieId => (
+export const getVideos = movieId => (
   $.ajax({
     method: 'GET',
-    url: `/api/movies/${movieId}`,
+    url: `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_KEY}&language=en-US`,
   })
 );
 

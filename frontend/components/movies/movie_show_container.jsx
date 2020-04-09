@@ -141,11 +141,22 @@ class MovieShow extends React.Component {
     }
   }
 
+  getTrailer(videos) {
+    if (videos.length < 1) return <Loading />
+    const videoUrl = videos[Math.floor(Math.random() * videos.length)].key;
+    return (
+      <iframe
+        src={`https://www.youtube.com/embed/${videoUrl}`} frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowFullScreen>
+      </iframe>
+    );
+  }
+
   render() {
     if (this.props.movies.movie === undefined) return <Loading />;
-    // if (this.trailer === null) return <Loading />;
+    if (this.props.movies.movie.adult === undefined) return <Loading />;
     let movie = convertMovie(this.props.movies.movie);
-
     return (
       <div className='movie-show-page'>
         <div className='information'>
@@ -164,11 +175,7 @@ class MovieShow extends React.Component {
             <img src={movie.posterUrl} alt={movie.title}></img>
           </div>
           <div className='trailer'>
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen>
-          </iframe>
+            {this.getTrailer(movie.videos)}
           </div>
         </div>
 

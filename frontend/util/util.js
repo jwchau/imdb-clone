@@ -64,7 +64,6 @@ export const convertMovie = data => {
   let pUrl = window.fourofour;
   if (data.poster_path)
     pUrl = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`;
-
   const movie = {
     id: data.id,
     title: data.title,
@@ -77,8 +76,7 @@ export const convertMovie = data => {
     runtime: data.runtime,
     homepage: data.homepage,
     posterUrl: pUrl,
-    trailerUrl: pUrl
-    // trailerUrl: 'https://www.youtube.com/embed/jKCj3XuPG8M',
+    videos: data.videos
   };
 
   return movie;
