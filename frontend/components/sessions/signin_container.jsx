@@ -13,7 +13,7 @@ class SignInPage extends React.Component{
   render() {
     
     return (
-      <div className='signin-page fade'>
+      <div className='signin-page myFade'>
         <div className='signin-options'>
           <h3>Sign In</h3>
           <Link to='/login' className='opt'>with IMDB <img src={window.imdbLogoURL}/></Link>

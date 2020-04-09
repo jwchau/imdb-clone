@@ -24,6 +24,7 @@ class Rating extends React.Component {
   componentDidUpdate() {
     this.clearChecked();
     const stars = document.getElementsByClassName('faStar');
+    if (stars[this.state.star] === undefined) return;
     stars[this.state.star].classList.add('checked');
   }
 

@@ -157,7 +157,7 @@ class SessionForm extends React.Component {
       const title = (this.props.formType === "login") ? "Sign-In" : "Create account";
 
       return(
-        <div className='fade session-form'>
+        <div className='myFade session-form'>
           <form onSubmit={this.handleSubmit} className={this.props.formType}>
             <h2>{title}</h2>
             {this.renderErrors()}

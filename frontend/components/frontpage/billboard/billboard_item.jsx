@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 export default ({movie}) => {
 
   return (
-    // <div className='billboard-item slide mySlides fade'>
     <div className='billboard-item'>
       <Link movie={movie} to={`/movies/${movie.id}`}>
       {/* <Link movie={movie} to={`#`}> */}

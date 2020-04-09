@@ -155,7 +155,8 @@ class MovieShow extends React.Component {
 
   render() {
     if (this.props.movies.movie === undefined) return <Loading />;
-    if (this.props.movies.movie.adult === undefined) return <Loading />;
+    else if (this.props.movies.movie.genres === undefined) return <Loading />;
+    else if (this.props.movies.movie.videos === undefined) return <Loading />;
     let movie = convertMovie(this.props.movies.movie);
     return (
       <div className='movie-show-page'>
