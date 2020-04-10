@@ -56,28 +56,24 @@ export const convertMovies = (movies) => {
     res[data.id] = movie;
   }
 
-
   return res;
 }
 
-export const convertMovie = data => {
+export const extractDetails = data => {
   let pUrl = window.fourofour;
   if (data.poster_path)
     pUrl = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`;
-  const movie = {
-    id: data.id,
+
+  const details = {
     title: data.title,
     year: cut(data.release_date),
     score: data.vote_average,
-    budget: data.budget,
+    votes: data.vote_count,
     overview: data.overview,
-    genres: data.genres,
-    revenue: data.revenue,
-    runtime: data.runtime,
-    homepage: data.homepage,
     posterUrl: pUrl,
     videos: data.videos
   };
+  
+  return details;
 
-  return movie;
 }

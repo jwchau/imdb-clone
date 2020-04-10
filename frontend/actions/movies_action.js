@@ -40,6 +40,17 @@ export const receiveToprated = movies => ({
   movies
 });
 
+//actions for movie //comes back as <type> no results?
+export const receiveDetails = details => {
+  return {
+    type: RECEIVE_DETAILS,
+    details
+  }
+};
+export const receivePictures = pictures => ({
+  type: RECEIVE_PICTURES,
+  pictures
+})
 export const receiveVideos = videos => ({
   type: RECEIVE_VIDEOS,
   videos
@@ -105,28 +116,24 @@ export const fetchTopRated = () => dispatch => {
 }
 
 //action for movie
-// export const getMovie = movieId => dispatch => {
-//   Mutils.getUsers(movieId).then(
-//     users => dispatch(receiveUsers(users))
-//   );
+export const getDetails = movieId => dispatch => {
+  Mutils.getUsers(movieId).then(
+    users => dispatch(receiveUsers(users))
+  );
 
-//   Mutils.getReviews(movieId).then(
-//     reviews => dispatch(receiveMovieReviews(reviews))
-//   );
+  Mutils.getReviews(movieId).then(
+    reviews => dispatch(receiveMovieReviews(reviews))
+  );
 
-//   Mutils.getRatings(movieId).then(
-//     ratings => dispatch(receiveMovieRatings(ratings))
-//   );
+  Mutils.getRatings(movieId).then(
+    ratings => dispatch(receiveMovieRatings(ratings))
+  );
 
-//   Mutils.getVideos(movieId).then(
-//     videos => dispatch(receiveVideos(videos))
-//   );
-
-//   return Mutils.getMovie(movieId).then( 
-//     movie => dispatch(receiveMovie(movie)),
-//     errors => dispatch(receiveMovieErrors(errors))
-//   );
-// };
+  return Mutils.getDetails(movieId).then( 
+    movie => dispatch(receiveDetails(movie)),
+    errors => dispatch(receiveMovieErrors(errors))
+  );
+};
 
 export const postReview = review => dispatch => (
   Mutils.postReview(review).then(

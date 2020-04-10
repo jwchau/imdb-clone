@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import merge from 'lodash/merge';
-import { convertMovie } from '../../util/util';
+import { extractDetails } from '../../util/util';
 
 import {
   getDetails,
@@ -17,6 +17,9 @@ import Rating from '../movies/rating';
 import Review from '../movies/review';
 import ReviewForm from '../movies/review_form';
 import Loading from '../loading/loading';
+
+//movie detail components
+
 
 //fa
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -43,7 +46,7 @@ class MovieShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getMovie(this.props.movieId);
+    this.props.getDetails(this.props.movieId);
   }
 
   componentDidUpdate(prevProps) {
@@ -147,10 +150,17 @@ class MovieShow extends React.Component {
     }
   }
 
-  getTrailer(videos) {
-    if (videos.length < 1) return (
-        <img id='no-trailer' src={window.noTrailer}></img>
+  loadingTrailer() {
+    const videos = Object.values(this.props.movies.movie.videos);
+    if (videos.length < 1) return (<img id='no-trailer' src={window.noTrailer}></img>);
+    return (
+      <div className='trailer'>
+        {this.getTrailer(this.props.movies.movie.videos)}
+      </div>
     );
+  }
+
+  getTrailer(videos) {
     const videoUrl = videos[Math.floor(Math.random() * videos.length)].key;
     return (
       <iframe
@@ -162,42 +172,37 @@ class MovieShow extends React.Component {
   }
 
   render() {
-    //fix this mess
-    if (this.props.movies.movie === undefined) return <Loading />;
-    else if (this.props.movies.movie.genres === undefined) return <Loading />;
-    else if (this.props.movies.movie.videos === undefined) return <Loading />;
-    //fix this mess
-    
-    let movie = convertMovie(this.props.movies.movie);
+    if (Object.values(this.props.movies.movie.details).length < 1) return <Loading />;
+    let details = extractDetails(this.props.movies.movie.details);
     return (
       <div className='movie-show-page'>
         <div className='information'>
-          <span>{movie.title} ({movie.year})</span>
+          <span>{details.title} ({details.year})</span>
           {this.ratingButton()}
-        </div>
-
-        <div className='details'>
-          <span>Runtime: {movie.runtime} Minutes</span>
-          <br></br>
-          <span>Genres: {extractGenres(movie.genres)}</span>
+          <span id='score'>
+            {details.score.toFixed(1)} / 10 <FontAwesomeIcon icon={faStar}/>
+            <br></br>
+            from {details.votes} votes
+          </span>
         </div>
 
         <div className='poster-trailer'>
           <div id='poster'>
-            <img src={movie.posterUrl} alt={movie.title}></img>
+            <img src={details.posterUrl} alt={details.title}></img>
           </div>
-          <div className='trailer'>
-            {this.getTrailer(movie.videos)}
-          </div>
+          {this.loadingTrailer()}
         </div>
 
         <div className='overview'>
-          <p>{movie.overview}</p>
+          <p>{details.overview}</p>
         </div>
-
+        
         <div className='credits'>
-
         </div>
+
+        <div className='details'>
+        </div>
+
 
         {this.reviewForm()}
         {this.movieReviews()}

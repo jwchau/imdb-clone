@@ -35,10 +35,17 @@ export const fetchMovies = () => (
   })
 );
 
-export const getMovie = movieId => (
+export const getDetails = movieId => (
   $.ajax({
     method: 'GET',
     url: `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_KEY}&language=en-US`,
+  })
+);
+
+export const getPictures = movieId => (
+  $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${TMDB_KEY}&language=en-US`,
   })
 );
 
