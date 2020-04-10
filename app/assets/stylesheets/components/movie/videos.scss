@@ -1,0 +1,12 @@
+.videos {
+  width: 90%;
+
+  > .video-list {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+  }
+
+}
