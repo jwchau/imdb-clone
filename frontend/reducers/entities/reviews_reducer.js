@@ -2,7 +2,7 @@ import {
   RECEIVE_REVIEW,
   RECEIVE_MOVIE_REVIEWS,
   DELETE_REVIEW
-} from '../actions/movies_action';
+} from '../../actions/movies_action';
 import merge from 'lodash/merge';
 
 export default (state = {}, action) => {

@@ -1,5 +1,5 @@
 // import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER} from '../util/session_api_util'
-import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, CLEAR_SESSION_ERRORS } from '../actions/session_actions';
+import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, CLEAR_SESSION_ERRORS } from '../../actions/session_actions';
 
 export default (state = [], action) => {
     Object.freeze(state)

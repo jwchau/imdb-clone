@@ -1,5 +1,5 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_LOGOUT} from '../actions/session_actions';
-import { RECEIVE_USERS } from '../actions/movies_action';
+import { RECEIVE_CURRENT_USER, RECEIVE_LOGOUT} from '../../actions/session_actions';
+import { RECEIVE_USERS } from '../../actions/movies_action';
 import merge from 'lodash/merge';
 
 

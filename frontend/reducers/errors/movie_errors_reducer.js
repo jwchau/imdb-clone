@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_MOVIES, RECEIVE_MOVIE, RECEIVE_MOVIE_ERRORS } from '../actions/movies_action';
+import { RECEIVE_ALL_MOVIES, RECEIVE_MOVIE, RECEIVE_MOVIE_ERRORS } from '../../actions/movies_action';
 
 export default (state = [], action) => {
   Object.freeze(state);

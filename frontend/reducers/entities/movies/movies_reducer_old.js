@@ -2,9 +2,9 @@ import {
   RECEIVE_ALL_MOVIES,
   RECEIVE_MOVIE,
   RECEIVE_VIDEOS,
-} from '../actions/movies_action';
+} from '../../actions/movies_action';
 import merge from 'lodash/merge';
-import { convertMovies } from '../util/util';
+import { convertMovies } from '../../util/util';
 
 export default (state = {}, action) => {
   Object.freeze(state);

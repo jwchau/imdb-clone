@@ -1,7 +1,7 @@
 import {
 RECEIVE_CURRENT_USER,
 RECEIVE_LOGOUT,
-} from '../actions/session_actions';
+} from '../../actions/session_actions';
 
 const _nullSession = {
     id: null
