@@ -1,14 +1,23 @@
-.videos {
+.pictures {
   margin: 3%;
   border-top: solid 1px rgba($imdb-yellow, 0.5);
   width: 90%;
 
-  > .video-list {
+  > .picture-list {
     width: 100%;
     height: 200px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     overflow-x: auto;
+
+    > li {
+      height: 100%;
+      margin: 0 1%;
+      > img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
   }
 }
