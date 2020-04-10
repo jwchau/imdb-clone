@@ -89,6 +89,7 @@ export const fetchUpcoming = () => dispatch => {
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
+
 export const fetchPopular = () => dispatch => {
   return Mutils.fetchPopular().then(
     movies => dispatch(receivePopular(movies, 'popular')),
@@ -102,14 +103,6 @@ export const fetchTopRated = () => dispatch => {
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
-// export const fetchMovies = () => dispatch => (
-//   Mutils.fetchMovies().then(
-//     movies => dispatch(receiveAllMovies(movies)),
-//     errors => dispatch(receiveMovieErrors(errors))
-//   )
-// );
-
-
 
 //action for movie
 // export const getMovie = movieId => dispatch => {
