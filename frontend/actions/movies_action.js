@@ -55,7 +55,22 @@ export const receiveVideos = videos => ({
   type: RECEIVE_VIDEOS,
   videos
 });
-
+export const receiveUserlists = userlists => ({
+  type: RECEIVE_USERLISTS,
+  userlists
+});
+export const receiveAwards = awards => ({
+  type: RECEIVE_AWARDS,
+  awards
+});
+export const receiveCredits = credits => ({
+  type: RECEIVE_CREDITS,
+  credits
+});
+export const receiveRecommended = recommended => ({
+  type: RECEIVE_RECOMMENDED,
+  recommended
+});
 
 export const receiveUsers = (users) => ({
   type: RECEIVE_USERS,
@@ -99,23 +114,23 @@ export const fetchUpcoming = () => dispatch => {
     movies => dispatch(receiveUpcoming(movies, 'upcoming')),
     errors => dispatch(receiveMovieErrors(errors))
   );
-}
+};
 
 export const fetchPopular = () => dispatch => {
   return Mutils.fetchPopular().then(
     movies => dispatch(receivePopular(movies, 'popular')),
     errors => dispatch(receiveMovieErrors(errors))
   );
-}
+};
 
 export const fetchTopRated = () => dispatch => {
   return Mutils.fetchTopRated().then(
     movies => dispatch(receiveToprated(movies, 'toprated')),
     errors => dispatch(receiveMovieErrors(errors))
   );
-}
+};
 
-//action for movie
+//thunk action for movie
 export const getDetails = movieId => dispatch => {
   Mutils.getUsers(movieId).then(
     users => dispatch(receiveUsers(users))
@@ -134,6 +149,33 @@ export const getDetails = movieId => dispatch => {
     errors => dispatch(receiveMovieErrors(errors))
   );
 };
+export const getPictures = movieId => dispatch => {
+  return Mutils.getPictures(movieId).then(
+    pictures => dispatch(receivePictures(pictures))
+  );
+};
+export const getVideos = movieId => dispatch => {
+  return Mutils.getVideos(movieId).then(
+    videos => dispatch(receiveVideos(videos))
+  );
+};
+export const getUserlists = movieId => dispatch => {
+  return Mutils.getUserlists(movieId).then(
+    userlists => dispatch(receiveUserlists(userlists))
+  );
+};
+export const getCredits = movieId => dispatch => {
+  return Mutils.getCredits(movieId).then(
+    credits => dispatch(receiveCredits(credits))
+  );
+};
+export const getRecommended = movieId => dispatch => {
+  return Mutils.getRecommended(movieId).then(
+    recommended => dispatch(receiveRecommended(recommended))
+  );
+};
+
+
 
 export const postReview = review => dispatch => (
   Mutils.postReview(review).then(

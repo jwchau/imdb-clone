@@ -7,7 +7,7 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_AWARDS:
-      return action.awards.results;
+      return action.awards;
     default:
       return state;
   }

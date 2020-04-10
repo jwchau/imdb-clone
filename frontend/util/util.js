@@ -75,5 +75,13 @@ export const extractDetails = data => {
   };
   
   return details;
+}
 
+export const extractGenres = (genres) => {
+  const res = [];
+  for (let i = 0; i < genres.length; i++) {
+    const g = genres[i];
+    res.push(g.name + ", ");
+  }
+  return res;
 }

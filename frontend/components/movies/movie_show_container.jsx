@@ -5,6 +5,7 @@ import { extractDetails } from '../../util/util';
 
 import {
   getDetails,
+  getVideos,
   postReview,
   patchReview,
   removeReview,
@@ -19,7 +20,12 @@ import ReviewForm from '../movies/review_form';
 import Loading from '../loading/loading';
 
 //movie detail components
-
+import MovieVideos from './movie/movie_videos';
+import MoviePicturesContainer from './movie/movie_pictures_container';
+import MovieRecsContainer from './movie/movie_rec_container';
+import MovieCreditsContainer from './movie/movie_credits_container';
+import MovieDetails from './movie/movie_details';
+import MovieUserlistsContainer from './movie/movie_userlists_container';
 
 //fa
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,6 +53,7 @@ class MovieShow extends React.Component {
 
   componentDidMount() {
     this.props.getDetails(this.props.movieId);
+    this.props.getVideos(this.props.movieId);
   }
 
   componentDidUpdate(prevProps) {
@@ -161,7 +168,7 @@ class MovieShow extends React.Component {
   }
 
   getTrailer(videos) {
-    const videoUrl = videos[Math.floor(Math.random() * videos.length)].key;
+    const videoUrl = videos[0].key;
     return (
       <iframe
         src={`https://www.youtube.com/embed/${videoUrl}`} frameBorder="0"
@@ -173,6 +180,7 @@ class MovieShow extends React.Component {
 
   render() {
     if (Object.values(this.props.movies.movie.details).length < 1) return <Loading />;
+    let id = this.props.movieId;
     let details = extractDetails(this.props.movies.movie.details);
     return (
       <div className='movie-show-page'>
@@ -197,27 +205,21 @@ class MovieShow extends React.Component {
           <p>{details.overview}</p>
         </div>
         
-        <div className='credits'>
-        </div>
+        <MovieVideos videos={this.props.movies.movie.videos}/>
+        <MoviePicturesContainer id={id}/>
+        <MovieRecsContainer id={id}/>
+        <MovieCreditsContainer id={id}/>
 
-        <div className='details'>
+        <div className='details-lists'>
+          <MovieDetails details={this.props.movies.movie.details}/>
+          <MovieUserlistsContainer id={id}/>
         </div>
-
 
         {this.reviewForm()}
         {this.movieReviews()}
       </div>
     );
   }
-}
-
-const extractGenres = (genres) => {
-  const res = [];
-  for (let i = 0; i < genres.length; i++) {
-    const g = genres[i];
-    res.push(g.name + ", ");
-  }
-  return res;
 }
 
 const MSTP = (state, ownProps) => ({
@@ -231,6 +233,7 @@ const MSTP = (state, ownProps) => ({
 
 const MDTP = (dispatch, ownProps) => ({
   getDetails: id => dispatch(getDetails(id)),
+  getVideos: id => dispatch(getVideos(id)),
   postReview: review => dispatch(postReview(review)),
   submitEdits: review => dispatch(patchReview(review)),
   removeReview: id => dispatch(removeReview(id)),

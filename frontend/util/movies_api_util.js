@@ -45,14 +45,32 @@ export const getDetails = movieId => (
 export const getPictures = movieId => (
   $.ajax({
     method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${TMDB_KEY}&language=en-US`,
+    url: `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${TMDB_KEY}&language=en%2Cnull`,
   })
 );
 
 export const getVideos = movieId => (
   $.ajax({
     method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_KEY}&language=en-US`,
+    url: `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_KEY}&language=en%2Cnull`,
+  })
+);
+export const getUserlists = (movieId, page = 1) => (
+  $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${movieId}/lists?api_key=${TMDB_KEY}&language=en-US&page=${page}`,
+  })
+);
+export const getCredits = movieId => (
+  $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${TMDB_KEY}`,
+  })
+);
+export const getRecommended = movieId => (
+  $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${TMDB_KEY}&language=en-US`,
   })
 );
 
