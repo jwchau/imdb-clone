@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 import { convertMovie } from '../../util/util';
 
 import {
-  getMovie,
+  getDetails,
   postReview,
   patchReview,
   removeReview,
@@ -13,7 +13,6 @@ import {
 } from '../../actions/movies_action';
 
 //component
-import BillboardItem from '../frontpage/billboard/billboard_item';
 import Rating from '../movies/rating';
 import Review from '../movies/review';
 import ReviewForm from '../movies/review_form';
@@ -163,9 +162,12 @@ class MovieShow extends React.Component {
   }
 
   render() {
+    //fix this mess
     if (this.props.movies.movie === undefined) return <Loading />;
     else if (this.props.movies.movie.genres === undefined) return <Loading />;
     else if (this.props.movies.movie.videos === undefined) return <Loading />;
+    //fix this mess
+    
     let movie = convertMovie(this.props.movies.movie);
     return (
       <div className='movie-show-page'>
@@ -223,7 +225,7 @@ const MSTP = (state, ownProps) => ({
 });
 
 const MDTP = (dispatch, ownProps) => ({
-  getMovie: id => dispatch(getMovie(id)),
+  getDetails: id => dispatch(getDetails(id)),
   postReview: review => dispatch(postReview(review)),
   submitEdits: review => dispatch(patchReview(review)),
   removeReview: id => dispatch(removeReview(id)),

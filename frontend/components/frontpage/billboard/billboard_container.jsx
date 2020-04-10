@@ -11,7 +11,7 @@ class Billboard extends Component {
     super(props);
 
     this.movies = [];
-    this.movieItems = this.movieItems.bind(this);
+    this.carouselItems = this.carouselItems.bind(this);
     this.setMovies = this.setMovies.bind(this);
   };
 
@@ -29,7 +29,7 @@ class Billboard extends Component {
     }
   }
 
-  movieItems() {
+  carouselItems() {
     const caroItems = [];
     for (let i = 0; i < this.movies.length; i++) {
       const movie = this.movies[i];
@@ -46,12 +46,12 @@ class Billboard extends Component {
     const type = this.props.name.toLowerCase();
     if (this.props.movies[type] === undefined) return <Loading />;
     this.setMovies();
-    const temp = this.movieItems();
+    const caros = this.carouselItems();
     return (
       <div className='billboard'>
         <h1>{this.props.name}</h1>
         <Carousel interval={10000}>
-          {temp}
+          {caros}
         </Carousel>
       </div>
 

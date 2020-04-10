@@ -9,11 +9,6 @@ const entitiesReducer = combineReducers({
     movies: moviesReducer,
     reviews: reviewsReducer,
     ratings: ratingsReducer,
-    videos: videosReducer,
-    pictures: picturesReducer,
-    userLists: userListsReducer,
-    awards: awardsReducer,
-
 });
 
 export default entitiesReducer;

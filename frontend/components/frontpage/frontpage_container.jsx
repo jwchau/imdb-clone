@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 //movie fetches
 import {
   fetchUpcoming,
-  fetchNowPlaying,
   fetchPopular,
   fetchTopRated,
 } from '../../actions/movies_action';

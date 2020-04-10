@@ -1,6 +1,6 @@
 import {
   RECEIVE_UPCOMING
-} from '../../actions/movies_action';
+} from '../../../actions/movies_action';
 // import merge from 'lodash/merge';
 
 export default (state = {}, action) => {

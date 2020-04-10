@@ -27,7 +27,7 @@ export const RECEIVE_MOVIE_RATINGS = 'RECEIVE_MOVIE_RATINGS';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 // actions for movies //comes back as movies.results
-export const receivePopular = movies => ({
+export const receiveUpcoming = movies => ({
   type: RECEIVE_UPCOMING,
   movies
 });

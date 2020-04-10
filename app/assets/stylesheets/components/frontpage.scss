@@ -23,5 +23,7 @@
 
   > h1 {
     letter-spacing: 10px;
+    color: rgba($imdb-yellow, 0.9);
+    text-shadow: 2px 2px 10px rgba($button-color, 1);
   }
 }
