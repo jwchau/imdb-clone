@@ -26,17 +26,20 @@ export const RECEIVE_RATING = 'RECEIVE_RATING';
 export const RECEIVE_MOVIE_RATINGS = 'RECEIVE_MOVIE_RATINGS';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 
-// actions for movies
-export const receivePopular = videos => ({
-  type: RECEIVE_VIDEOS,
-  videos
+// actions for movies //comes back as movies.results
+export const receivePopular = movies => ({
+  type: RECEIVE_UPCOMING,
+  movies
+});
+export const receivePopular = movies => ({
+  type: RECEIVE_POPULAR,
+  movies
+});
+export const receiveToprated = movies => ({
+  type: RECEIVE_TOPRATED,
+  movies
 });
 
-// actions for movie
-// export const receiveMovie = movie => ({
-//   type: RECEIVE_MOVIE,
-//   movie
-// });
 export const receiveVideos = videos => ({
   type: RECEIVE_VIDEOS,
   videos
@@ -82,26 +85,20 @@ export const deleteReview = review => ({
 //thunk action for movies
 export const fetchUpcoming = () => dispatch => {
   return Mutils.fetchUpcoming().then(
-    movies => dispatch(receiveAllMovies(movies, 'upcoming')),
-    errors => dispatch(receiveMovieErrors(errors))
-  );
-}
-export const fetchNowPlaying = () => dispatch => {
-  return Mutils.fetchNowPlaying().then(
-    movies => dispatch(receiveAllMovies(movies, 'nowplaying')),
+    movies => dispatch(receiveUpcoming(movies, 'upcoming')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
 export const fetchPopular = () => dispatch => {
   return Mutils.fetchPopular().then(
-    movies => dispatch(receiveAllMovies(movies, 'popular')),
+    movies => dispatch(receivePopular(movies, 'popular')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
 
 export const fetchTopRated = () => dispatch => {
   return Mutils.fetchTopRated().then(
-    movies => dispatch(receiveAllMovies(movies, 'toprated')),
+    movies => dispatch(receiveToprated(movies, 'toprated')),
     errors => dispatch(receiveMovieErrors(errors))
   );
 }
