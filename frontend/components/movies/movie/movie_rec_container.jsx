@@ -25,10 +25,19 @@ class MovieRecs extends React.Component {
     this.createRecImg = this.createRecImg.bind(this);
     this.handleImgClick = this.handleImgClick.bind(this);
     this.handleNext = this.handleNext.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentDidMount() {
     this.props.getRecommended(this.props.id);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      this.props.getRecommended(this.props.id);
+      if (this.state.movieIdx !== 0)
+        this.setState({movieIdx: 0});
+    }
   }
 
   getRecMovie() {
@@ -47,10 +56,12 @@ class MovieRecs extends React.Component {
           <br></br>
           Score: {vote_average} <FontAwesomeIcon className='imdb-yellow' icon={faStar}/>
           <br></br>
-          <img 
-            alt={`${title}`}
-            src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path}`}
-          />
+          <Link to={`/movies/${id}`}>
+            <img 
+              alt={`${title}`}
+              src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path}`}
+            />
+          </Link>
       </div>
     );
   }
@@ -127,6 +138,10 @@ class MovieRecs extends React.Component {
     }
   }
 
+  handleSelect(selectedIndex, e) {
+    this.setState({movieIdx: Math.floor(selectedIndex * 4) % 20});
+  }
+
   render() {
     if (this.props.recommended.length < 1) return null;
     return (
@@ -134,7 +149,11 @@ class MovieRecs extends React.Component {
         <h3>Recommendations</h3>
 
         <div>
-          <Carousel interval={null}>
+          <Carousel 
+            activeIndex={Math.floor(this.state.movieIdx / 4)}
+            onSelect={this.handleSelect} 
+            interval={null}
+          >
             {this.getCaros()}
           </Carousel>
           

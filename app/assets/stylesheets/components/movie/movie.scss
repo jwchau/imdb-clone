@@ -88,7 +88,7 @@
 
   > h3 {
     letter-spacing: 10px;
-    
+
   }
 
   > div {
@@ -123,7 +123,10 @@
 
       > div {
         width: 100%;
-        > img {
+        > svg {
+          color: $imdb-yellow;
+        }
+        > a > img {
           width: 200px;
         }
       }
