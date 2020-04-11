@@ -199,15 +199,15 @@ class MovieShow extends React.Component {
           <div id='poster'>
             <img src={details.posterUrl} alt={details.title}></img>
           </div>
-          {this.loadingTrailer()}
+          {/* {this.loadingTrailer()} */}
         </div>
 
         <div className='overview'>
           <p>{details.overview}</p>
         </div>
         
-        <MovieVideos videos={this.props.movies.movie.videos}/>
-        <MoviePicturesContainer id={id}/>
+        {/* <MovieVideos videos={this.props.movies.movie.videos}/> */}
+        {/* <MoviePicturesContainer id={id}/> */}
         <MovieRecsContainer id={id}/>
         <MovieCreditsContainer id={id}/>
 
