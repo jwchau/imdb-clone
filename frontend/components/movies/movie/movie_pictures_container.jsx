@@ -18,6 +18,7 @@ class MoviePictures extends React.Component {
   render() {
     if (!this.props.pictures.posters) return <Loading />;
     let { posters, backdrops } = this.props.pictures;
+    if (posters.length < 1 && backdrops.length < 1) return null;
     return (
       <div className='pictures'>
         <h3>Pictures</h3>

@@ -58,7 +58,8 @@ class MovieShow extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (parseInt(prevProps.match.params.id) !== this.props.movieId) {
-      this.props.getMovie(this.props.movieId);
+      this.props.getDetails(this.props.movieId);
+      this.props.getVideos(this.props.movieId);
     }
   }
 

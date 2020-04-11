@@ -16,7 +16,7 @@ class MovieRecs extends React.Component {
   }
 
   render() {
-    if (this.props.recommended.length < 1) return <Loading />;
+    if (this.props.recommended.length < 1) return null;
     return (
       <div className='recommendations'>
         i am movie recommendations
