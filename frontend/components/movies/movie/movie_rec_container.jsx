@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import Loading from '../../loading/loading';
-
+import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 
 import {
@@ -23,14 +23,17 @@ class MovieRecs extends React.Component {
     this.getCaros = this.getCaros.bind(this);
     this.getRecMovie = this.getRecMovie.bind(this);
     this.createRecImg = this.createRecImg.bind(this);
+    this.handleImgClick = this.handleImgClick.bind(this);
+    this.handleNext = this.handleNext.bind(this);
   }
 
   componentDidMount() {
     this.props.getRecommended(this.props.id);
   }
 
-  getRecMovie(id) {
+  getRecMovie() {
     const {
+      id,
       title,
       release_date,
       vote_average,
@@ -38,7 +41,7 @@ class MovieRecs extends React.Component {
     } = this.props.recommended[this.state.movieIdx];
     return (
       <div>
-          {title}
+          <Link to={`/movies/${id}`}>{title}</Link>
           <br></br>
           Released: {release_date}
           <br></br>
@@ -104,6 +107,22 @@ class MovieRecs extends React.Component {
     return caroItems;
   }
 
+  handleNext(e) {
+    e.preventDefault();
+
+    if (this.state.movieIdx + 1 < this.props.recommended.length) {
+      this.setState({movieIdx: this.state.movieIdx + 1});
+    } else {
+      this.setState({movieIdx: 0});
+    }
+  }
+
+  handleImgClick(e) {
+    e.preventDefault();
+    return;
+    this.setState({movieIdx: 0});
+  }
+
   render() {
     if (this.props.recommended.length < 1) return null;
     return (
@@ -116,8 +135,8 @@ class MovieRecs extends React.Component {
           </Carousel>
           
           <div className='rec-movie'>
-            {this.getRecMovie(this.state.movieIdx)}
-            <button>Next</button>
+            {this.getRecMovie()}
+            <button onClick={this.handleNext}>Next</button>
           </div>
         </div>
       </div>
