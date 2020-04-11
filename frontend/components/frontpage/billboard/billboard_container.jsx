@@ -46,12 +46,11 @@ class Billboard extends Component {
     const type = this.props.name.toLowerCase();
     if (this.props.movies[type] === undefined) return <Loading />;
     this.setMovies();
-    const caros = this.carouselItems();
     return (
       <div className='billboard'>
         <h1>{this.props.name}</h1>
         <Carousel interval={10000}>
-          {caros}
+          {this.carouselItems()}
         </Carousel>
       </div>
 
