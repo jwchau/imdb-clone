@@ -60,7 +60,9 @@ class MovieRecs extends React.Component {
 
     if (this.state.movieIdx !== i) {
       return (
-        <img key={i}
+        <img 
+          onClick={this.handleImgClick(i)}
+          key={i}
           className='rec-poster'
           alt={`${title}${i}`}
           src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${url}`}
@@ -68,7 +70,9 @@ class MovieRecs extends React.Component {
       );
     } else {
       return (
-        <img key={i}
+        <img 
+          onClick={this.handleImgClick(i)}
+          key={i}
           className='rec-poster myActive'
           alt={`${title}${i}`}
           src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${url}`}
@@ -82,8 +86,7 @@ class MovieRecs extends React.Component {
     const caroItems = [];
     let temp = [];
     for (let i = 0; i < recs.length; i++) {
-      const pUrl = recs[i].poster_path;
-      const title = recs[i].title;
+      const {poster_path:pUrl, title} = recs[i];
 
       temp.push(this.createRecImg(pUrl, title, i));
       
@@ -117,10 +120,11 @@ class MovieRecs extends React.Component {
     }
   }
 
-  handleImgClick(e) {
-    e.preventDefault();
-    return;
-    this.setState({movieIdx: 0});
+  handleImgClick(id) {
+    return (e) => {
+      e.preventDefault();
+      this.setState({movieIdx: id});
+    }
   }
 
   render() {
