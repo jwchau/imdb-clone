@@ -15,6 +15,12 @@ class MoviePictures extends React.Component {
     this.props.getPictures(this.props.id);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.id !== this.props.id) {
+      this.props.getPictures(this.props.id);
+    }
+  }
+
   render() {
     if (!this.props.pictures.posters) return <Loading />;
     let { posters, backdrops } = this.props.pictures;

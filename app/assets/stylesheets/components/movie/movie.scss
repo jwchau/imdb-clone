@@ -5,6 +5,11 @@
   align-items: center;
   width: 80%;
 
+  h3 {
+    letter-spacing: 10px;
+    text-align: center;
+  }
+
   #movie-billboard {
     width: 100%;
     display: flex;
@@ -85,11 +90,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
-  > h3 {
-    letter-spacing: 10px;
-
-  }
 
   > div {
     width: 100%;

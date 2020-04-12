@@ -7,6 +7,8 @@ export default (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_VIDEOS:
+      if (!action.videos.results[0])
+        return ['empty'];
       return action.videos.results;
     default:
       return state;

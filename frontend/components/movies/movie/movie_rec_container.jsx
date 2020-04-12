@@ -59,7 +59,11 @@ class MovieRecs extends React.Component {
           <Link to={`/movies/${id}`}>
             <img 
               alt={`${title}`}
-              src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path}`}
+              src = {
+                (poster_path !== null)
+                ? `https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path}`
+                : window.fourofour
+              }
             />
           </Link>
       </div>
@@ -67,8 +71,15 @@ class MovieRecs extends React.Component {
   }
 
   createRecImg(url, title, i) {
-    if (!url) return (<img alt='404' src={window.fourofour}/>);
-
+    if (!url) return (
+      <img
+        onClick={this.handleImgClick(i)}
+        key={i}
+        className='rec-poster' 
+        alt='404' 
+        src={window.fourofour}
+      />
+    );
     if (this.state.movieIdx !== i) {
       return (
         <img 
@@ -98,7 +109,6 @@ class MovieRecs extends React.Component {
     let temp = [];
     for (let i = 0; i < recs.length; i++) {
       const {poster_path:pUrl, title} = recs[i];
-
       temp.push(this.createRecImg(pUrl, title, i));
       
       if (temp.length > 3) {
@@ -113,7 +123,7 @@ class MovieRecs extends React.Component {
 
     if (temp.length > 0) {
       caroItems.push(
-        <Carousel.Item key={i}>
+        <Carousel.Item key={caroItems.length}>
           {temp}
         </Carousel.Item>
       );
@@ -123,7 +133,6 @@ class MovieRecs extends React.Component {
 
   handleNext(e) {
     e.preventDefault();
-
     if (this.state.movieIdx + 1 < this.props.recommended.length) {
       this.setState({movieIdx: this.state.movieIdx + 1});
     } else {

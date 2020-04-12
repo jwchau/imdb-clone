@@ -38,6 +38,7 @@ class MovieShow extends React.Component {
 
     this.state = {
       formBool: false,
+      loading: true,
     };
 
     this.trailer = null;
@@ -159,8 +160,10 @@ class MovieShow extends React.Component {
   }
 
   loadingTrailer() {
-    const videos = Object.values(this.props.movies.movie.videos);
-    if (videos.length < 1) return (<img id='no-trailer' src={window.noTrailer}></img>);
+    const videos = this.props.movies.movie.videos;
+    debugger
+    if (videos.length < 1) return <Loading />;
+    else if (videos[0] === 'empty') return (<img id='no-trailer' src={window.noTrailer}></img>);
     return (
       <div className='trailer'>
         {this.getTrailer(this.props.movies.movie.videos)}
@@ -199,15 +202,15 @@ class MovieShow extends React.Component {
           <div id='poster'>
             <img src={details.posterUrl} alt={details.title}></img>
           </div>
-          {/* {this.loadingTrailer()} */}
+          {this.loadingTrailer()}
         </div>
 
         <div className='overview'>
           <p>{details.overview}</p>
         </div>
         
-        {/* <MovieVideos videos={this.props.movies.movie.videos}/> */}
-        {/* <MoviePicturesContainer id={id}/> */}
+        <MovieVideos videos={this.props.movies.movie.videos}/>
+        <MoviePicturesContainer id={id}/>
         <MovieRecsContainer id={id}/>
         <MovieCreditsContainer id={id}/>
 
