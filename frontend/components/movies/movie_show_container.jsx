@@ -207,8 +207,8 @@ class MovieShow extends React.Component {
         </div>
         
         <MovieVideos videos={this.props.movies.movie.videos}/>
-        {/* <MoviePicturesContainer id={id}/> */}
-        {/* <MovieRecsContainer id={id}/> */}
+        <MoviePicturesContainer id={id}/>
+        <MovieRecsContainer id={id}/>
         <MovieCreditsContainer id={id}/>
 
         <div className='details-lists'>
