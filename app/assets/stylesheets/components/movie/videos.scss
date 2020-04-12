@@ -10,5 +10,9 @@
     justify-content: flex-start;
     align-items: center;
     overflow-x: auto;
+
+    > li {
+      width: 300px;
+    }
   }
 }

@@ -4,7 +4,6 @@ const extractVideos = (arr) => {
   return arr.map((ele, i) => (
     <li key={i}>
       <div className="youtube" data-embed={`${ele.key}`}> 
-        <div className="play-button"></div> 
       </div>
     </li>
   ));

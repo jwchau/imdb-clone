@@ -91,13 +91,16 @@ export const extractGenres = (genres) => {
 // for lazy load youtube embeds
 export const loadYoutube = () => {
   const youtube = document.querySelectorAll(".youtube");
-  debugger
+  const playButton = document.createElement("div");
+  playButton.className = 'play-button';
   for (let i = 0; i < youtube.length; i++) {
     const source = "http://i3.ytimg.com/vi/"+ youtube[i].dataset.embed +"/hqdefault.jpg";
     const image = new Image();
     image.src = source;
-    image.addEventListener( "load", function() {
-        youtube[i].appendChild(image);
+    image.addEventListener("load", function() {
+      youtube[i].innerHTML = '';  
+      youtube[i].appendChild(image);
+      youtube[i].appendChild(playButton);
     }(i));
 
     youtube[i].addEventListener("click", function() {
