@@ -9,22 +9,23 @@ const extractVideos = (arr) => {
   ));
 };
 
-// <iframe
-//   src={`https://www.youtube.com/embed/${ele.key}`} frameBorder="0"
-//   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-//   allowFullScreen>
-// </iframe>
+class MovieVideos extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-const MovieVideos = (props) => {
-  if (props.videos.length < 1) return null;
-  return (
-    <div className='videos'>
-      <h3>Videos</h3>
-      <ul className='video-list'>
-        {extractVideos(props.videos)}
-      </ul>
-    </div>
-  );
+  render() {
+    if (this.props.videos.length < 1) return null;
+    return (
+      <div className='videos'>
+        <h3>Videos</h3>
+        <ul className='video-list'>
+          {extractVideos(this.props.videos)}
+        </ul>
+      </div>
+    );
+  }
 }
+  
 
 export default MovieVideos;

@@ -53,8 +53,8 @@ class MovieShow extends React.Component {
   }
 
   componentDidMount() {
-      this.props.getDetails(this.props.movieId);
-      this.props.getVideos(this.props.movieId);
+    this.props.getDetails(this.props.movieId);
+    this.props.getVideos(this.props.movieId);
   }
 
   componentDidUpdate(prevProps) {
@@ -65,7 +65,7 @@ class MovieShow extends React.Component {
   }
 
   movieReviews() {
-    const {users, ratings, currentuser} = this.props;
+    const {users, currentuser} = this.props;
     const reviews = Object.values(this.props.reviews)
       .map(r => {
         if (users[r.userId] === undefined) return <Loading key={r.userId} />;
@@ -166,7 +166,7 @@ class MovieShow extends React.Component {
     else if (videos[0] === 'empty') return (<img id='no-trailer' src={window.noTrailer}></img>);
     return (
       <div className='trailer'>
-        {this.getTrailer(this.props.movies.movie.videos)}
+        {this.getTrailer(videos)}
       </div>
     );
   }
@@ -206,9 +206,9 @@ class MovieShow extends React.Component {
           <p>{details.overview}</p>
         </div>
         
-        <MovieVideos videos={this.props.movies.movie.videos}/>
-        <MoviePicturesContainer id={id}/>
-        <MovieRecsContainer id={id}/>
+        {/* <MovieVideos videos={this.props.movies.movie.videos}/> */}
+        {/* <MoviePicturesContainer id={id}/> */}
+        {/* <MovieRecsContainer id={id}/> */}
         <MovieCreditsContainer id={id}/>
 
         <div className='details-lists'>
