@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import merge from 'lodash/merge';
-import { extractDetails } from '../../util/util';
+import { extractDetails, loadYoutube } from '../../util/util';
 
 import {
   getDetails,
@@ -45,7 +45,6 @@ class MovieShow extends React.Component {
 
     this.toggleForm = this.toggleForm.bind(this);
     this.reviewForm = this.reviewForm.bind(this);
-    this.loadYoutube = this.loadYoutube.bind(this);
   }
 
   toggleForm() {
@@ -54,8 +53,18 @@ class MovieShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getDetails(this.props.movieId);
-    this.props.getVideos(this.props.movieId);
+    this.setState(
+      {loading: true},
+      () => {
+        this.props.getDetails(this.props.movieId);
+        this.props.getVideos(this.props.movieId);
+      },
+      () => {
+        loadYoutube();
+      },
+      {loading: false},  
+    );
+    debugger
   }
 
   componentDidUpdate(prevProps) {
@@ -164,7 +173,6 @@ class MovieShow extends React.Component {
     const videos = this.props.movies.movie.videos;
     if (videos.length < 1) return <Loading />;
     else if (videos[0] === 'empty') return (<img id='no-trailer' src={window.noTrailer}></img>);
-    else if (typeof cb === 'function') cb();
     return (
       <div className='trailer'>
         {this.getTrailer(this.props.movies.movie.videos)}
@@ -180,36 +188,6 @@ class MovieShow extends React.Component {
       </div>
     );
   }
-
-  // credits to Thoriq Firdaus at 
-  // https://webdesign.tutsplus.com/tutorials/how-to-lazy-load-embedded-youtube-videos--cms-26743
-  // for lazy load youtube embeds
-  loadYoutube() {
-    const youtube = document.querySelectorAll(".youtube");
-    for (let i = 0; i < youtube.length; i++) {
-      const source = "http://i3.ytimg.com/vi/"+ youtube[i].dataset.embed +"/hqdefault.jpg";
-      const image = new Image();
-      image.src = source;
-      image.addEventListener( "load", function() {
-          youtube[i].appendChild(image);
-      }(i));
-
-      youtube[i].addEventListener("click", function() {
-        let iframe = document.createElement( "iframe");
-          iframe.setAttribute("frameborder", "0");
-          iframe.setAttribute("allowfullscreen", "");
-          iframe.setAttribute("src", "https://www.youtube.com/embed/"+ this.dataset.embed +"?rel=0&showinfo=0&autoplay=1");
-          this.innerHTML = "";
-          this.appendChild(iframe);
-      });
-    }
-  }
-
-// <iframe
-//   src={`https://www.youtube.com/embed/${videoUrl}`} frameBorder="0"
-//   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-//   allowFullScreen>
-// </iframe>
 
   render() {
     if (Object.values(this.props.movies.movie.details).length < 1) return <Loading />;
@@ -231,14 +209,14 @@ class MovieShow extends React.Component {
           <div id='poster'>
             <img src={details.posterUrl} alt={details.title}></img>
           </div>
-          {this.loadingTrailer(this.loadYoutube)}
+          {this.loadingTrailer()}
         </div>
 
         <div className='overview'>
           <p>{details.overview}</p>
         </div>
         
-        {/* <MovieVideos videos={this.props.movies.movie.videos}/> */}
+        <MovieVideos videos={this.props.movies.movie.videos}/>
         {/* <MoviePicturesContainer id={id}/> */}
         {/* <MovieRecsContainer id={id}/> */}
         <MovieCreditsContainer id={id}/>
