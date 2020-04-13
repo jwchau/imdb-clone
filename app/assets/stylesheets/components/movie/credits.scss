@@ -1,0 +1,12 @@
+.credits {
+  margin: 2%;
+  .person {
+    margin: 2%;
+    > a {
+      > img {
+        width: 100px;
+        height: 150px;
+      }
+    }
+  }
+}

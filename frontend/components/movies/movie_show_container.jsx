@@ -252,7 +252,6 @@ const MSTP = (state, ownProps) => ({
 
 const MDTP = (dispatch, ownProps) => ({
   getDetails: id => dispatch(getDetails(id)),
-  // getVideos: id => dispatch(getVideos(id)),
   postReview: review => dispatch(postReview(review)),
   submitEdits: review => dispatch(patchReview(review)),
   removeReview: id => dispatch(removeReview(id)),

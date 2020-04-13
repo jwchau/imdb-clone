@@ -30,3 +30,47 @@ with a class attribute containing 'col-' */
     width: 100%;
   }
 }
+
+.fifty {
+  width: 50%;
+}
+
+.hundred {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.spacea-center {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.spaceb-center {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.start-center {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.center-start  {
+  justify-self: center;
+  align-items: flex-start;
+}
+
+
