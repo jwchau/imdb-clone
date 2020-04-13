@@ -40,10 +40,13 @@ class MovieCredits extends React.Component {
     if (!this.state.credits.cast) return <Loading />;
     return (
       <div className='credits hundred flex center-start'>
+        <h3>Credits</h3>
         <ul className='cast w-fifty h-hundred scroll-y'>
+          <h4>Cast</h4>
           {createPeople(this.state.credits.cast, 'cast')}
         </ul>
         <ul className='crew w-fifty h-hundred scroll-y'>
+          <h4>Crew</h4>
           {createPeople(this.state.credits.crew, 'crew')}
         </ul>
       </div>
