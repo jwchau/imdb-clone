@@ -5,13 +5,17 @@ import { extractDetails, loadYoutube } from '../../util/util';
 
 import {
   getDetails,
-  getVideos,
+  // getVideos,
   postReview,
   patchReview,
   removeReview,
   postRating,
   patchRating,
 } from '../../actions/movies_action';
+
+import {
+  getVideos,
+} from '../../util/movies_api_util';
 
 //component
 import Rating from '../movies/rating';
@@ -39,12 +43,14 @@ class MovieShow extends React.Component {
     this.state = {
       formBool: false,
       loading: true,
+      videos: [],
     };
 
     this.trailer = null;
 
     this.toggleForm = this.toggleForm.bind(this);
     this.reviewForm = this.reviewForm.bind(this);
+    this.loadVideos = this.loadVideos.bind(this);
   }
 
   toggleForm() {
@@ -54,14 +60,27 @@ class MovieShow extends React.Component {
 
   componentDidMount() {
     this.props.getDetails(this.props.movieId);
-    this.props.getVideos(this.props.movieId);
+    loadVideos();
   }
 
   componentDidUpdate(prevProps) {
     if (parseInt(prevProps.match.params.id) !== this.props.movieId) {
       this.props.getDetails(this.props.movieId);
-      this.props.getVideos(this.props.movieId);
+      loadVideos();
     }
+  }
+
+  loadVideos() {
+    getVideos(this.props.movieId)
+    .then(videos => {
+      if (!videos.results[0]) {
+        this.setState({videos: ['empty']});
+        return;
+      } else {
+        this.setState({videos: videos.results});
+        return;
+      }})
+    .then(() => loadYoutube());
   }
 
   movieReviews() {
@@ -160,7 +179,7 @@ class MovieShow extends React.Component {
   }
 
   loadingTrailer() {
-    const videos = this.props.movies.movie.videos;
+    const videos = this.state.videos;
     if (videos.length < 1) return <Loading />;
     else if (videos[0] === 'empty') return (<img id='no-trailer' src={window.noTrailer}></img>);
     return (
@@ -182,7 +201,6 @@ class MovieShow extends React.Component {
     if (Object.values(this.props.movies.movie.details).length < 1) return <Loading />;
     let id = this.props.movieId;
     let details = extractDetails(this.props.movies.movie.details);
-    loadYoutube();
     return (
       <div className='movie-show-page'>
         <div className='information'>
@@ -206,9 +224,9 @@ class MovieShow extends React.Component {
           <p>{details.overview}</p>
         </div>
         
-        <MovieVideos videos={this.props.movies.movie.videos}/>
+        {/* <MovieVideos videos={this.state.videos}/>
         <MoviePicturesContainer id={id}/>
-        <MovieRecsContainer id={id}/>
+        <MovieRecsContainer id={id}/> */}
         <MovieCreditsContainer id={id}/>
 
         <div className='details-lists'>
@@ -234,7 +252,7 @@ const MSTP = (state, ownProps) => ({
 
 const MDTP = (dispatch, ownProps) => ({
   getDetails: id => dispatch(getDetails(id)),
-  getVideos: id => dispatch(getVideos(id)),
+  // getVideos: id => dispatch(getVideos(id)),
   postReview: review => dispatch(postReview(review)),
   submitEdits: review => dispatch(patchReview(review)),
   removeReview: id => dispatch(removeReview(id)),

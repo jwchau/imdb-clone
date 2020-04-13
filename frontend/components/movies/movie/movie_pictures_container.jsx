@@ -39,11 +39,15 @@ class MoviePictures extends React.Component {
 
 const extractPictures = (arr, offset = 0) => {
   const host = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
-  return arr.map((ele, i) => (
-    <li key={i + offset}>
-      <img src={`${host}${ele.file_path}`} alt={`${i}`}></img>
-    </li>
-  ));
+  return arr.map((ele, i) => {
+    if (ele.file_path) {
+      return (
+        <li key={i + offset}>
+          <img src={`${host}${ele.file_path}`} alt={`${i}`}></img>
+        </li>
+      );
+    }
+  });
 };
 
 
