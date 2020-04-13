@@ -8,9 +8,9 @@ export default ({movie}) => {
   const hostUrl = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
   let pUrl = window.fourofour;
   let tUrl = window.noTrailer;
-  if (poster_path !== "")
+  if (poster_path !== null)
     pUrl = `${hostUrl}${poster_path}`;
-  if (backdrop_path !== "")
+  if (backdrop_path !== null)
     tUrl = `${hostUrl}${backdrop_path}`;
 
   //display it

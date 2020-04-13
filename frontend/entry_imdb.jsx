@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // window.dispatch = store.dispatch;
-    // window.getState = store.getState;
+    window.getState = store.getState;
     // window.fetchMoviesAPI = fetchMoviesAPI;
 
     const root = document.getElementById("root");
