@@ -31,12 +31,24 @@ with a class attribute containing 'col-' */
   }
 }
 
-.fifty {
+.h-hundred {
+  height: 100%;
+}
+
+.w-fifty {
   width: 50%;
 }
 
-.hundred {
+.w-hundred {
   width: 100%;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+.scroll-y {
+  overflow-y: auto;
 }
 
 .flex {
