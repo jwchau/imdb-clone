@@ -50,22 +50,19 @@ class MovieRecs extends React.Component {
     } = this.props.recommended[this.state.movieIdx];
     return (
       <div>
-          <Link to={`/movies/${id}`}>{title}</Link>
-          <br></br>
-          Released: {release_date}
-          <br></br>
-          Score: {vote_average} <FontAwesomeIcon className='imdb-yellow' icon={faStar}/>
-          <br></br>
-          <Link to={`/movies/${id}`}>
-            <img 
-              alt={`${title}`}
-              src = {
-                (poster_path !== null)
-                ? `https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path}`
-                : window.fourofour
-              }
-            />
-          </Link>
+        <Link to={`/movies/${id}`}>{title}</Link>
+        <p>Released: {release_date}</p>
+        <p>Score: {vote_average} <FontAwesomeIcon className='imdb-yellow' icon={faStar}/></p>
+        <Link to={`/movies/${id}`}>
+          <img 
+            alt={`${title}`}
+            src = {
+              (poster_path !== null)
+              ? `https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path}`
+              : window.fourofour
+            }
+          />
+        </Link>
       </div>
     );
   }
@@ -168,7 +165,7 @@ class MovieRecs extends React.Component {
           
           <div className='rec-movie'>
             {this.getRecMovie()}
-            <button onClick={this.handleNext}>Next</button>
+            <button className='imdb-button' onClick={this.handleNext}>Next</button>
           </div>
         </div>
       </div>
