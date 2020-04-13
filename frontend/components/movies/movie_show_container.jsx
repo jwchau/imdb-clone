@@ -60,13 +60,13 @@ class MovieShow extends React.Component {
 
   componentDidMount() {
     this.props.getDetails(this.props.movieId);
-    loadVideos();
+    this.loadVideos();
   }
 
   componentDidUpdate(prevProps) {
     if (parseInt(prevProps.match.params.id) !== this.props.movieId) {
       this.props.getDetails(this.props.movieId);
-      loadVideos();
+      this.loadVideos();
     }
   }
 
@@ -224,9 +224,9 @@ class MovieShow extends React.Component {
           <p>{details.overview}</p>
         </div>
         
-        {/* <MovieVideos videos={this.state.videos}/>
+        <MovieVideos videos={this.state.videos}/>
         <MoviePicturesContainer id={id}/>
-        <MovieRecsContainer id={id}/> */}
+        <MovieRecsContainer id={id}/>
         <MovieCreditsContainer id={id}/>
 
         <div className='details-lists'>
