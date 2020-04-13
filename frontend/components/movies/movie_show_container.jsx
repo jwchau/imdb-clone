@@ -183,6 +183,7 @@ class MovieShow extends React.Component {
     if (Object.values(this.props.movies.movie.details).length < 1) return <Loading />;
     let id = this.props.movieId;
     let details = extractDetails(this.props.movies.movie.details);
+    loadYoutube();
     return (
       <div className='movie-show-page'>
         <div className='information'>
@@ -199,16 +200,16 @@ class MovieShow extends React.Component {
           <div id='poster'>
             <img src={details.posterUrl} alt={details.title}></img>
           </div>
-          {this.loadingTrailer(loadYoutube)}
+          {this.loadingTrailer()}
         </div>
 
         <div className='overview'>
           <p>{details.overview}</p>
         </div>
         
-        {/* <MovieVideos videos={this.props.movies.movie.videos}/> */}
-        {/* <MoviePicturesContainer id={id}/> */}
-        {/* <MovieRecsContainer id={id}/> */}
+        <MovieVideos videos={this.props.movies.movie.videos}/>
+        <MoviePicturesContainer id={id}/>
+        <MovieRecsContainer id={id}/>
         <MovieCreditsContainer id={id}/>
 
         <div className='details-lists'>
