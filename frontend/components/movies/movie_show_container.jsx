@@ -159,9 +159,8 @@ class MovieShow extends React.Component {
     }
   }
 
-  loadingTrailer(cb) {
+  loadingTrailer() {
     const videos = this.props.movies.movie.videos;
-    if (typeof cb === 'function') cb();
     if (videos.length < 1) return <Loading />;
     else if (videos[0] === 'empty') return (<img id='no-trailer' src={window.noTrailer}></img>);
     return (
