@@ -86,6 +86,21 @@ export const extractGenres = (genres) => {
   return res;
 }
 
+export const extractCompanies = (comps) => {
+  return comps.map((comp, i) => {
+    const {name, logo_path, origin_country} = comp;
+    return (
+     <div key={i} className='company'>
+       
+     </div> 
+    );
+  });
+}
+
+export const extractCountries = (counts) => {
+
+}
+
 // credits to Thoriq Firdaus at 
 // https://webdesign.tutsplus.com/tutorials/how-to-lazy-load-embedded-youtube-videos--cms-26743
 // for lazy load youtube embeds
