@@ -138,7 +138,7 @@ class MovieShow extends React.Component {
       <div className='review-form'>
         {
           (this.props.currentuser)
-            ? <h3 onClick={this.toggleForm}>Write a review</h3>
+            ? <h4 onClick={this.toggleForm}>Write a review</h4>
             : null
         }
         {
