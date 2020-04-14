@@ -17,7 +17,6 @@ class MoviePictures extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.id !== this.props.id) {
-      //overhaul reducers again? no redux store needed.
       this.props.getPictures(this.props.id);
     }
   }

@@ -35,6 +35,13 @@ export const fetchMovies = () => (
   })
 );
 
+export const getDetailsPerson = personId => (
+  $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/person/${personId}?api_key=${TMDB_KEY}&language=en-US`,
+  })
+);
+
 export const getDetails = movieId => (
   $.ajax({
     method: 'GET',
