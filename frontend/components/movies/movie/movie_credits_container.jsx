@@ -87,7 +87,8 @@ const createPeople = (arr, type) => {
     }
     return (
       <li key={i} className={`person flex spaceb-center ${OddOrEven}`}>
-        <Link to={`/people/${id}`}>
+        {/* <Link to={`/people/${id}`}> */}
+        <Link to='#'>
           <img src={sourcePicture(profile_path)} alt={name}></img>
           <p>{name}</p>
         </Link>

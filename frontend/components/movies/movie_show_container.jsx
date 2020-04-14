@@ -67,6 +67,11 @@ class MovieShow extends React.Component {
     if (parseInt(prevProps.match.params.id) !== this.props.movieId) {
       this.props.getDetails(this.props.movieId);
       this.loadVideos();
+      window.scrollTo(0, 0);
+      $('.cast').scrollTop(0);
+      $('.crew').scrollTop(0);
+      $('.picture-list').scrollLeft(0);
+      $('.video-list').scrollLeft(0);
     }
   }
 
