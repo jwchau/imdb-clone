@@ -25,7 +25,9 @@
         color: rgba($button-color, 0.75);
       }
     }
-
+    > p {
+      max-width: 60%;
+    }
     &.even {
       box-shadow: 0 0 200px 1px rgba($button-color, 0.5);
     }
