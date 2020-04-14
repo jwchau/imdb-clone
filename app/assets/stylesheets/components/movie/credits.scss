@@ -1,13 +1,29 @@
 .credits {
   margin: 2%;
   height: 600px;
+
+  > div {
+    margin: 2% 0;
+    border-top: solid 1px rgba($imdb-yellow, 0.5);
+    > ul h3 {
+      text-decoration: underline;
+      margin: 2%;
+    }
+  }
+
   .person {
     margin: 2%;
+    padding: 2%;
+    border-radius: 10px;
     > a {
       > img {
         width: 100px;
         height: 150px;
       }
+    }
+
+    &.even {
+      box-shadow: 0 0 200px 1px rgba($button-color, 0.5);
     }
   }
 }

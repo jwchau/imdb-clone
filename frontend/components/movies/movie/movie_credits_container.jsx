@@ -39,16 +39,18 @@ class MovieCredits extends React.Component {
   render() {
     if (!this.state.credits.cast) return <Loading />;
     return (
-      <div className='credits hundred flex center-start'>
+      <div className='credits w-hundred flex-column center-center'>
         <h3>Credits</h3>
-        <ul className='cast w-fifty h-hundred scroll-y'>
-          <h4>Cast</h4>
-          {createPeople(this.state.credits.cast, 'cast')}
-        </ul>
-        <ul className='crew w-fifty h-hundred scroll-y'>
-          <h4>Crew</h4>
-          {createPeople(this.state.credits.crew, 'crew')}
-        </ul>
+        <div className='w-hundred h-hundred flex center-start'>
+          <ul className='cast w-fifty h-hundred scroll-y'>
+            <h3>Cast</h3>
+            {createPeople(this.state.credits.cast, 'cast')}
+          </ul>
+          <ul className='crew w-fifty h-hundred scroll-y'>
+            <h3>Crew</h3>
+            {createPeople(this.state.credits.crew, 'crew')}
+          </ul>
+        </div>
       </div>
     );
   }
@@ -75,8 +77,16 @@ const createPeople = (arr, type) => {
   arr = removeDupes(arr, type);
   const people = arr.map((person, i) => {
     let {id, name, role, profile_path} = person;
+    let OddOrEven = 'even';
+    if (i % 2 === 0) {
+      if (type === 'cast') OddOrEven = 'even';
+      else OddOrEven = 'odd'
+    } else {
+      if (type === 'cast') OddOrEven = 'odd';
+      else OddOrEven = 'even';
+    }
     return (
-      <li key={i} className={`person flex spaceb-center ${(i%2===0) ? 'even' : 'odd'}`}>
+      <li key={i} className={`person flex spaceb-center ${OddOrEven}`}>
         <Link to={`/people/${id}`}>
           <img src={sourcePicture(profile_path)} alt={name}></img>
           {name}
