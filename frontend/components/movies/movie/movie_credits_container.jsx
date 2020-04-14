@@ -89,11 +89,9 @@ const createPeople = (arr, type) => {
       <li key={i} className={`person flex spaceb-center ${OddOrEven}`}>
         <Link to={`/people/${id}`}>
           <img src={sourcePicture(profile_path)} alt={name}></img>
-          {name}
+          <p>{name}</p>
         </Link>
-        <div className='flex'>
-          <p>{role}</p>
-        </div>
+        <p>{role}</p>
       </li>
     );
   });

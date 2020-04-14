@@ -224,15 +224,11 @@ class MovieShow extends React.Component {
           <p>{details.overview}</p>
         </div>
         
-        {/* <MovieVideos videos={this.state.videos}/>
+        <MovieVideos videos={this.state.videos}/>
         <MoviePicturesContainer id={id}/>
-        <MovieRecsContainer id={id}/> */}
+        <MovieRecsContainer id={id}/>
         <MovieCreditsContainer id={id}/>
-
-        {/* <div className='details-lists'>
-          <MovieDetails details={this.props.movies.movie.details}/>
-          <MovieUserlistsContainer id={id}/>
-        </div> */}
+        {/* <MovieDetails details={this.props.movies.movie.details}/> */}
 
         {this.reviewForm()}
         {this.movieReviews()}
