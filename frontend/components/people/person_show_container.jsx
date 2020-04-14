@@ -6,6 +6,8 @@ import {
 } from '../../util/movies_api_util';
 
 
+import Loading from '../loading/loading';
+
 class PersonShow extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +26,7 @@ class PersonShow extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.id !== this.props.id) {
+      this.setState({details: {}});
       getDetailsPerson(this.props.id)
         .then((details) => {
           this.setState({details});
@@ -32,9 +35,10 @@ class PersonShow extends Component {
   }
 
   render() {
+    if (!this.state.details.adult) return <Loading />;
     return (
       <div className='person-show flex-col start-center'>
-         
+         <span></span>
       </div>
     )
   }
