@@ -48,7 +48,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    max-width: 85%;
     height: 35rem;
 
     > #poster {
@@ -76,6 +76,7 @@
   }
 
   > .overview {
-    max-width: 90%;
+    margin: 2%;
+    max-width: 500px;
   }
 }
