@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
+import PersonImages from './person_images';
+import PersonCredits from './person_credits';
+import PersonExternals from './person_externals';
+
 import {
   getDetailsPerson,
 } from '../../util/movies_api_util';
@@ -55,6 +59,10 @@ class PersonShow extends Component {
         {(valid(deathday)) ? <span>Deathday: <span>{deathday}</span></span> : null}
         {(valid(kfd)) ? <span>Known for: <span>{kfd}</span></span> : null}
         {(valid(biography)) ? <span>Biography: <span>{biography}</span></span> : null}
+
+        <PersonImages id={this.props.id}/>
+        <PersonCredits id={this.props.id}/>
+        <PersonExternals id={this.props.id}/>
       </div>
     );
   }
