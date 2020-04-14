@@ -2,8 +2,6 @@ import React from "react";
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-//bootstrap
-// import 'bootstrap/dist/css/bootstrap.css';
 import './react_bootstrap.css';
 // import './App.scss';
 
@@ -18,26 +16,10 @@ import Watchlist from './frontpage/watchlist';
 import UserShowContainer from './users/user_show_container';
 import MovieShowContainer from './movies/movie_show_container';
 import AllMoviesContainer from './movies/all_movies_container';
+import PersonShowContainer from './people/person_show_container';
 import Loading from "./loading/loading";
 
-//extra
-// import {fetchMovies} from '../actions/movies_action';
-
-
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
 class App extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
-  // componentDidMount() {
-  //   // this.props.dispatch(fetchMovies());
-  // }
-
   render() {
     return (
       <div className="app">
@@ -53,6 +35,7 @@ class App extends React.Component {
           <ProtectedRoute path='/watchlist' component={Watchlist}/>
           <Route path='/movies/:id' component={MovieShowContainer}/>
           <Route path='/movies' component={AllMoviesContainer}/>
+          <Route path='/people/:id' component={PersonShowContainer}/>
           <Route path='/' component={FrontPageContainer}/>
         </Switch>
         <Route exact path='/' component={FooterContainer}/>
@@ -61,8 +44,6 @@ class App extends React.Component {
   }
 
 };
-
-// }
 
 export default App;
 
