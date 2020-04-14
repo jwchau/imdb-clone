@@ -1,4 +1,7 @@
+import React from 'react';
+
 const TMDB_KEY = "f850a0ee7a817202212394a72e760dfa";
+
 
 const cut = (str) => {
   if (!str) {
@@ -90,15 +93,20 @@ export const extractCompanies = (comps) => {
   return comps.map((comp, i) => {
     const {name, logo_path, origin_country} = comp;
     return (
-     <div key={i} className='company'>
-       
+     <div key={i} className='company flex spaceb-center'>
+       <div className='image-backer'>
+         <img className='tile-100' src={sourcePicture(logo_path)} alt={name}></img>
+        </div>
+       <p>{name} from {origin_country}</p>
      </div> 
     );
   });
 }
 
-export const extractCountries = (counts) => {
-
+// from stackoverflow
+// https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+export const extractNumber = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 // credits to Thoriq Firdaus at 

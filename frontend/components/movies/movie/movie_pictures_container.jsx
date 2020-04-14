@@ -27,7 +27,7 @@ class MoviePictures extends React.Component {
     let { posters, backdrops } = this.props.pictures;
     if (posters.length < 1 && backdrops.length < 1) return null;
     return (
-      <div className='pictures'>
+      <div className='pictures top-line'>
         <h3>Pictures</h3>
           <ul className='picture-list'>
             {extractPictures(posters)}

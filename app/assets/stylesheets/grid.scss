@@ -85,4 +85,9 @@ with a class attribute containing 'col-' */
   align-items: flex-start;
 }
 
+.tile-100 {
+  width: 100px;
+  height: 150px;
+  object-fit: contain;
+}
 

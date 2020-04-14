@@ -1,0 +1,30 @@
+.details {
+  max-width: 900px;
+  > section {
+    > * {
+      margin: 1%;
+    }
+    span {
+      font-style: italic;
+      font-weight: bold;
+      > span {
+        font-style: normal;
+      }
+    }
+
+    > h3 {
+
+    }
+
+    > ul {
+     max-width: 600px;
+     width: 100%;
+     align-self: center;
+     max-height: 600px
+    }
+  }
+}
+
+.image-backer {
+  background-color: white;
+}

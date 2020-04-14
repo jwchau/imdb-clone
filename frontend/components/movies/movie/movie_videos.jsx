@@ -17,7 +17,7 @@ class MovieVideos extends React.Component {
   render() {
     if (this.props.videos.length < 1) return null;
     return (
-      <div className='videos'>
+      <div className='videos top-line'>
         <h3>Videos</h3>
         <ul className='video-list'>
           {extractVideos(this.props.videos)}

@@ -151,7 +151,7 @@ class MovieRecs extends React.Component {
   render() {
     if (this.props.recommended.length < 1) return null;
     return (
-      <div className='recommendations'>
+      <div className='recommendations top-line'>
         <h3>Recommendations</h3>
 
         <div>

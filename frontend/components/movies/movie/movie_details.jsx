@@ -1,32 +1,35 @@
 import React from 'react';
 import { 
   extractGenres,
-
+  extractCompanies,
+  extractNumber,
 } from '../../../util/util';
 
 const MovieDetails = ({details}) => {
   const {
     budget, genres, homepage, original_language,
-    original_title, production_companies, production_countries,
-    revenue, runtime, spoken_languages, status, tagline
+    original_title, production_companies,
+    revenue, runtime,status, tagline
   } = details;
 
   return (
-    <div className='details flex-column start-center'>
+    <div className='details w-hundred top-line flex-col'>
       <h3>Details</h3>
-      <section className='flex-column'>
-        <p>Movie Website: {homepage}</p>
-        <p>Original Title: {original_title}</p>
-        <p>Tagline: {tagline}</p>
-        <p>Original Language: {original_language}</p>
-        <p>Spoken Languages: {spoken_languages}</p>
-        <p>Genres: {extractGenres(genres)}</p>
-        <p>Movie Status: {status}</p>
-        <p>Runtime: {runtime}</p>
-        <p>Budget: {budget}</p>
-        <p>Revenue: {revenue}</p>
-        <div>Production Companies: {extractCompanies(production_companies)}</div>
-        <div>Production Countries: {extractCountries(production_countries)}</div>
+      <section className='flex-col'>
+        <span>Movie Website: <span><a href={homepage} target='_blank'>{homepage}</a></span></span>
+        <span>Original Title: <span>{original_title}</span></span>
+        <span>Tagline: <span>{tagline}</span></span>
+        <span>Original Language: <span>{original_language}</span></span>
+        <span>Genres: <span>{extractGenres(genres)}</span></span>
+        <span>Movie Status: <span>{status}</span></span>
+        <span>Runtime: <span>{runtime} minutes</span></span>
+        <span>Budget: <span>${extractNumber(budget)}</span></span>
+        <span>Revenue: <span>${extractNumber(revenue)}</span></span>
+        <span>Profit/Loss: <span>${extractNumber(revenue - budget)}</span></span>
+        <h3 className='top-line'>Production Companies:</h3>
+        <ul className='scroll-y'>
+           {extractCompanies(production_companies)}
+        </ul>
       </section>
     </div>
   );

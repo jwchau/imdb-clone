@@ -39,7 +39,7 @@ class MovieCredits extends React.Component {
   render() {
     if (!this.state.credits.cast) return <Loading />;
     return (
-      <div className='credits w-hundred flex-column center-center'>
+      <div className='credits top-line w-hundred flex-column center-center'>
         <h3>Credits</h3>
         <div className='w-hundred h-hundred flex center-start'>
           <ul className='cast w-fifty h-hundred scroll-y'>
@@ -87,8 +87,7 @@ const createPeople = (arr, type) => {
     }
     return (
       <li key={i} className={`person flex spaceb-center ${OddOrEven}`}>
-        {/* <Link to={`/people/${id}`}> */}
-        <Link to='#'>
+        <Link to={`/people/${id}`}>
           <img src={sourcePicture(profile_path)} alt={name}></img>
           <p>{name}</p>
         </Link>
