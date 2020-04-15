@@ -1,8 +1,10 @@
 #person-cast, #person-crew {
   border-radius: 10px;
-  box-shadow: 0 0 200px 1px rgba($imdb-yellow, 0.75);
+  box-shadow: 0 0 200px 1px rgba($imdb-yellow, 0.5);
   margin: 2%;
+  width: 100%;
   > h4 {
+    cursor: pointer;
     font-weight: bold;
     font-style: oblique;
     color: $button-color;
