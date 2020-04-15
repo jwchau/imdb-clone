@@ -17,6 +17,8 @@ import UserShowContainer from './users/user_show_container';
 import MovieShowContainer from './movies/movie_show_container';
 import AllMoviesContainer from './movies/all_movies_container';
 import PersonShowContainer from './people/person_show_container';
+import SearchResultsContainer from './frontpage/search_results_container';
+
 import Loading from "./loading/loading";
 
 class App extends React.Component {
@@ -36,6 +38,7 @@ class App extends React.Component {
           <Route path='/movies/:id' component={MovieShowContainer}/>
           <Route path='/movies' component={AllMoviesContainer}/>
           <Route path='/people/:id' component={PersonShowContainer}/>
+          <Route path='/search/:term' component={SearchResultsContainer}/>
           <Route path='/' component={FrontPageContainer}/>
         </Switch>
         <Route exact path='/' component={FooterContainer}/>
