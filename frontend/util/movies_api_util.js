@@ -35,6 +35,13 @@ export const fetchMovies = () => (
   })
 );
 
+export const searchPeople = query => (
+  $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/search/person?api_key=${TMDB_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
+  })
+);
+
 export const getCreditsPerson = personId => (
   $.ajax({
     method: 'GET',

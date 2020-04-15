@@ -62,7 +62,7 @@ class PersonShow extends Component {
 
         <PersonImages id={this.props.id}/>
         <PersonCredits id={this.props.id}/>
-        <PersonExternals id={this.props.id}/>
+        {/* <PersonExternals id={this.props.id}/> */}
       </div>
     );
   }

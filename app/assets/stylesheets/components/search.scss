@@ -1,0 +1,22 @@
+#search-page {
+  max-width: 1200px;
+  width: 80%;
+
+  > h4 {
+    font-style: oblique;
+    color: $button-color;
+    font-weight: bold;
+  }
+}
+
+.movie-results, .person-results {
+  width: 100%;
+  max-height: 500px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  box-shadow: 0 0 100px 1px rgba($imdb-yellow, 0.5);
+
+  > li {
+    padding: 1%;
+  }
+}
