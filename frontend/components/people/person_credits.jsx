@@ -55,6 +55,45 @@ export default class PersonCredits extends Component {
     }
   }
 
+  createCastList() {
+    if (this.state.credits.cast.length < 1) return null;
+    return (
+      <div id='person-cast'>
+        {(this.state.showCast)
+          ? <h4 onClick={this.handleClick('cast')}>Cast &#9650;</h4>
+          : <h4 onClick={this.handleClick('cast')}>Cast &#9660;</h4>
+        }
+        {
+          (this.state.showCast)
+            ? <ul className='w-hundred scroll-y cast-list'>
+                {extractMovie(this.state.credits.cast, 'cast')}
+              </ul>
+            : null
+        }
+      </div>
+    );
+  }
+
+  createCrewList() {
+    if (this.state.credits.crew.length < 1) return null;
+    return (
+      <div id='person-crew'>
+        {
+          (this.state.showCrew)
+          ? <h4 onClick={this.handleClick('crew')}>Crew &#9650;</h4>
+          : <h4 onClick={this.handleClick('crew')}>Crew &#9660;</h4> 
+        }
+        {
+          (this.state.showCrew)
+            ? <ul className='w-hundred scroll-y crew-list'>
+                {extractMovie(this.state.credits.crew, 'crew')}
+              </ul>
+            : null
+        }
+      </div>
+    );
+  }
+
   render() {
     if (!this.state.credits.cast) return <Loading />;
     const {cast, crew} = this.state.credits;
@@ -62,33 +101,8 @@ export default class PersonCredits extends Component {
     return (
       <div className='w-hundred top-line flex-col start-center' id='person-credits'>
         <h3>Filmography</h3>
-        <div id='person-cast'>
-          {(this.state.showCast)
-            ? <h4 onClick={this.handleClick('cast')}>Cast &#9650;</h4>
-            : <h4 onClick={this.handleClick('cast')}>Cast &#9660;</h4>
-          }
-          {
-            (this.state.showCast)
-              ? <ul className='w-hundred scroll-y cast-list'>
-                  {extractMovie(this.state.credits.cast, 'cast')}
-                </ul>
-              : null
-          }
-        </div>
-
-        <div id='person-crew'>
-          {(this.state.showCrew)
-            ? <h4 onClick={this.handleClick('crew')}>Crew &#9650;</h4>
-            : <h4 onClick={this.handleClick('crew')}>Crew &#9660;</h4> 
-          }
-          {
-            (this.state.showCrew)
-              ? <ul className='w-hundred scroll-y crew-list'>
-                  {extractMovie(this.state.credits.crew, 'crew')}
-                </ul>
-              : null
-          }
-        </div>
+        {this.createCastList()}
+        {this.createCrewList()}
       </div>
     );
   }
