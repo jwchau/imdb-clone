@@ -1,0 +1,11 @@
+#person-images {
+
+  > .image-list {
+    > li {
+      margin: 2%;
+      > img {
+        width: 200px;
+      }
+    }
+  }
+}
