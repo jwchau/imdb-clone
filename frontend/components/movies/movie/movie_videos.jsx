@@ -15,7 +15,7 @@ class MovieVideos extends React.Component {
   }
 
   render() {
-    if (this.props.videos.length < 1) return null;
+    if (this.props.videos.length < 1 || this.props.videos[0] === 'empty') return null;
     return (
       <div className='videos top-line'>
         <h3>Videos</h3>

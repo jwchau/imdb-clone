@@ -38,6 +38,8 @@ class MovieCredits extends React.Component {
 
   render() {
     if (!this.state.credits.cast) return <Loading />;
+    if (this.state.credits.cast.length < 1) return null;
+    if (this.state.credits.crew.length < 1) return null;
     return (
       <div className='credits top-line w-hundred flex-column center-center'>
         <h3>Credits</h3>

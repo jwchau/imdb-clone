@@ -12,6 +12,7 @@ const MovieDetails = ({details}) => {
     revenue, runtime,status, tagline
   } = details;
 
+  const prod_comps = extractCompanies(production_companies);
   return (
     <div className='details w-hundred top-line flex-col'>
       <h3>Details</h3>
@@ -26,18 +27,17 @@ const MovieDetails = ({details}) => {
         {(valid(budget)) ? <span>Budget: <span>${extractNumber(budget)}</span></span> : null}
         {(valid(revenue)) ? <span>Revenue: <span>${extractNumber(revenue)}</span></span> : null}
         {(valid(revenue - budget)) ? <span>Profit/Loss: <span>${extractNumber(revenue - budget)}</span></span> : null}
-        <h3 className='top-line'>Production Companies:</h3>
+        {(valid(prod_comps)) ? <h3 className='top-line'>Production Companies:</h3> : null}
         <ul className='scroll-y'>
-           {extractCompanies(production_companies)}
+          {prod_comps}
         </ul>
       </section>
     </div>
   );
-
 }
 
 const valid = (str) => {
-  if (str !== null && str !== "" && str !== 0) return true;
+  if (str !== null && str !== "" && str !== 0 && str.length !== 0) return true;
   return false;
 }
 

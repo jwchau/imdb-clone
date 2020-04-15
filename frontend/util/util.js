@@ -115,7 +115,10 @@ export const extractNumber = (num) => {
 export const loadYoutube = () => {
   const youtube = document.querySelectorAll(".youtube");
   for (let i = 0; i < youtube.length; i++) {
-    const source = "http://i3.ytimg.com/vi/"+ youtube[i].dataset.embed +"/hqdefault.jpg";
+
+    let source = window.noTrailer;
+    if (!youtube[i].dataset.embed)
+      source = "http://i3.ytimg.com/vi/"+ youtube[i].dataset.embed +"/hqdefault.jpg";
     const image = new Image();
     const playButton = document.createElement("div");
     playButton.className = 'play-button';
