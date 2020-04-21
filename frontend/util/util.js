@@ -142,5 +142,5 @@ export const loadYoutube = () => {
 
 export const sourcePicture = str => {
   if (str === null || str === undefined) return window.fourofour;
-  return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${str}`;
+  return `https://image.tmdb.org/t/p/original${str}`;
 }
