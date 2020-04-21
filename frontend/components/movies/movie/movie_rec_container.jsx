@@ -58,7 +58,7 @@ class MovieRecs extends React.Component {
             alt={`${title}`}
             src = {
               (poster_path !== null)
-              ? `https://image.tmdb.org/t/p/w600_and_h900_bestv2${poster_path}`
+              ? `https://image.tmdb.org/t/p/original${poster_path}`
               : window.fourofour
             }
           />
@@ -84,7 +84,7 @@ class MovieRecs extends React.Component {
           key={i}
           className='rec-poster'
           alt={`${title}${i}`}
-          src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${url}`}
+          src={`https://image.tmdb.org/t/p/original${url}`}
         />
       );
     } else {
@@ -94,7 +94,7 @@ class MovieRecs extends React.Component {
           key={i}
           className='rec-poster myActive'
           alt={`${title}${i}`}
-          src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${url}`}
+          src={`https://image.tmdb.org/t/p/original${url}`}
         />
       );
     }

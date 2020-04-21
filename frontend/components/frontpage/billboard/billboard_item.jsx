@@ -5,7 +5,7 @@ export default ({movie}) => {
 
   //extract movie information
   let {id, title, poster_path, backdrop_path } = movie;
-  const hostUrl = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
+  const hostUrl = 'https://image.tmdb.org/t/p/original';
   let pUrl = window.fourofour;
   let tUrl = window.noTrailer;
   if (poster_path !== null)

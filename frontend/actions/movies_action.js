@@ -106,8 +106,6 @@ export const deleteReview = review => ({
   review
 });
 
-//https://image.tmdb.org/t/p/w600_and_h900_bestv2/${img_url}
-
 //thunk action for movies
 export const fetchUpcoming = () => dispatch => {
   return Mutils.fetchUpcoming().then(

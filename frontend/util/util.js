@@ -34,9 +34,6 @@ export const searchTMDB = (query) => {
   });
 };
 
-//https://www.youtube.com/embed/jKCj3XuPG8M
-//https://image.tmdb.org/t/p/w600_and_h900_bestv2/${img_url}
-
 export const convertMovies = (movies) => {
   const res = {};
   for (let i = 0; i < movies.length; i++) {
@@ -44,7 +41,7 @@ export const convertMovies = (movies) => {
 
     let pUrl = window.fourofour;
     if (data.poster_path)
-      pUrl = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`;
+      pUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
       
 
     const movie = {
@@ -65,7 +62,7 @@ export const convertMovies = (movies) => {
 export const extractDetails = data => {
   let pUrl = window.fourofour;
   if (data.poster_path)
-    pUrl = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`;
+    pUrl = `https://image.tmdb.org/t/p/original${data.poster_path}`;
 
   const details = {
     title: data.title,
