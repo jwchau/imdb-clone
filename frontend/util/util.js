@@ -1,6 +1,5 @@
 import React from 'react';
-
-const TMDB_KEY = "f850a0ee7a817202212394a72e760dfa";
+const TMDB_KEY = require('../../config/keys').TMDB_KEY;
 
 
 const cut = (str) => {
