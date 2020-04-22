@@ -11,11 +11,11 @@ import {
 //components
 import BillboardContainer from './billboard/billboard_container';
 
-const env = require('../../../config/keys').env;
+const {a, b, c, d} = require('../../../config/keys');
 
 class Frontpage extends Component {
   render() {
-    console.log(env);
+    console.log(a, b, c, d);
     return (
       <div id='frontpage'>
         <BillboardContainer name='Upcoming' fetch={this.props.fetchPopular}/>
