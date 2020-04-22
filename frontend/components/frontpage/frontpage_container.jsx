@@ -11,8 +11,6 @@ import {
 //components
 import BillboardContainer from './billboard/billboard_container';
 
-// const {a, b, c, d} = require('../../../config/keys');
-
 class Frontpage extends Component {
   render() {
     return (
