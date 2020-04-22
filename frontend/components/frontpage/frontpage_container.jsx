@@ -13,7 +13,6 @@ import BillboardContainer from './billboard/billboard_container';
 
 class Frontpage extends Component {
   render() {
-    console.log(process.env);
     return (
       <div id='frontpage'>
         <BillboardContainer name='Upcoming' fetch={this.props.fetchPopular}/>
