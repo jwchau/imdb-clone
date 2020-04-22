@@ -11,11 +11,9 @@ import {
 //components
 import BillboardContainer from './billboard/billboard_container';
 
-const LANG = require('../../../config/keys').LANG;
-
 class Frontpage extends Component {
   render() {
-    console.log(LANG);
+    console.log(process.env);
     return (
       <div id='frontpage'>
         <BillboardContainer name='Upcoming' fetch={this.props.fetchPopular}/>
