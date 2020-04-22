@@ -1,5 +1,7 @@
 // const keys = require('../config/keys');
-const TMDB_KEY = require('../../config/keys').TMDB_KEY;
+// const TMDB_KEY = require('../../config/keys').TMDB_KEY;
+const TMDB_KEY = 'f850a0ee7a817202212394a72e760dfa';
+
 
 export const fetchUpcoming = () => {
   return $.ajax({
