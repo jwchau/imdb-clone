@@ -71,7 +71,7 @@ class MovieRecs extends React.Component {
     if (!url) return (
       <img
         onClick={this.handleImgClick(i)}
-        key={i}
+        key={`${title}${i}`}
         className='rec-poster' 
         alt='404' 
         src={window.fourofour}
@@ -81,7 +81,7 @@ class MovieRecs extends React.Component {
       return (
         <img 
           onClick={this.handleImgClick(i)}
-          key={i}
+          key={`${title}${i}`}
           className='rec-poster'
           alt={`${title}${i}`}
           src={`https://image.tmdb.org/t/p/original${url}`}
@@ -91,7 +91,7 @@ class MovieRecs extends React.Component {
       return (
         <img 
           onClick={this.handleImgClick(i)}
-          key={i}
+          key={`${title}${i}`}
           className='rec-poster myActive'
           alt={`${title}${i}`}
           src={`https://image.tmdb.org/t/p/original${url}`}
@@ -110,7 +110,7 @@ class MovieRecs extends React.Component {
       
       if (temp.length > 3) {
         caroItems.push(
-          <Carousel.Item key={i}>
+          <Carousel.Item key={`${title}${i}`}>
             {temp}
           </Carousel.Item>
         );
@@ -120,7 +120,7 @@ class MovieRecs extends React.Component {
 
     if (temp.length > 0) {
       caroItems.push(
-        <Carousel.Item key={caroItems.length}>
+        <Carousel.Item key={caroItems.length + 21}>
           {temp}
         </Carousel.Item>
       );
