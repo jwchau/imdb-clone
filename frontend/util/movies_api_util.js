@@ -17,6 +17,13 @@ export const fetchNowPlaying = () => {
   });
 }
 
+export const fetchPopularPeople = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/person/popular?api_key=${TMDB_KEY}&language=en-US&page=1`
+  });
+}
+
 export const fetchPopular = () => {
   return $.ajax({
     method: 'GET',

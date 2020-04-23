@@ -10,6 +10,7 @@ import {
 
 //components
 import BillboardContainer from './billboard/billboard_container';
+import PopularPeople from '../people/popular_people';
 
 class Frontpage extends Component {
   render() {
@@ -18,6 +19,7 @@ class Frontpage extends Component {
         <BillboardContainer name='Upcoming' fetch={this.props.fetchPopular}/>
         <BillboardContainer name='Popular' fetch={this.props.fetchTopRated}/>
         <BillboardContainer name='TopRated'fetch={this.props.fetchUpcoming}/>
+        <PopularPeople />
       </div>
     );
   }
