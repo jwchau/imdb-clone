@@ -75,9 +75,13 @@ class SessionForm extends React.Component {
 
   loginAsGuest(e) {
     e.preventDefault();
-    let { location, history } = this.props;
-    if (location.pathname !== '/login') { 
-      history.push('/login');
+    let { location } = this.props;
+    if (location.pathname !== '/login') {
+      const user = {
+        username: `guestuser${Math.ceil(Math.random() * 5)}`,
+        password: 'password',
+      }
+      this.props.login({user});
     } else {
       this.animateLogin(`guestuser${Math.ceil(Math.random() * 5)}`);
     }
@@ -144,14 +148,11 @@ class SessionForm extends React.Component {
         );
       }
 
-      let guestLogin = null;
-      if (this.props.location.pathname === '/login') {
-        guestLogin = (
-          <div className='guest imdb-button' onClick={this.loginAsGuest}>
-            <span>Guest Login</span>
-          </div>
-        );
-      }
+      let guestLogin = (
+        <div className='guest imdb-button' onClick={this.loginAsGuest}>
+          <span>Guest Login</span>
+        </div>
+      )
 
       let reverseLink = (<Link className='hyperlink' to='/signup'>Create your IMDb account</Link>);
       if (this.props.formType === 'signup')
