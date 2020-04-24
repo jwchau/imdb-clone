@@ -37,7 +37,8 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm({user});
-    this.props.history.goBack();
+    if (this.props.history.length > 1)
+      this.props.history.goBack();
     this.setState({username: "", password: "", email: ""});
   }
 
@@ -68,8 +69,7 @@ class SessionForm extends React.Component {
           const user = Object.assign({}, this.state);
           this.props.processForm({ user });
           this.setState(
-            { username: "", password: "", email: "" },
-            () => this.props.history.goBack()
+            { username: "", password: "", email: "" }
           );
         }
       }, speed);
