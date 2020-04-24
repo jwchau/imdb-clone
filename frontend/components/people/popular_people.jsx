@@ -18,11 +18,6 @@ export default class PopularPeople extends Component {
       .then( obj => this.setState({people: obj.results}));
   }
 
-  componentDidUpdate(prevProps) {
-
-  }
-
-
   render() {
     if (this.state.people.length < 1) return null;
     return (

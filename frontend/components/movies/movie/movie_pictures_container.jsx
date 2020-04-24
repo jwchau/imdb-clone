@@ -4,26 +4,35 @@ import Loading from '../../loading/loading';
 
 import {
   getPictures,
-} from '../../../actions/movies_action';
+} from '../../../util/movies_api_util';
 
 class MoviePictures extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      pictures: {},
+    }
   }
 
   componentDidMount() {
-    this.props.getPictures(this.props.id);
+    getPictures(this.props.id).then(res => {
+      this.setState({pictures: res});
+    });
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.id !== this.props.id) {
-      this.props.getPictures(this.props.id);
+      this.setState({pictures: {}});
+      getPictures(this.props.id).then(res => {
+        this.setState({pictures: res});
+      });
     }
   }
 
   render() {
-    if (!this.props.pictures.posters) return <Loading />;
-    let { posters, backdrops } = this.props.pictures;
+    if (this.state.pictures.posters === undefined) return <Loading />;
+    let { posters, backdrops } = this.state.pictures;
     if (posters.length < 1 && backdrops.length < 1) return null;
     return (
       <div className='pictures top-line'>
@@ -52,11 +61,9 @@ const extractPictures = (arr, offset = 0) => {
 
 
 const MSTP = (state, ownProps) => ({
-  pictures: state.entities.movies.movie.pictures,
 });
 
 const MDTP = (dispatch, ownProps) => ({
-  getPictures: (id) => dispatch(getPictures(id)),
 });
 
 export default connect(

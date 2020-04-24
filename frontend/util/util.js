@@ -114,7 +114,7 @@ export const loadYoutube = () => {
 
     let source = window.noTrailer;
     if (youtube[i].dataset.embed)
-      source = "http://i3.ytimg.com/vi/"+ youtube[i].dataset.embed +"/hqdefault.jpg";
+      source = "https://i3.ytimg.com/vi/"+ youtube[i].dataset.embed +"/hqdefault.jpg";
     const image = new Image();
     const playButton = document.createElement("div");
     playButton.className = 'play-button';
