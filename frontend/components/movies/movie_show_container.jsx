@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import merge from 'lodash/merge';
 import { extractDetails, loadYoutube } from '../../util/util';
+import { Link } from 'react-router-dom';
 
 import {
   getDetails,
@@ -126,11 +127,14 @@ class MovieShow extends React.Component {
   }
 
   reviewForm() {
+    const currentLocation = this.props.location.pathName;
     let {currentuser} = this.props;
     if (currentuser === undefined) return (
       <div>
         <br></br>
-        <h3>Login to review movie</h3>
+        <h3>
+          <Link loc={currentLocation} to='/login'>Login</Link> to review movie
+        </h3>
         <br></br>
       </div>
     );

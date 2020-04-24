@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Header from './header';
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
-  // pushMovies: (movies) => dispatch(pushMovies()),
+  login: (user) => dispatch(login(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
