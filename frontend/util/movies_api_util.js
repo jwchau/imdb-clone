@@ -1,6 +1,10 @@
 // const keys = require('../config/keys');
-const TMDB_KEY = require('../../config/keys').TMDB_KEY;
-console.log(process.env.TMDB_KEY)
+
+let TMDB_KEY = require('../../config/keys').TMDB_KEY;
+if (process.env.NODE_ENV === 'production') {
+  console.log(process.env.LANG)
+  TMDB_KEY = process.env.TMDB_KEY
+}
 
 
 export const fetchUpcoming = () => {

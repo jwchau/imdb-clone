@@ -1,5 +1,9 @@
 import React from 'react';
-const TMDB_KEY = require('../../config/keys').TMDB_KEY;
+let TMDB_KEY = require('../../config/keys').TMDB_KEY;
+if (process.env.NODE_ENV === 'production') {
+  console.log(process.env.LANG)
+  TMDB_KEY = process.env.TMDB_KEY
+}
 
 const cut = (str) => {
   if (!str) {
