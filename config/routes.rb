@@ -12,6 +12,11 @@ Rails.application.routes.draw do
       resources :reviews, only: [ :index, :create]
       resources :ratings, only: [ :index, :create ]
     end
+
+    resource :tmdb, only: [ :show ]
+    get "tmdb/search", to: "tmdbs#search"
+    get "tmdb/details", to: "tmdbs#details"
+
   end
 
 

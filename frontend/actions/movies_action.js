@@ -157,11 +157,6 @@ export const getVideos = movieId => dispatch => {
     videos => dispatch(receiveVideos(videos))
   );
 };
-export const getUserlists = movieId => dispatch => {
-  return Mutils.getUserlists(movieId).then(
-    userlists => dispatch(receiveUserlists(userlists))
-  );
-};
 export const getCredits = movieId => dispatch => {
   return Mutils.getCredits(movieId).then(
     credits => dispatch(receiveCredits(credits))

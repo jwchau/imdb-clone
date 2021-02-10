@@ -2,8 +2,7 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import Root from "./components/root";
 import React from 'react';
-
-
+require('dotenv').config()
 //testing
 //eot
 

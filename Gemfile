@@ -38,6 +38,7 @@ gem 'turbolinks', '~> 5.2.0'
 gem 'gutentag', '~> 2.5'
 gem 'activerecord-import'
 gem 'figaro'
+gem 'httparty'
 
 
 group :development, :test do

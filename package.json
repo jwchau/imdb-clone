@@ -38,6 +38,7 @@
     "babel-eslint": "^8.2.3",
     "babel-loader": "^8.0.6",
     "dotenv": "^8.2.0",
+    "react-scripts": "^4.0.2",
     "webpack-cli": "^3.3.9"
   },
   "engines": {

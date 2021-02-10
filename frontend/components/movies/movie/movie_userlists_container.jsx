@@ -1,10 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import Loading from '../../loading/loading';
 
-import {
-  getUserlists,
-} from '../../../actions/movies_action';
 
 class MovieUserlists extends React.Component {
   constructor(props) {
@@ -12,7 +8,7 @@ class MovieUserlists extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUserlists(this.props.id);
+    // this.props.getUserlists(this.props.id);
   }
 
   render() {
@@ -31,7 +27,7 @@ const MSTP = (state, ownProps) => ({
 });
 
 const MDTP = (dispatch, ownProps) => ({
-  getUserlists: (id, page) => dispatch(getUserlists(id, page)),
+  // getUserlists: (id, page) => dispatch(getUserlists(id, page)),
 });
 
 export default connect(

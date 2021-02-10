@@ -1,45 +1,78 @@
-// const keys = require('../config/keys');
+let TMDB_KEY = null
 
-let TMDB_KEY = require('../../config/keys').TMDB_KEY;
-if (process.env.NODE_ENV === 'production') {
-  console.log(process.env.LANG)
-  TMDB_KEY = process.env.TMDB_KEY
-}
-
-
-export const fetchUpcoming = () => {
+const upcoming = () => {
   return $.ajax({
     method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/upcoming?api_key=${TMDB_KEY}&language=en-US&page=1`
-  });
+    url: `/api/tmdb`,
+    data: {
+      'query': 'upcoming',
+      'type': 'movie'
+    },
+  })
+}
+
+const nowPlaying = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/tmdb`,
+    data: {
+      'query': 'now_playing',
+      'type': 'movie'
+    },
+  })
+}
+
+const popularMovie = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/tmdb`,
+    data: {
+      'query': 'popular',
+      'type': 'movie'
+    },
+  })
+}
+
+const popularPeople = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/tmdb`,
+    data: {
+      'query': 'popular',
+      'type': 'person'
+    },
+  })
+}
+
+const topRated = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/tmdb`,
+    data: {
+      'query': 'top_rated',
+      'type': 'movie'
+    },
+  })
+}
+
+export const fetchUpcoming = () => {
+  return upcoming()
 }
 
 export const fetchNowPlaying = () => {
-  return $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${TMDB_KEY}&language=en-US&page=1`
-  });
-}
-
-export const fetchPopularPeople = () => {
-  return $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/person/popular?api_key=${TMDB_KEY}&language=en-US&page=1`
-  });
+  return nowPlaying()
 }
 
 export const fetchPopular = () => {
-  return $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_KEY}&language=en-US&page=1`
-  });
+  return popularMovie()
+}
+
+export const fetchPopularPeople = () => {
+  return popularPeople()
 }
 
 export const fetchTopRated = () => {
-  return $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/top_rated?api_key=${TMDB_KEY}&language=en-US&page=1`
-  });
+  return topRated()
 }
 
 export const fetchMovies = () => (
@@ -49,72 +82,40 @@ export const fetchMovies = () => (
   })
 );
 
-export const searchPeople = query => (
+const people = query => (
   $.ajax({
     method: 'GET',
-    url: `https://api.themoviedb.org/3/search/person?api_key=${TMDB_KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
+    url: `/api/tmdb/search`,
+    data: {
+      'query': query,
+      'type': 'person'
+    },
   })
-);
+)
+export const searchPeople = query => people(query)
 
-export const getCreditsPerson = personId => (
-  $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${TMDB_KEY}&language=en-US`,
-  })
-);
 
-export const getImagesPerson = personId => (
+const details = (id, type, option = '', lang = '') => (
   $.ajax({
     method: 'GET',
-    url: `https://api.themoviedb.org/3/person/${personId}/images?api_key=${TMDB_KEY}`,
+    url: `/api/tmdb/details`,
+    data: {
+      id,
+      type,
+      option,
+      lang,
+    }
   })
-);
+)
 
-export const getDetailsPerson = personId => (
-  $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/person/${personId}?api_key=${TMDB_KEY}&language=en-US`,
-  })
-);
-
-export const getDetails = movieId => (
-  $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDB_KEY}&language=en-US`,
-  })
-);
-
-export const getPictures = movieId => (
-  $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${TMDB_KEY}&language=en%2Cnull`,
-  })
-);
-
-export const getVideos = movieId => (
-  $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_KEY}&language=en%2Cnull`,
-  })
-);
-export const getUserlists = (movieId, page = 1) => (
-  $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}/lists?api_key=${TMDB_KEY}&language=en-US&page=${page}`,
-  })
-);
-export const getCredits = movieId => (
-  $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${TMDB_KEY}`,
-  })
-);
-export const getRecommended = movieId => (
-  $.ajax({
-    method: 'GET',
-    url: `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${TMDB_KEY}&language=en-US`,
-  })
-);
+export const getCreditsPerson = personId => details(personId, 'person', 'movie_credits', 'en-US')
+export const getImagesPerson = personId => details(personId, 'person', 'images', 'en-US')
+export const getDetailsPerson = personId => details(personId, 'person')
+export const getDetails = movieId => details(movieId, 'movie', null, 'en-US')
+export const getPictures = movieId => details(movieId, 'movie', 'images')
+export const getVideos = movieId => details(movieId, 'movie', 'videos', 'en%2Cnull')
+export const getCredits = movieId => details(movieId, 'movie', 'credits')
+export const getRecommended = movieId => details(movieId, 'movie', 'recommendations', 'en-US')
 
 export const getUsers = movieId => {
   return $.ajax({
