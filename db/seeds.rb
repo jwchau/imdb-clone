@@ -48,10 +48,3 @@ end
 # 	movie.trailer.attach(io: trailer, filename: "#{fname}_trailer.jpeg")
 # end
 
-
-#get popular movies, page 1
-#https://api.themoviedb.org/3/movie/popular?api_key=f850a0ee7a817202212394a72e760dfa&language=en-US&page=1
-
-#get videos by movie id
-#https://api.themoviedb.org/3/movie/#{movie.id}/videos?api_key=f850a0ee7a817202212394a72e760dfa&language=en-US
-
